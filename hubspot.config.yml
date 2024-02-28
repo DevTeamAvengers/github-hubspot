@@ -1,0 +1,15 @@
+defaultPortal: Nick
+portals:
+  - name: Nick
+    portalId: 26595626
+    env: prod
+    authType: personalaccesskey
+    auth:
+      tokenInfo:
+        accessToken: >-
+          CM6ssILfMRILAA0AAAAA4A0DQAIYqqLXDCDonSMo7ukMMhRitOs2s_VtELx2_hK2go8SDAOBVzpAAAAEQQAAAHgAAAAAAAAAAAAAAAAAAAAEAADABwCO8DE8AAAGAEQAYAAAAAAAAAAAAAAAAAAwAgAAAAAAAAAADEIUI4WKrYFh4YPNrxKZt2YnT7TD1n5KA2V1MVIAWgA
+        expiresAt: '2024-02-28T15:18:54.885Z'
+    accountType: STANDARD
+    personalAccessKey: >-
+      CiRldTEtMDRiNC1lOGNlLTQ4OWQtOTVmOC02ODE2YTM1MGM0ZTUQqqLXDBjonSMqGQAF5pGCPXF75spWB833p9fIl5mHAi5NMzNKA2V1MQ
+    sandboxAccountType: null
