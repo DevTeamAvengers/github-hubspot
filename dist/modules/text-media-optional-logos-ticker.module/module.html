@@ -1,0 +1,89 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+{% import 'wirelabtheme/macros/tag.html' as macroTag %}
+
+{{ require_css(get_asset_url("../../css/text-media-optional-logos-ticker-module.css")) }}
+
+<section class="section-text-media {% if module.add_logos_ticker %}section-text-media--ticker{% endif %}" data-id="{{ module.module_identifier }}">
+	<div class="shell container">
+		<div class="section__inner">
+			<div class="grid">
+				<div class="grid__col grid__col--1of2">
+					<div class="section__image">
+						{% set img = { src: module.image_field.src, alt: module.image_field.alt } %}
+						{{ image.img(img, "cover", "lazy", [516, 468, 558]) }}
+					</div><!-- /.section__image -->
+					{% if module.add_logos_ticker %}
+						<div class="section__ticker hidden visible-xs-block">
+							<div class="list-logos--ticker list-logos--border">
+								<div class="list__ticker">
+									<div class="list__ticker-slide">
+										<ul>
+											{% for item in module.ticker_logo %}
+												<li>
+													<a href="#">
+														{% set img = { src: item.src, alt: item.alt } %}
+														{{ image.img(img, "cover", "lazy", [516, 468, 558]) }}
+													</a>
+												</li>
+											{% endfor %}
+										</ul>
+									</div><!-- /.list__ticker-slide -->
+									<div class="list__ticker-slide">
+										<ul>
+											{% for item in module.ticker_logo %}
+												<li>
+													<a href="#">
+														{% set img = { src: item.src, alt: item.alt } %}
+														{{ image.img(img, "cover", "lazy", [516, 468, 558]) }}
+													</a>
+												</li>
+											{% endfor %}
+										</ul>
+									</div><!-- /.list__ticker-slide -->
+								</div>
+							</div><!-- /.list-logos -->
+						</div><!-- /.section__ticker -->
+					{% endif %}
+				</div><!-- /.grid__col grid__col-/-1of2 -->
+				<div class="grid__col grid__col--1of2">
+					<div class="section__content">
+						{{macroTag.tag(module.tag, "")}}
+						{{ module.content }}
+					</div><!-- /.section__content -->
+				</div><!-- /.grid__col grid__col-/-1of2 -->
+			</div><!-- /.grid -->
+			{% if module.add_logos_ticker %}
+				<div class="section__ticker hidden-xs">
+					<div class="list-logos--ticker list-logos--border">
+						<div class="list__ticker">
+							<div class="list__ticker-slide">
+								<ul>
+									{% for item in module.ticker_logo %}
+										<li>
+											<a href="#">
+												{% set img = { src: item.src, alt: item.alt } %}
+												{{ image.img(img, "cover", "lazy", [516, 468, 558]) }}
+											</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div><!-- /.list__ticker-slide -->
+							<div class="list__ticker-slide">
+								<ul>
+									{% for item in module.ticker_logo %}
+										<li>
+											<a href="#">
+												{% set img = { src: item.src, alt: item.alt } %}
+												{{ image.img(img, "cover", "lazy", [516, 468, 558]) }}
+											</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</div><!-- /.list__ticker-slide -->
+						</div>
+					</div><!-- /.list-logos -->
+				</div><!-- /.section__ticker -->
+			{% endif %}
+		</div><!-- /.section__inner -->
+	</div><!-- /.shell -->
+</section><!-- /.section-text-media -->

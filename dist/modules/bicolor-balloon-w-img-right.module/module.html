@@ -1,0 +1,44 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{% set leftBgColor = module.left_col.col_color %}
+{% set rightBgColor = module.right_col.col_color %}
+
+{% set img = module.right_col.img %}
+{% set imgUrl = get_asset_url(img.src) ? get_asset_url(img.src) : img.src %}
+
+<div class="balloon-w-img-right bicolor-balloon-w-img-right-module ">
+    <div class="container">
+        <div class="balloon-w-img-row row">
+            <div class="two-col-balloon">
+                <div class="left-col {{ leftBgColor }}">
+                    <h4>{{ module.left_col.title }}</h4>
+
+                    {% if module.left_col.description %}
+                        <p>{{ module.left_col.description }}</p>
+                    {% endif %}
+
+                    {% if module.left_col.newsletter_subscription.newsletter_subs_form.form_id %}
+                        {% set form = module.left_col.newsletter_subscription.newsletter_subs_form %}
+                        <div class="newsletter-form-wrapper">
+                            {% form
+                                form_to_use="{{ form.form_id }}"
+                                response_response_type="{{ form.response_type }}"
+                                response_message="{{ form.message }}"
+                                response_redirect_id="{{ form.redirect_id }}"
+                                response_redirect_url="{{ form.redirect_url}}"
+                                gotowebinar_webinar_key="{{ form.gotowebinar_webinar_key }}"
+                            %}
+                        </div>
+                    {% else if module.left_col.button %}
+                        {{ button.link(module.left_col.button) }}
+                    {% endif %}
+                </div>
+                <div class="right-col {{ rightBgColor }}">
+                    {% set asset = { src: imgUrl, alt: img.alt } %}
+                    {{ image.img(asset, "righ-img", "lazy", [300, 350, 420]) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

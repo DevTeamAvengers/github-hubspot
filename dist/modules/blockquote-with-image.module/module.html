@@ -1,0 +1,37 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/blockquote-with-image-module.css"), { async: true }) }}
+{{ require_css(get_asset_url("../../css/blockquote-module.css"), { async: true }) }}
+
+<section class="blockquote-with-image-module global-tb-padding">
+  
+  <div class="container">
+    <div class="row">
+
+      <div class="offset-lg-1 col-lg-6 order-2 order-lg-1">
+        <div class="blockquote-wrapper">
+          <figure class="card card-quote card-pay card-lg corner-tr">
+            <blockquote class="blockquote with-start-quote heading-5">
+              {{ module.quote_group.text }}
+            </blockquote>
+            {% if module.quote_group.author %}
+              <figcaption class="blockquote-footer">
+                <div class="author body-large">{{ module.quote_group.author }}</div>
+                <span class="position body-small">{{ module.quote_group.position }}</span>
+                <span class="brand body-small">{{ module.quote_group.brand_name }}</span>
+              </figcaption>
+            {% endif %}
+          </figure>
+        </div>
+      </div>
+        
+      <div class="col-lg-4 order-1 order-lg-2">
+        <figure class="card card-brand card-pay card-lg corner-bl">
+          {{ image.img(module.image_group.image_desktop, "", "lazy", [230, 110, 160]) }}
+        </figure>
+      </div>
+
+    </div>
+  </div>
+  
+</section>

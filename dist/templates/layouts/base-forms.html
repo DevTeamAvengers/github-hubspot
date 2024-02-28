@@ -1,0 +1,57 @@
+<!--
+  templateType: none
+-->
+
+<!doctype html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8">
+    {% if page_meta.html_title %}
+      <title>{{ page_meta.html_title }}</title>
+    {% endif %}
+
+    {% if site_settings.favicon_src %}
+      <link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />
+    {% endif %}
+
+    {% if page_meta.meta_description %}
+      <meta name="description" content="{{ page_meta.meta_description }}">
+    {% endif %}
+
+    {{ require_css(get_asset_url("../../css/vendors.css")) }}
+    {{ require_css(get_asset_url("../../css/main.css")) }}
+   
+    {{ standard_header_includes }}
+  </head>
+
+  <body>
+    {% if hub_id == 21773874 %}
+     <script>
+        window.onUsersnapCXLoad = function(api) {
+          api.init();
+        }
+        var script = document.createElement('script');
+        script.async = 1;
+        script.src = 'https://widget.usersnap.com/load/1ee86908-f557-477d-879d-c01bf469fc27?onload=onUsersnapCXLoad';
+        document.getElementsByTagName('head')[0].appendChild(script);
+      </script>
+    {% endif %}
+
+    <div class="base-form">
+      {% block body %}
+      {% endblock body %}
+    </div>
+
+    {{ require_js(get_asset_url('../../js/main.js')) }}
+    {{ require_js(get_asset_url('../../js/merchantsForm.js')) }}
+    
+    {{ standard_footer_includes }}
+
+    {% block scripts %}
+    {% endblock scripts %}
+  </body>
+</html>
+
+
+
+

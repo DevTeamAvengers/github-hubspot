@@ -1,0 +1,45 @@
+{% macro nav(current_menu, class ) -%}
+
+    {% set current_menu = menu(current_menu) %}
+
+        {% for item in current_menu.children %}
+            <!-- Item with children-->
+            {% if item.children %}
+                {{ dropdown(item, class) }}
+            {% else %}
+            
+            <!-- Item without children-->
+                {{ menu_item( item, class ) }}
+            {% endif %}
+        {% endfor %}
+{%- endmacro %}
+
+{% macro dropdown( item, class) -%}
+    <div class="{{class}}-dropdown-container">
+
+        <!-- PARENT  -->
+        {{ menu_item( item, class ) }}
+
+        <div class="{{class}}-child-container">
+            {% for child in item.children %}
+                {% set childclass = class + "-child"%}
+                {{ menu_item( child, childclass ) }}
+            {% endfor %}    
+        </div>
+        <!-- CHILD -->
+
+
+    </div>
+{%- endmacro %}
+
+{% macro menu_item( item, class ) -%}
+    {% if item.url %}
+        <a href="{{item.url}}" class="{{class}}-link">
+            {{item.label}}
+        </a>
+    {% else %}
+        <div class="{{class}}-link-no-url">
+            {{item.label}}
+        </div>
+    {% endif %}
+{%- endmacro %}

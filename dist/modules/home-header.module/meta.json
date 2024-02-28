@@ -1,0 +1,7 @@
+{
+  "global" : false,
+  "host_template_types" : [ "ANY" ],
+  "module_id" : 48474627059,
+  "label" : "Home header",
+  "is_available_for_new_content" : true
+}

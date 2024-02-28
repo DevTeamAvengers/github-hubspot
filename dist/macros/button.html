@@ -1,0 +1,24 @@
+{% macro link(button, additional_class) -%}
+
+    {% if button.cta.cta and button.content %}
+        <div class="btn {{button.style}} {{additional_class}}">
+            <span class="btn-content">{{button.content}}</span>
+            {{cta(button.cta.cta)}}
+        </div>
+    {% endif %}
+    
+    {% if !button.cta.cta and button.link.link.url.href %}
+        <a href="{{button.link.link.url.href}}" class="btn {{button.style}} {{additional_class}}" {% if button.link.link.open_in_new_tab %}target="_blank"{% endif %}{% if button.link.link.rel %}rel="{{ button.link.link.rel }}"{% endif %}>
+           <span class="btn-content">{{button.content}}</span> 
+        </a> 
+    {% endif %}
+   
+{%- endmacro %}
+
+
+
+
+
+
+
+

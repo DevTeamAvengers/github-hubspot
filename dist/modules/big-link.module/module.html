@@ -1,0 +1,29 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{% set img = module.field_group.image_field %}
+{% set imgUrl = get_asset_url(img.src) ? get_asset_url(img.src) : img.src %}
+
+<section class="big-link-module global-tb-padding">
+    <a href="{{module.field_group.link.url.href}}" class="container big-link-module__container">
+        <div class="row">
+            <div class="col-5 offset-1 big-link-module__desktop-text">
+                <span>{{module.field_group.left_text}}</span>
+            </div>
+            <div class="col-3 offset-2 big-link-module__desktop-text">
+                <span>{{module.field_group.right_text}}</span>
+            </div>
+            <div class="big-link-module__image-container">
+                {% set asset = { src: imgUrl, alt: img.alt } %}
+                {{ image.img(asset, "", "lazy", [480, 380, 530]) }}
+            </div>
+
+            <div class="col-12 big-link-module__mobile-text">
+                <span>{{module.field_group.left_text}} {{module.field_group.right_text}}</span>
+            </div>
+        </div>
+    </a>
+
+    <div class="big-link-module__purple-background"></div>
+   
+</section>
+

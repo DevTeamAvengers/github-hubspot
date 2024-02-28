@@ -1,0 +1,34 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+<section class="how-to-module global-tb-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <h2>{{ module.heading_group.title }}</h2>
+            </div>
+            <div class="col-12 col-md-4 offset-md-2">
+                <p>{{ module.heading_group.description }}</p>
+                {% if module.heading_group.button %}
+                    {{macroBtn.link(module.heading_group.button, "")}}
+                {% endif %}
+            </div>
+        </div>
+        <div class="row">
+            {% for step in module.steps %}
+                {% set imageUrl = get_asset_url(step.image.src) %}
+                {% set img = imageUrl ? imageUrl : step.image.src %}
+                <div class="col-lg-4 mb-4">
+                    <div class="h-100 text-block">
+                        <div class="balloon balloon-image balloon-bl">
+                            {% set asset = { src: img, alt: step.image.alt } %}
+                            {{ image.img(asset, 'img-fluid', "lazy", [450, 360, 420]) }}
+                        </div>
+                        <h4 class="heading">{{ step.title }}</h4>
+                        <p class="text">{{ step.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

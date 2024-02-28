@@ -1,0 +1,49 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+{% import 'wirelabtheme/macros/tag.html' as macroTag %}
+
+{{ require_css(get_asset_url("../../css/usp-section-module.css")) }}
+<section class="section-features" data-id="werkt">
+	<div class="shell container">
+		<div class="section__inner">
+			<div class="section__head">
+				{{macroTag.tag(module.tag, "")}}
+				<h2>{{ module.title }}</h2>
+			</div><!-- /.section__head -->
+			<div class="section__body">
+				<div class="grid">
+					<div class="grid__col grid__col--1of3">
+						<div class="feature">
+							<h2>{{ module.feature_highlighted.title }}</h2>
+							{% if module.feature_highlighted.buttons|length > 0 %}
+								<div class="home-header-module__buttons btn-centered flex flex--h-center intro__actions">
+									{% for button in module.feature_highlighted.buttons %}
+										{{macroBtn.link(button, "")}}
+									{% endfor %}
+								</div>
+							{% endif %}
+						</div><!-- /.feature -->
+					</div><!-- /.grid__col grid__col-/-1of3 -->
+					
+					<div class="grid__col grid__col--2of3">
+						<div class="section__features">
+							<div class="grid">
+								{% for item in module.feature %}
+									<div class="grid__col grid__col--1of2">
+										<div class="feature-alt">
+											<i>
+												{% set featureImg = { src: item.image_field.src, alt: item.image_field.alt } %}
+												{{ image.img(featureImg, "cover", "lazy", [516, 468, 558]) }}
+											</i>
+											<h5>{{ item.title }}</h5>
+											<p>{{ item.description }}</p>
+										</div><!-- /.feature -->
+									</div><!-- /.grid__col grid__col-/-1of2 -->
+								{% endfor %}
+							</div><!-- /.grid -->
+						</div><!-- /.section__features -->
+					</div><!-- /.grid__col grid__col-/-2of3 -->
+				</div><!-- /.grid -->
+			</div><!-- /.section__body -->
+		</div><!-- /.section__inner -->
+	</div><!-- /.shell -->
+</section><!-- /.section-features -->

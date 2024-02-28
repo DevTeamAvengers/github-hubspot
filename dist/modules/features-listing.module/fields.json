@@ -1,0 +1,77 @@
+[{
+  "id": "",
+  "name": "title",
+  "label": "Title",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Title"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "name": "blog_group",
+  "label": "Blog group",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "blog",
+      "label": "Blog",
+      "required": false,
+      "locked": false,
+      "type": "blog",
+      "placeholder": "Select a blog",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": null
+    },
+    {
+      "name": "text_more",
+      "label": "Show more",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Bekijk meer"
+    },
+    {
+      "name": "text_all",
+      "label": "Show all",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Toon alle"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+]

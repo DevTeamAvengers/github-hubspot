@@ -1,0 +1,366 @@
+[{
+  "id": "",
+  "name": "title",
+  "label": "Title",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Title"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "name": "items",
+  "label": "Items",
+  "required": true,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": null
+  },
+  "children": [
+    {
+      "name": "item_name",
+      "label": "Name",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Title"
+    },
+    {
+      "name": "item_image",
+      "label": "Image",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": true,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "size_type": "auto",
+        "src": "",
+        "alt": null,
+        "loading": "disabled"
+      }
+    },
+    {
+      "name": "item_bg_color",
+      "label": "Background color",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "type": "color",
+      "default": {
+        "color": "#FFFFFF",
+        "opacity": 100
+      }
+    },
+    {
+      "name": "item_description",
+      "label": "Description",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Description"
+    },
+    {
+      "name": "item_tag",
+      "label": "Tag",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "tag_value" : "ALL",
+      "type": "tag",
+      "placeholder": "",
+      "default": null
+    },
+    {
+      "name": "featured",
+      "label": "Featured item",
+      "required": false,
+      "locked": false,
+      "type": "boolean",
+      "display": "checkbox",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": false
+    },
+    {
+      "id": "",
+      "name": "button",
+      "label": "Button",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "children": [
+        {
+          "name": "content",
+          "label": "Link content",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": "Bekijk meer"
+        },
+        {
+          "name": "style",
+          "label": "Link style",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "display": "select",
+          "choices": [
+            ["btn-primary btn-text-hover", "Primary styling"],
+            ["btn-outline-primary btn-text-hover", "Outline styling"],
+            ["btn-dark btn-text-hover", "Dark styling"],
+            ["btn-pink btn-text-hover", "Pink styling"],
+            ["btn-link", "Link styling"]
+          ],
+          "type": "choice",
+          "default": "btn-link"
+        },
+        {
+          "id": "",
+          "name": "cta",
+          "label": "Use HubSpot CTA (recommended)",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "cta",
+              "label": "CTA",
+              "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+              "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+              "required": false,
+              "locked": false,
+              "type": "cta",
+              "default": null
+            }
+          ],
+          "type": "group",
+          "default": {}
+        },
+        {
+          "id": "",
+          "name": "link",
+          "label": "Use URL",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "link",
+              "label": "Link",
+              "required": false,
+              "locked": false,
+              "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+              "type": "link",
+              "show_advanced_rel_options": false,
+              "default": {
+                "url": {
+                  "content_id": null,
+                  "type": "CONTENT",
+                  "href": ""
+                },
+                "open_in_new_tab": false,
+                "no_follow": false,
+                "sponsored": false,
+                "user_generated_content": false
+              }
+            }
+          ],
+          "type": "group",
+          "default": {}
+        }
+      ],
+      "type": "group",
+      "default": {}
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": []
+}
+,
+{
+  "name": "settings",
+  "label": "Settings",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "background_color",
+      "label": "Background color",
+      "required": false,
+      "locked": false,
+      "display": "radio",
+      "inline_help_text": "",
+      "help_text": "",
+      "choices": [
+        [
+          "bg-white",
+          "White"
+        ],
+        [
+          "bg-extra-light-purple",
+          "Extra light purple"
+        ]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": "bg-extra-light-purple"
+    },
+    {
+      "name": "show_title",
+      "label": "Show title?",
+      "required": false,
+      "locked": false,
+      "display": "radio",
+      "inline_help_text": "",
+      "help_text": "",
+      "choices": [
+        [
+          "true",
+          "Show title"
+        ],
+        [
+          "false",
+          "Do not show title"
+        ]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": "true"
+    },
+    {
+      "name": "title_pos",
+      "label": "Title alignment",
+      "required": false,
+      "locked": false,
+      "display": "radio",
+      "inline_help_text": "",
+      "help_text": "",
+      "choices": [
+        [
+          "text-center",
+          "Centered"
+        ],
+        [
+          "heading-3",
+          "Left aligned"
+        ]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": "text-center"
+    },
+    {
+      "name": "show_filters",
+      "label": "Show filters?",
+      "required": false,
+      "locked": false,
+      "display": "radio",
+      "inline_help_text": "",
+      "help_text": "",
+      "choices": [
+        [
+          "true",
+          "Show filters"
+        ],
+        [
+          "false",
+          "Do not show filters"
+        ]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": "true"
+    },
+    {
+      "name": "posts_per_page",
+      "label": "Number of posts per page",
+      "required": false,
+      "locked": false,
+      "display": "slider",
+      "min": 1,
+      "max": 64,
+      "step": 1,
+      "type": "number",
+      "prefix": "",
+      "suffix": "",
+      "placeholder": "",
+      "default": 32
+    },
+    {
+      "name": "template",
+      "label": "Template",
+      "required": false,
+      "locked": false,
+      "multiple": null,
+      "display": "radio",
+      "choices": [
+        [
+          "cards",
+          "Cards"
+        ],
+        [
+          "texts",
+          "Texts"
+        ]
+      ],
+      "type": "choice",
+      "default": "cards"
+    },
+    {
+      "name": "text_all",
+      "label": "Show all",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Toon alle"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}]

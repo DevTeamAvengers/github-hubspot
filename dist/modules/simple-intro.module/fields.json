@@ -1,0 +1,63 @@
+[{
+  "name": "content",
+  "label": "Content",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "left_text",
+      "label": "Intro text",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "The tag applied to the text in this block is purely semantic and independant from the applied styling.",
+      "help_text": "",
+      "default": "<p>Ben je op zoek naar nationale en internationale betaalmogelijkheden voor je bedrijf? Welk product of dienst jij ook aanbiedt: Pay heeft altijd een geschikte betaalmethode. We hebben oplossingen voor online, offline of omnichannel betalingen.</p>"
+    },
+    {
+      "name": "left_text_style",
+      "label": "Left text style",
+      "required": false,
+      "locked": false,
+      "display": "select",
+      "inline_help_text": "You can select the heading style to apply on the left text. Default is h4.",
+      "help_text": "",
+      "choices": [
+        [
+          "heading-2",
+          "H2"
+        ],
+        [
+          "heading-3",
+          "H3"
+        ],
+        [
+          "heading-4",
+          "H4"
+        ],
+        [
+          "heading-5",
+          "H5"
+        ]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": "heading-4"
+    },
+    {
+      "name": "right_text",
+      "label": "Description",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Jij hebt bij ons de keuze uit verschillende (internationale) betaalmethoden per bank, telefoon, credit- en prepaid card.  De meest gebruikelijke online betaalmethoden voor webshops zijn iDEAL, Bancontact, Giropay, creditcards en onze achteraf betaalmethodes. Wij voorzien je graag van advies over welke betaalmethoden het beste bij jouw webshop passen. Via onze kant-en-klare plug-ins voeg je deze in een handomdraai toe aan jouw webshop."
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+]

@@ -1,0 +1,154 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+{% import 'wirelabtheme/macros/utils.html' as utils %}
+
+{{ require_css(get_asset_url("../../css/preview-list-module.css"), { async: true }) }}
+
+{% set taggedItems = module.items|selectattr('item_tag') %}
+{% set allTags = [] %}
+{% for feature in taggedItems %}
+	{% do allTags.append(feature.item_tag) %}
+{% endfor %}
+
+{# collect all tags from query #}
+{% set TAGS = 'tags' %}
+{% set FEATURED = 'featured' %}
+{% set hasTagsQuery = TAGS in request.queryDict %}
+{% set tagSlugs = hasTagsQuery ? request.queryDict[TAGS]|split(',') : [] %}
+
+{% set PAGE = 'page' %}
+{% set hasPageQuery = PAGE in request.queryDict %}
+{% set page_num = request.queryDict[PAGE]|default(1) %}	
+
+{# filter content by tags #}
+{% set filtered_contents = hasTagsQuery ? taggedItems|selectattr('item_tag.slug', 'in', tagSlugs) : module.items %}
+
+{# calculate pagination #}
+{% set num_items = filtered_contents|length %}
+{% set total_count = module.settings.posts_per_page|default(12) %} {# Number of posts per listing page #}
+{% set total_page_count = (num_items / total_count)|round(0, 'ceil') %}
+{% set current_page_num = page_num < 1 ? 1 : page_num >= total_page_count ? total_page_count : page_num  %}
+{% set next_page_num = current_page_num|add(1) <= total_page_count ? current_page_num|add(1) : null %}
+{% set last_page_num = current_page_num|add(-1) >= 1 ? current_page_num|add(-1) : null %}
+
+{# define page contents by filtered contents and pagination #}
+{% set page_contents = (filtered_contents|slice(total_count))[current_page_num - 1]%}
+
+{% macro renderText(item) %}
+	<div class="col-lg-3 vstack">
+		<div class="text-block">
+				<a href="{{ item.button.link.link.url.href }}">
+						<div class="balloon balloon-icon balloon-bl bg-extra-light-purple">
+								<span class="icon text-primary">
+										<img src="{{ item.item_image.src }}" loading="lazy" alt="{{ item.item_image.alt }}" >
+								</span>
+						</div>
+				</a>
+				<h3 class="heading heading-4">{{ item.item_name }}</h3>
+				<span class="text">{{ item.item_description }}</span>
+		</div>
+		{{ macroBtn.link(item.button, "mt-auto") }}
+	</div>
+{% endmacro %}
+
+{% macro renderCard(item) %}
+	{% if item.featured %}
+		<div class="col-lg-6">
+				<div class="featured-card d-flex flex-column flex-lg-row">
+						<div class="left-col d-flex align-items-center justify-content-center" style="background-color: {{ item.item_bg_color.color }};">
+							<img src="{{ item.item_image.src }}" loading="lazy" alt="{{ item.item_image.alt }}" >
+						</div>
+
+						<div class="right-col text-block">
+								<h3 class="heading heading-4">{{ item.item_name }}</h3>
+								<span class="text-wrapper">
+									<span class="text">{{ item.item_description }}</span>
+								</span>
+								{{ macroBtn.link(item.button, "mt-auto") }}
+						</div>
+				</div>
+		</div>
+
+	{% else %}
+		
+		<div class="col-lg-3 vstack">
+				<div class="regular-card text-block">
+						<a href="{{ item.button.link.link.url.href }}">
+							<div class="balloon balloon-tl bg-white">
+								<img class="img-fluid" src="{{ item.item_image.src }}" loading="lazy" alt="{{ item.item_image.alt }}" >
+							</div>
+						</a>
+						<h3 class="heading heading-4">{{ item.item_name }}</h3>
+						<span class="text">{{ item.item_description }}</span>
+				</div>
+				{{ macroBtn.link(item.button, "mt-auto") }}
+		</div>
+	{% endif %}
+{% endmacro %}
+
+<section class="preview-list-module {{ module.settings.background_color }} global-tb-padding">
+	<div class="container">
+
+			{% if module.title && module.settings.show_title %}
+				<h2 class="heading heading-1 {{ module.settings.title_pos }}">{{ module.title.content }}</h2>
+			{% endif %}
+
+			{% if module.settings.show_filters %}
+				<div class="d-flex justify-content-center">
+					<div class="btn-tab-group">
+						{% set active = tagSlugs|length == 0 ? 'active' : '' %}
+						<a href="{{ utils.createQueryUrl(TAGS, null) }}" class="btn btn-tab solid heading-5 {{ active }}">{{ module.settings.text_all }}</a>
+
+						{% for tag in allTags|unique %}
+							{% if tag.slug != FEATURED %}
+									{% set active = tag.slug in tagSlugs ? 'active' : '' %}
+									<a href="{{ utils.createQueryUrl(TAGS, tag.slug, true) }}" class="btn btn-tab solid heading-5 {{ active }}" >{{ tag.name|title }}</a>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			{% endif %}
+
+			{# Blog items #}
+			<div class="row row-cards">
+				{% for item in page_contents %}
+					{{ module.settings.template == 'texts' ? renderText(item) : renderCard(item) }}
+				{% endfor %}
+			</div>
+
+			{# Pagination #}
+			{% if total_page_count > 1 %}
+					<div class="blog-pagination">
+							{% set offset = 0 %}
+							{% set page_list = [-2, -1, 0, 1, 2] %}
+							
+							{% if total_page_count - current_page_num == 1 %}{% set offset = -1 %}
+							{% elif total_page_count - current_page_num == 0 %}{% set offset = -2 %}
+							{% elif current_page_num == 2 %}{% set offset = 1 %}
+							{% elif current_page_num == 1 %}{% set offset = 2 %}
+							{% else %}{% set offset = 0 %}{% endif %}
+
+							<a class="btn btn-pagination prev {{ 'disabled' if !last_page_num }}" href="{{ utils.createQueryUrl(PAGE, last_page_num) }}">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="btn-icon">
+									<!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+									<path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" fill="#1D1D1D" />
+								</svg>
+							</a>
+
+							{% for page in page_list %}
+									{% set page_index = (current_page_num|add(page)|add(offset)) %}
+									{% if page_index > 0 and page_index <= total_page_count %}
+											<a class="btn btn-pagination {{ 'active' if page_index == current_page_num }}" href="{{ utils.createQueryUrl(PAGE, page_index) }}">{{ page_index }}</a>
+									{% endif %}
+							{% endfor %}
+
+							<a class="btn btn-pagination next {{ 'disabled' if !next_page_num }}" href="{{ utils.createQueryUrl(PAGE, current_page_num + 1) }}">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="btn-icon">
+									<!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+									<path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" fill="#1D1D1D" />
+								</svg>
+							</a>
+					</div>
+			{% endif %}
+
+	</div>
+</section>

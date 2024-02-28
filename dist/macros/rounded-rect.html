@@ -1,0 +1,55 @@
+{#
+  https://gist.github.com/skokenes/6fa266f4f50c86f77ceabcd6dfca9e42
+  function createRoundedRectPath(x, y, width, height, tl, tr, br, bl) {
+    return (
+      "M" + (x + tl) + "," + y 
+      // Draw a horizontal line to the top right curve start
+      + "h" + (width - (tl + tr)) 
+      // Draw the top right corner curve
+      + "a" + tr + "," + tr + " 0 0 1 " + tr + "," + tr
+      // Draw a vertical line to the bottom right corner
+      + "v" + (height - (tr + br)) 
+      // Draw the bottom right corner curve
+      + "a" + br + "," + br + " 0 0 1 " + -br + "," + br 
+      // Draw a horizontal line to the bottom left corner
+      + "h" + ((bl + br) - width)
+      // Draw the bottom left corner
+      + "a" + -bl + "," + -bl + " 0 0 1 " + -bl + "," + -bl 
+      // Draw a vertical line to the top left corner
+      + "v" + ((bl + tl) - height) 
+      // Draw the top left corner
+      + "a" + tl + "," + -tl + " 0 0 1 " + tl + "," + -tl
+      // Close the shape
+      + "z"
+    );
+  }
+#}
+
+{#
+  Example: {{ roundedRect(100, 100, 20, 0, 20, 20) }}
+  This will result in an svg element with a hard corner in the top-right and the others with a radius of 20px
+  By specifying the $id you can reference it for use in a clipPath
+  By specifying $asDef it will be encapsulated by a <defs>
+#}
+{% macro roundedRect($width, $height, $tl, $tr, $br, $bl, $id, $asDef) -%}
+  <svg viewBox="0 0 #{ $width } #{ $height }" xmlns="http://www.w3.org/2000/svg">
+    {% if $asDef %}
+    <defs>
+    {% endif %}
+    <path {% if $id %}id="#{ $id }"{% endif %} d="#{
+      'M' + (0 + tl) + ',' + 0
+      + 'h' + (width - (tl + tr))
+      + 'a' + tr + ',' + tr + ' 0 0 1 ' + tr + ',' + tr
+      + 'v' + (height - (tr + br))
+      + 'a' + br + ',' + br + ' 0 0 1 ' + -br + ',' + br
+      + 'h' + ((bl + br) - width)
+      + 'a' + -bl + ',' + -bl + ' 0 0 1 ' + -bl + ',' + -bl
+      + 'v' + ((bl + tl) - height)
+      + 'a' + tl + ',' + -tl + ' 0 0 1 ' + tl + ',' + -tl
+      + 'z'
+    }" />
+    {% if $asDef %}
+    </defs>
+    {% endif %}
+  </svg>
+{%- endmacro %}

@@ -1,0 +1,38 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/actueel.css"), { async: true }) }}
+
+{% set blog_posts = blog_recent_posts(module.blog_field, 3) %}
+
+<section class="actueel global-tb-padding">
+    <div class="container">
+        <div class="row actueel__content">
+            <div class="col-10">
+                <h2 class="heading-3">{{module.title.content}}</h2>
+            </div>
+            <div class="col-2 d-none d-md-flex actueel__cta">
+                {{macroBtn.link(module.button, "")}}
+            </div>
+        </div>
+        <div class="row actueel__posts">
+            {% for post in blog_posts %}
+                <div class="col-12 col-md-4 actueel__post">
+                    <a href="{{post.absolute_url}}">
+                        <div class="balloon balloon-lg balloon-bl w-fit bg-extra-light-purple">
+                            {% set img = { src: post.post_list_summary_featured_image, alt: post.name } %}
+                            {{ image.img(img, "cover", "lazy", [516, 468, 558]) }}
+                        </div>
+                        <h3 class="heading-4">{{post.name}}</h3>
+                        <div class="actueel__date">{{ post.publishDate|datetimeformat("%d %B %Y") }}</div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="d-block d-md-none text-center pt-4">
+            {{macroBtn.link(module.button, "")}}
+        </div>
+    </div>
+</section>
+

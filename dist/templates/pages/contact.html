@@ -1,0 +1,41 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Contact
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+
+  {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/hero-text-center' label='Header'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/help-color-cards' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/balloon-w-img-right' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/balloon-w-img-right.module' label='Betaling opzoeken CTA'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/pay-branches' label='Pay branches'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/other-contacts' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+
+  {% end_dnd_area %}
+
+  
+{% endblock body %}

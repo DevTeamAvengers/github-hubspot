@@ -1,0 +1,103 @@
+<!--
+  templateType: none
+-->
+
+<!doctype html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8">
+
+    {% if page_meta.html_title %}
+      <title>{{ page_meta.html_title }}</title>
+    {% endif %}
+
+    {% if site_settings.favicon_src %}
+      <link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />
+    {% endif %}
+
+    {% if page_meta.meta_description %}
+      <meta name="description" content="{{ page_meta.meta_description }}">
+    {% endif %}
+    
+    <!-- Google Tag Manager -->
+    <script async>
+      // Define dataLayer and the gtag function.
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // Default ad_storage to 'denied'.
+      // Default analytics_storage to 'denied'.
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'analytics_storage':'denied',
+      });
+
+      var _hsp = window._hsp = window._hsp || [];
+      _hsp.push(['addPrivacyConsentListener', function (consent) {
+        var hasAnalyticsConsent = consent && (consent.allowed || (consent.categories && consent.categories.analytics));
+        var hasAdsConsent = consent && (consent.allowed || (consent.categories && consent.categories.advertisement));
+
+        gtag('consent','update',{
+          'ad_storage': hasAdsConsent ? 'granted' : 'denied',
+          'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied'
+        });
+
+        dataLayer.push({
+          event: 'consent_updated'
+        })
+      }]);
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="preload" href="https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/fonts/Lufga-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
+    {{ require_css(get_asset_url("../../css/vendors.css"), { async: true }) }}
+    {{ require_css(get_asset_url("../../css/main.css")) }}
+    {{ require_js(get_asset_url('../../js/main.js'), { defer: true }) }}
+   
+    {{ standard_header_includes }}
+  </head>
+
+  <body>
+    {% if hub_id == 21773874 %}
+     <script>
+        window.onUsersnapCXLoad = function(api) {
+          api.init();
+        }
+        var script = document.createElement('script');
+        script.async = 1;
+        script.src = 'https://widget.usersnap.com/load/1ee86908-f557-477d-879d-c01bf469fc27?onload=onUsersnapCXLoad';
+        document.getElementsByTagName('head')[0].appendChild(script);
+      </script>
+    {% endif %}
+
+
+    {% set currentlang = content.language.details.tag %}
+    {% set otherlang = content.translated_content %}
+    {% set currentURL = content.absolute_url %}
+
+    {% module 'header-menu' path='../../modules/header.module', label='Header' %}
+    
+    <div class="content-container">
+      {% block body %}
+      {% endblock body %}
+    </div>
+
+    {% module 'Footer' path='../../modules/footer', label='Footer' %}
+    
+    {% block chat-widget label="Widget" %}
+      {% module 'freshchat-widget' path="../../modules/freshchat-widget", label="Freshchat widget" %}
+    {% endblock chat-widget %}
+
+    {{ standard_footer_includes }}
+
+    {% block scripts %}
+    {% endblock scripts %}
+  </body>
+</html>
+
+
+
+

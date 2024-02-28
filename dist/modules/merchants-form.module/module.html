@@ -1,0 +1,15 @@
+{% set labels = {
+  merchantform: module.merchantform,
+  sidebar: module.sidebar,
+  step_1: module.step_1,
+  step_2: module.step_2,
+  step_3: module.step_3,
+  step_4: module.step_4,
+  step_5: module.step_5,
+  step_6: module.step_6,
+  thanks_link: module.thanks_link
+} %}
+
+{{ require_css(get_asset_url("../../css/merchant-form.css"), { async: true }) }}
+
+<div class="js-merchants-form" id="js-merchants-form" data-language="{{html_lang}}" data-labels="{{ labels|tojson|escape }}"></div>

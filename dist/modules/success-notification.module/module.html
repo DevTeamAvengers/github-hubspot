@@ -1,0 +1,48 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/success-notification-module.css"), { async: true }) }}
+
+{% set caseCode = request.query_dict.code %}
+{% set imgSrc = module.image_group.image_desktop.src %}
+{% set imgUrl = get_asset_url(imgSrc) ? get_asset_url(imgSrc) : imgSrc %}
+
+<div class="success-notification-module global-tb-padding">
+    <div class="container">
+        <div class="row success-row">
+            <div class="success-content offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 offset-xl-4 col-xl-4 d-flex flex-column align-items-center">
+                <div class="balloon-w-img balloon balloon-lg balloon-bl {{ module.layout.balloon_color }}">
+                    {% set asset = { src: imgUrl, alt: module.image_group.image_desktop.alt } %}
+                    {{ image.img(asset, "", "lazy", [355, 355, 355]) }}
+                </div>
+
+                {% if module.content_group.tag %}
+                    <span class="tag subtitle balloon balloon-outline-pink balloon-sm balloon-pill balloon-bl">{{ module.content_group.tag }}</span>
+                {% endif %}
+            </div>
+
+            <div class="success-content {{ module.layout.title_width }} d-flex flex-column align-items-center">
+                <div class="heading-2">{{ module.content_group.title }}</div>
+            </div>
+
+            <div class="success-content offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 offset-xl-4 col-xl-4 d-flex flex-column align-items-center">
+                <div class="text">
+                    {{ module.content_group.first_text_block }}
+                    {% if module.content_group.display_case_code %}
+                        <span class="case-code">
+                            {{ caseCode }}
+                        </span>
+                    {% endif %}
+                    {{ module.content_group.second_text_block }}
+                </div>
+                {% if module.content_group.buttons %}
+                    <div class="controls">
+                        {% for btn in module.content_group.buttons %}
+                            {{ button.link(btn, btn.style) }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{% require_js position="footer" %}
+<script>
+    let isScriptLoaded = false;
+
+    function loadDesktopScript() {
+        if (!isScriptLoaded && window.innerWidth > 992) {
+            const cardSection = document.querySelector("section.shadow-card-in-columns");
+            const script = document.createElement("script");
+            script.setAttribute("src", cardSection.dataset.js);
+            script.setAttribute("defer", "defer");
+            document.body.append(script);
+            isScriptLoaded = true;
+        } else {
+            isScriptLoaded = false;
+        }
+    }
+    loadDesktopScript();
+
+    window.addEventListener("resize", loadDesktopScript);
+</script>
+{% end_require_js %}
+
+{% set scrollAnim = get_asset_url("../../js/cardShadowRotation.js") %}
+
+<section class="shadow-card-in-columns d-flex align-items-center {{ module.columns_layout.bg_color }} global-tb-padding" data-js="{{ scrollAnim }}">
+    <div class="container">
+
+        {% set layout = module.columns_layout %}
+        {% set imgPos = layout.img_position == "img_left" ? "order-lg-first" : "offset-lg-2" %}
+        {% set textOffset = layout.img_position == "img_left" ? "offset-lg-2" : "" %}
+        {% set img = module.img_col.image_group.shadowed_image %}
+        {% set imgUrl = get_asset_url(img.src) %}
+        {% set corner = module.img_col.selected_corner %}
+        {% set rotation = corner == "balloon-bl" ? "6deg" : "-6deg" %}
+        {% set imgStyling = corner == "balloon-bl" ? "justify-content-start" : "justify-content-end" %}
+
+        <div class="row align-items-center content">
+            <div class="img-content col-12 col-lg-6 d-flex order-last {{ imgPos }} {{ imgStyling }}">
+                <div class="rotating-card-shadow {{ module.img_col.shadow_color }} balloon balloon-lg {{ corner }}" data-rotation="{{ rotation }}"></div>
+                <div class="balloon balloon-lg {{ corner }}">
+                    {% set asset = { src: imgUrl ? imgUrl : img.src, alt: img.alt } %}
+                    {{ image.img(asset, "cover", "lazy", [420, 450, 750]) }}
+                </div>
+            </div>
+            <div class="text-content d-flex flex-column col-lg-4 {{ textOffset }}">
+                {% if module.content_group.tag %}
+                    <p class="tag">{{ module.content_group.tag }}</p>
+                {% endif %}
+                {% if module.content_group.title %}
+                    <div class="heading {{ module.content_group.title_style }}">{{ module.content_group.title }}</div>
+                {% endif %}
+                <div class="richtext text">{{ module.content_group.text }}</div>
+                {% if module.content_group.buttons %}
+                    <div class="btns">
+                        {% for btn in module.content_group.buttons %}
+                            {{ button.link(btn, btn.style) }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

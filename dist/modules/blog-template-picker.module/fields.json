@@ -1,0 +1,24 @@
+[{
+  "name": "template",
+  "label": "Template",
+  "required": true,
+  "locked": false,
+  "display": "select",
+  "inline_help_text": "",
+  "help_text": "",
+  "choices": [
+    ["template_1", "1 - Basic: (header with text)"],
+    ["template_2", "2 - Basic with single quote"],
+    ["template_3", "3 - Basic with double quote"],
+    ["template_4", "4 - Basic with triple quote"],
+    ["template_5", "5 - Basic with video"],
+    ["template_6", "6 - Basic with video and single quote"],
+    ["template_7", "7 - Basic with video and double quote"],
+    ["template_8", "8 - Basic with video and triple quote"],
+    ["template_9", "9 - Basic with form"]
+  ],
+  "type": "choice",
+  "placeholder": "Choose a template",
+  "default": "template_1"
+}
+]

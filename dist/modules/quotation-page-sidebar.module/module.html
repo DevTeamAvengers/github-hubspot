@@ -1,0 +1,24 @@
+<section class="sidebar">
+    <h5 class="heading">
+    <img class="brand" src="{{ get_asset_url("/wirelabtheme/assets/brand/pay-purple.svg") }}" />
+        {{ module.content.title }}
+    </h5>
+
+    <ol class="steps body-small">
+        {% for step in module.content.steps %}
+            {% set active = loop.index == module.content.active_step ? 'active' : ''%}
+            <li class="{{ active }}">
+                {% if step.link.url.href %}
+                    <a href="{{ step.link.url.href }}" {% if step.link.open_in_new_tab %}target="_blank"{% endif %}{% if step.link.rel %}rel="{{ step.link.rel }}"{% endif %}>
+                        {{ step.title }}
+                    </a>
+                {% else %}
+                    {{ step.title }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ol>
+    <div class="copyright d-none d-lg-block">
+        &copy; {{ datetime.datetime.utcnow|datetimeformat('%Y') }} Pay.
+    </div>
+</section>

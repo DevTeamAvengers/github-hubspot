@@ -1,0 +1,31 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+
+    <section class="hero-big-small hero-text-center hero-module global-tb-padding">
+        <div class="container">
+            <div class="col-lg-6 mx-auto">
+                
+                <div class="content-column text-center">
+                    {% if module.content_group.tag %}
+                        <span class="subtitle balloon balloon-sm balloon-pill balloon-bl balloon-outline-pink">{{ module.content_group.tag }}</span>
+                    {% endif %}
+
+                    {% if module.content_group.title %}
+                        <h1 class="heading heading-1">{{ module.content_group.title }}</h1>
+                    {% endif %}
+                    
+                    {% if module.content_group.text %}
+                        <div class="text">{{ module.content_group.text }}</div>
+                    {% endif %}
+
+                    {% if module.content_group.buttons %}
+                        <div class="controls">
+                            {% for btn in module.content_group.buttons %}
+                                {{ macroBtn.link(btn) }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </section>

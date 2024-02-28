@@ -1,0 +1,169 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_js(get_asset_url("../../js/homeHeader.js"), { position: "footer", async: true }) }}
+{{ require_css(get_asset_url("../../css/home-header-module.css")) }}
+
+{% require_js position="footer" %}
+<script>
+    let isScriptLoaded = false;
+
+    function loadDesktopScripts() {
+        if (!isScriptLoaded && window.innerWidth > 992) {
+            const lottieScript = document.createElement("script");
+            lottieScript.setAttribute("src", 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js');
+            lottieScript.setAttribute("defer", "defer");
+            document.body.append(lottieScript);
+
+            const homeHeaderSection = document.querySelector("section.home-header-module");
+            const scrollScript = document.createElement("script");
+            scrollScript.setAttribute("src", homeHeaderSection.dataset.js);
+            scrollScript.setAttribute("async", "async");
+            document.body.append(scrollScript);
+
+            isScriptLoaded = true;
+        } else {
+            isScriptLoaded = false;
+        }
+    }
+    loadDesktopScripts();
+
+    window.addEventListener("resize", loadDesktopScripts);
+</script>
+{% end_require_js %}
+
+{% set scrollAnim = get_asset_url("../../js/homeHeaderScroll.js") %}
+
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+
+{% set imgUrl_topLeft = get_asset_url(module.assets.top_left.src) %}
+{% set imgUrl_topRight = get_asset_url(module.assets.top_right.src) %}
+{% set imgUrl_bottomLeft = get_asset_url(module.assets.bottom_left.src) %}
+{% set bottom_right_item = module.assets.bottom_right %}
+
+{% set videoFile = module.assets.video_file %}
+
+<section class="home-header-module global-tb-padding" style="min-height: 500px; width: 100%;" data-js="{{ scrollAnim }}">
+    <h1 class="home-header-module__title">
+        {{ module.title.all }}
+        <br class="mobile-breakline" />
+        <span class="title" {% for name in module.title.payment_methods %} data-name{{ loop.index0 }}="{{ name }}"
+            {% endfor %}>
+        </span>
+        <br />
+        {{ module.title.second_text_lin }}
+    </h1>
+
+    <div class="home-header-module__content flex">
+        <div class="home-header-module__paragraph">
+            {{module.text.content}}
+        </div>
+        {% if module.buttons|length > 0 %}
+        <div class="home-header-module__buttons btn-centered flex flex--h-center  ">
+            {% for button in module.buttons %}
+            {{macroBtn.link(button, "")}}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="home-header-module__collage scrollAnimation">
+        <div class="home-header-module__collage-left">
+            <div class="collage-left-wrapper">
+                <div class="home-header-module__collage-top-left topLeft">
+                    {% set asset = { src: imgUrl_topLeft ? imgUrl_topLeft : module.assets.top_left.src, alt: module.assets.top_left.alt } %}
+                    {{ image.img(asset, "", "eager", [100, 252, 350]) }}
+                </div>
+                <div class="home-header-module__collage-bottom-left bottomLeft">
+                    <div class="overflow-img-wrapper">
+                        {% set asset = { src: imgUrl_bottomLeft ? imgUrl_bottomLeft : module.assets.bottom_left.src, alt: module.assets.bottom_left.alt } %}
+                        {{ image.img(asset, "", "eager", [100, 130, 200]) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-header-module__collage-center-wrapper">
+            <div class="home-header-module__collage-center videoPlayer">
+                <div class="home-header-module__collage-video-container">
+                    {% set video_imgUrl = get_asset_url(module.assets.video_placeholder.src) %}
+                    {% if not video_imgUrl %}
+                    {% set video_imgUrl = module.assets.video_placeholder.src %}
+                    {% endif %}
+                    <video class="lazy" autoplay loop muted playsinline poster="{{ video_imgUrl }}">
+                        <source data-src="{{videoFile}}" type="video/mp4">
+                    </video>
+                    <div class="home-header-module__play-button videoButton">
+                        <svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_b_434_880)">
+                                <rect width="96" height="96" rx="48" fill="white" fill-opacity="0.7" />
+                                <path
+                                    d="M43.5 53.9999C43.3674 53.9999 43.2402 53.9472 43.1464 53.8535C43.0527 53.7597 43 53.6325 43 53.4999V42.4999C43 42.413 43.0227 42.3276 43.0657 42.2522C43.1088 42.1767 43.1708 42.1138 43.2456 42.0696C43.3204 42.0254 43.4054 42.0014 43.4923 42.0001C43.5791 41.9987 43.6649 42.02 43.741 42.0619L53.741 47.5619C53.8194 47.6051 53.8848 47.6685 53.9303 47.7455C53.9758 47.8226 53.9998 47.9104 53.9998 47.9999C53.9998 48.0894 53.9758 48.1773 53.9303 48.2543C53.8848 48.3313 53.8194 48.3948 53.741 48.4379L43.741 53.9379C43.6672 53.9786 43.5843 53.9999 43.5 53.9999Z"
+                                    fill="#585FFF" />
+                            </g>
+                            <defs>
+                                <filter id="filter0_b_434_880" x="-40" y="-40" width="176" height="176"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feGaussianBlur in="BackgroundImage" stdDeviation="20" />
+                                    <feComposite in2="SourceAlpha" operator="in"
+                                        result="effect1_backgroundBlur_434_880" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_434_880"
+                                        result="shape" />
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="home-header-module__close-video videoCloseButton">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="close-video-btn"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16 1.4L14.6 0L8 6.6L1.4 0L0 1.4L6.6 8L0 14.6L1.4 16L8 9.4L14.6 16L16 14.6L9.4 8L16 1.4Z"
+                                fill="#1D1D1D" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-header-module__collage-right">
+            <div class="collage-right-wrapper">
+                <div class="home-header-module__collage-top-right topRight">
+                    {% set asset = { src: imgUrl_topRight ? imgUrl_topRight : module.assets.top_right.src, alt: module.assets.top_right.alt } %}
+                    {{ image.img(asset, "", "eager", [100, 200, 275]) }}
+                </div>
+                <div class="home-header-module__collage-bottom-right bottomRight">
+                    {% if bottom_right_item.video_or_img == "video" %}
+                    {% set brFileType = bottom_right_item.video|split(".")|last %}
+                    {% if brFileType == "json" %}
+                    {% set animSrc = get_asset_url(bottom_right_item.video) %}
+                    {% if not animSrc %}
+                    {% set animSrc = bottom_right_item.video %}
+                    {% endif %}
+                    <lottie-player src="{{ animSrc }}" class="lottie-anim" speed="1" loop autoplay></lottie-player>
+                    {% else %}
+                    <video autoplay loop muted playsinline>
+                        <source src="{{ bottom_right_item.video }}" type="video/mp4">
+                    </video>
+                    {% endif %}
+                    {% else %}
+                    {% set imgUrl_bottomRight = get_asset_url(bottom_right_item.img.src) %}
+                    {% if not imgUrl_bottomRight %}
+                    {% set imgUrl_bottomRight = bottom_right_item.img.src %}
+                    {% endif %}
+                    <img src="{{ imgUrl_bottomRight }}" alt="{{ bottom_right_item.img.alt }}" />
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if module.image_occurrence|length > 0 %}
+    <div class="container-fluid">
+        <div class="home-header-module__logos row align-items-center justify-content-center">
+            {% for item in module.image_occurrence %}
+            <div class="col-4 col-md-3 col-lg-2 text-center">
+                <img src="{{item.image_desktop.src}}" alt="{{ item.image_desktop.alt }}" class="img-fluid"
+                    loading="lazy" />
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</section>

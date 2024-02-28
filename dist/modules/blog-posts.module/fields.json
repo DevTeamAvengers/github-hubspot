@@ -1,0 +1,54 @@
+[ {
+  "id" : "7d86ebb7-c044-129a-9d1e-21a80c0f63f7",
+  "name" : "posts",
+  "display_width" : null,
+  "label" : "Posts",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 1,
+    "max" : null,
+    "sorting_label_field" : null,
+    "default" : 1
+  },
+  "children" : [ {
+    "id" : "e350dd37-eded-0795-b477-fd370c3f8a3f",
+    "name" : "blog_field",
+    "display_width" : null,
+    "label" : "Blog",
+    "required" : false,
+    "locked" : false,
+    "type" : "blog",
+    "default" : 49702536178
+  }, {
+    "id" : "e6e4d4e9-c10f-1e24-e504-f40277d5a518",
+    "name" : "tag_field",
+    "display_width" : null,
+    "label" : "Tag",
+    "required" : false,
+    "locked" : false,
+    "tag_value" : "SLUG",
+    "type" : "tag",
+    "default" : "klantcase"
+  }, {
+    "id" : "17a9c500-93ce-b72b-36e9-9bfa1793dbcd",
+    "name" : "number_field",
+    "display_width" : null,
+    "label" : "Number",
+    "required" : false,
+    "locked" : false,
+    "display" : "text",
+    "min" : 3,
+    "step" : 1,
+    "type" : "number",
+    "default" : 3
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "type" : "group",
+  "default" : [ {
+    "number_field" : 3,
+    "tag_field" : "klantcase",
+    "blog_field" : 49702536178
+  } ]
+} ]

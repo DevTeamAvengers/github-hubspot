@@ -1,0 +1,120 @@
+[{
+  "id": "",
+  "name": "title",
+  "label": "Title",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Title"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+    "name": "slides",
+    "label": "Partner types slides",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+    "min": 1,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 1
+    },
+    "children": [
+        {
+            "name": "slide_title",
+            "label": "Slide title",
+            "required": true,
+            "locked": false,
+            "validation_regex": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "placeholder": "",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": "Digital Agencies"
+        },
+        {
+            "name": "services",
+            "label": "Partner services",
+            "required": true,
+            "locked": false,
+            "occurrence": {
+                "min": 4,
+                "max": null,
+                "sorting_label_field": null,
+                "default": 4
+            },
+            "children": [
+                {
+                    "name": "icon",
+                    "label": "Icon",
+                    "required": true,
+                    "locked": false,
+                    "inline_help_text": "Icon that will be displayed above the partner service description",
+                    "help_text": "",
+                    "responsive": true,
+                    "resizable": false,
+                    "show_loading" : false,
+                    "type": "image",
+                    "default": {
+                        "src": "/wirelabtheme/assets/images/carbon_chat-bot.svg",
+                        "alt": "Default partner service icon"
+                    }
+                },
+                {
+                    "name": "title",
+                    "label": "Service title",
+                    "required": true,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Breedste aanbod betaaloplossingen"
+                },
+                {
+                    "name": "description",
+                    "label": "Service description",
+                    "required": true,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices platea enim senectus cras id non eu."
+                }
+            ],
+            "type": "group",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": []
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": []
+}
+]

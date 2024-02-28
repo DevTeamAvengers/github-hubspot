@@ -1,0 +1,21 @@
+{{ require_css(get_asset_url("../../css/payment-search-flow-module.css"), { async: true }) }}
+
+{% set content = {
+    searchLeftCol: module.left_col,
+    searchFormContent: module.form_content,
+    resultsLeftCol: module.results_left_col,
+    resultsContent: module.results_content,
+    startDisputeLeftCol: module.start_dispute_left_col,
+    startDisputeFormContent: module.start_dispute_form_content,
+    redirectionSuccessLink: module.request_redirection.success_page_link,
+    redirectionErrorLink: module.request_redirection.error_page_link
+} %}
+
+<div class="payment-search-flow-module">
+    <div class="payment-search-flow"
+        id="payment-search-flow"
+        data-language="{{html_lang}}"
+        data-searchFlowData="{{ content|tojson|escape }}"
+    >
+    </div>
+</div>

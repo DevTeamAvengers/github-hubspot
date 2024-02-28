@@ -1,0 +1,35 @@
+{% set contents = blog_recent_posts(module.blog_group.blog, 4) %}
+
+{{ require_css(get_asset_url("../../css/features-grid-module.css"), { async: true }) }}
+
+<section class="features-grid-module {{ module.style.background_style }} global-tb-padding">
+    <div class="container">
+        
+        {% if module.title %}
+            <h3 class="heading">{{ module.title.content }}</h3>
+        {% endif %}
+
+        <div class="row row-cards">
+            {% for content in contents %}
+                <div class="col-lg-3 vstack">
+
+                    <div class="text-block">
+                        <a href="{{ content.absolute_url }}">
+                            <div class="balloon balloon-icon balloon-bl bg-extra-light-purple">
+                                <span class="icon text-primary">
+                                    <img src="{{ content.post_list_summary_featured_image }}" loading="lazy" alt="{{ content.name }}" >
+                                </span>
+                            </div>
+                        </a>
+                        <h4 class="heading">{{ content.name }}</h4>
+                        <p class="text">{{ content.widgets.Hero_text_image.body.content_group.text|default('') }}</p>
+                    </div>
+
+                    <a href="{{ content.absolute_url }}" class="btn btn-link">{{ module.label_more }}</a>
+                
+                </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</section>

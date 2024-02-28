@@ -1,0 +1,387 @@
+[
+ {
+  "type": "group",
+  "id": "755e5bdd-266a-2535-dfc3-fba6501b2256",
+  "label": "Tag",
+  "children": [
+   {
+    "type": "choice",
+    "id": "07615e0e-3c90-d8a4-b946-a12b56efbb9a",
+    "display": "select",
+    "choices": [
+     [
+      "labeltag",
+      "Blue"
+     ],
+     [
+      "labeltag--pink",
+      "Pink"
+     ],
+     [
+      "labeltag--light-blue",
+      "Light Blue"
+     ],
+     [
+      "labeltag--alt",
+      "Blue Text Light Background"
+     ],
+     [
+      "labeltag--pink-alt",
+      "Pink Text Light Background"
+     ],
+     [
+      "labeltag--light-blue-alt",
+      "Light Blue Text Light Background"
+     ]
+    ],
+    "label": "Style",
+    "name": "style",
+    "default": "labeltag"
+   },
+   {
+    "type": "text",
+    "id": "bf0ed240-9607-d36f-38b7-b64fa2e6779a",
+    "validation_regex": "",
+    "label": "Content",
+    "name": "content",
+    "default": "Payment methods"
+   }
+  ],
+  "name": "tag",
+  "default": {
+   "style": "labeltag",
+   "content": "Payment methods"
+  }
+ },
+ {
+  "type": "text",
+  "id": "4981f218-4d98-4ce2-a600-28ab88c0eb69",
+  "validation_regex": "",
+  "label": "Title",
+  "name": "title",
+  "default": "iDEAL betalingen ontvangen via Pay."
+ },
+ {
+  "children": [
+   {
+    "allow_new_line": false,
+    "default": "",
+    "display_width": null,
+    "id": "buttons.content",
+    "label": "Link content",
+    "locked": false,
+    "name": "content",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+   },
+   {
+    "choices": [
+     [
+      "btn-primary btn-text-hover",
+      "Primary styling"
+     ],
+     [
+      "btn-outline-primary btn-text-hover",
+      "Outline styling"
+     ],
+     [
+      "btn-dark btn-text-hover",
+      "Dark styling"
+     ],
+     [
+      "btn-pink btn-text-hover",
+      "Pink styling"
+     ],
+     [
+      "btn-link",
+      "Link styling"
+     ]
+    ],
+    "default": "btn-primary btn-text-hover",
+    "display": "select",
+    "display_width": null,
+    "id": "buttons.style",
+    "label": "Link style",
+    "locked": false,
+    "multiple": false,
+    "name": "style",
+    "preset": null,
+    "reordering_enabled": true,
+    "required": false,
+    "type": "choice"
+   },
+   {
+    "children": [
+     {
+      "display_width": null,
+      "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+      "id": "buttons.cta.cta",
+      "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+      "label": "CTA",
+      "locked": false,
+      "name": "cta",
+      "required": false,
+      "type": "cta"
+     }
+    ],
+    "default": {},
+    "display_width": null,
+    "expanded": false,
+    "help_text": "If a CTA is added, its link will be the one used for the button. Use meaningful CTAs with the needed link!",
+    "id": "buttons.cta",
+    "inline_help_text": "If a CTA is added, its link will be the one used for the button. Use meaningful CTAs with the needed link!",
+    "label": "Use HubSpot CTA (recommended)",
+    "locked": false,
+    "name": "cta",
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
+   },
+   {
+    "children": [
+     {
+      "default": {
+       "url": {
+        "content_id": null,
+        "type": "CONTENT",
+        "href": ""
+       },
+       "open_in_new_tab": false,
+       "no_follow": false,
+       "sponsored": false,
+       "user_generated_content": false
+      },
+      "display_width": null,
+      "id": "buttons.link.link",
+      "label": "Link",
+      "locked": false,
+      "name": "link",
+      "required": false,
+      "show_advanced_rel_options": false,
+      "supported_types": [
+       "EXTERNAL",
+       "CONTENT",
+       "BLOG"
+      ],
+      "type": "link"
+     }
+    ],
+    "default": {
+     "link": {
+      "url": {
+       "content_id": null,
+       "type": "CONTENT",
+       "href": ""
+      },
+      "open_in_new_tab": false,
+      "no_follow": false,
+      "sponsored": false,
+      "user_generated_content": false
+     }
+    },
+    "display_width": null,
+    "expanded": false,
+    "help_text": "If a CTA was added, this link won't be used!",
+    "id": "buttons.link",
+    "inline_help_text": "If a CTA was added, this link won't be used!",
+    "label": "Use URL",
+    "locked": false,
+    "name": "link",
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
+   }
+  ],
+  "default": [
+   {
+    "content": "",
+    "style": "btn-primary btn-text-hover",
+    "cta": {},
+    "link": {
+     "link": {
+      "url": {
+       "content_id": null,
+       "type": "CONTENT",
+       "href": ""
+      },
+      "open_in_new_tab": false,
+      "no_follow": false,
+      "sponsored": false,
+      "user_generated_content": false
+     }
+    }
+   },
+   {
+    "content": "",
+    "style": "btn-primary btn-text-hover",
+    "cta": {},
+    "link": {
+     "link": {
+      "url": {
+       "content_id": null,
+       "type": "CONTENT",
+       "href": ""
+      },
+      "open_in_new_tab": false,
+      "no_follow": false,
+      "sponsored": false,
+      "user_generated_content": false
+     }
+    }
+   }
+  ],
+  "display_width": null,
+  "expanded": false,
+  "id": "buttons",
+  "label": "Buttons",
+  "locked": false,
+  "name": "buttons",
+  "occurrence": {
+   "default": 2
+  },
+  "required": false,
+  "tab": "CONTENT",
+  "type": "group"
+ },
+ {
+  "default": true,
+  "display": "checkbox",
+  "display_width": null,
+  "id": "431a78de-8c3a-3850-d9f3-154d7f059600",
+  "label": "Add Widget",
+  "locked": false,
+  "name": "add_widget",
+  "required": false,
+  "type": "boolean"
+ },
+ {
+  "children": [
+   {
+    "default": {
+     "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/widget-img.png",
+     "alt": "widget-img",
+     "loading": "lazy",
+     "width": 1440,
+     "height": 400
+    },
+    "display_width": null,
+    "id": "9f72eb51-1ef3-fe53-020d-d7318b474593",
+    "label": "Image",
+    "locked": false,
+    "name": "image_field",
+    "required": false,
+    "resizable": true,
+    "responsive": true,
+    "show_loading": false,
+    "type": "image"
+   },
+   {
+    "default": {
+     "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/ideal.png",
+     "alt": "ideal",
+     "loading": "lazy",
+     "width": 97,
+     "height": 80
+    },
+    "display_width": null,
+    "id": "019c5cb6-6133-00d2-78f1-b046f2aca37d",
+    "label": "Logo",
+    "locked": false,
+    "name": "logo",
+    "required": false,
+    "resizable": true,
+    "responsive": true,
+    "show_loading": false,
+    "type": "image"
+   },
+   {
+    "children": [
+     {
+      "allow_new_line": false,
+      "default": "100%",
+      "display_width": null,
+      "id": "fb86e3ae-c5ec-4762-0ea7-d3f33f129f12",
+      "label": "Stat Text",
+      "locked": false,
+      "name": "stat_text",
+      "required": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "validation_regex": ""
+     },
+     {
+      "allow_new_line": false,
+      "default": "Betalings <br>garantie",
+      "display_width": null,
+      "id": "6f1ff2a1-265b-8af5-3aed-011800815dab",
+      "label": "Title",
+      "locked": false,
+      "name": "title",
+      "required": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "validation_regex": ""
+     }
+    ],
+    "default": {
+     "stat_text": "100%",
+     "title": "Betalings <br>garantie"
+    },
+    "display_width": null,
+    "expanded": false,
+    "id": "fdddc0a7-04f8-6616-12b2-d2a526269c6a",
+    "label": "Blue Box Content",
+    "locked": false,
+    "name": "blue_box_content",
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
+   }
+  ],
+  "default": {
+   "image_field": {
+    "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/widget-img.png",
+    "alt": "widget-img",
+    "loading": "lazy",
+    "width": 1440,
+    "height": 400
+   },
+   "logo": {
+    "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/ideal.png",
+    "alt": "ideal",
+    "loading": "lazy",
+    "width": 97,
+    "height": 80
+   },
+   "blue_box_content": {
+    "stat_text": "100%",
+    "title": "Betalings <br>garantie"
+   }
+  },
+  "display_width": null,
+  "expanded": false,
+  "id": "2d530b32-d45c-bc67-c435-f2c7fd4cdb41",
+  "label": "Widget",
+  "locked": false,
+  "name": "widget",
+  "required": false,
+  "tab": "CONTENT",
+  "type": "group"
+ },
+ {
+  "allow_new_line": false,
+  "default": "overview",
+  "display_width": null,
+  "id": "6365748f-e50e-4fcb-4d35-b1e138927cb6",
+  "inline_help_text": "",
+  "label": "Module ID",
+  "locked": false,
+  "name": "module_identifier",
+  "required": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "validation_regex": ""
+ }
+]

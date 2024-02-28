@@ -1,0 +1,11 @@
+{% if module.text_group %}
+	<section class="text-module global-tb-padding">
+		<div class="container">
+			{% for item in module.text_group %}
+				<div class="part col-lg-6 mx-auto richtext">
+					{{ item.text }}
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+{% endif %}

@@ -1,0 +1,197 @@
+{% macro languageSwitcher(text, device) -%}
+    {% set currentlang = content.language.details.tag %}
+    {% set otherlang = content.translated_content.values()|selectattr('published') %}
+
+ 
+    
+    {% if content.language.details.tag %}
+        <div class="language-switcher language-switcher--{{device}} js-click flex">
+            
+            {% if currentlang == "nl" || currentlang == "nl-nl" %}
+                NL 
+            {% endif %}
+
+            {% if currentlang == "be" || currentlang == "nl-be" %}
+                BE
+            {% endif %}
+
+            {% if currentlang != "nl" && currentlang != "nl-nl" && currentlang != "be" && currentlang != "nl-be"  %}
+                {{currentlang}}
+            {% endif %}
+
+            <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.625 0.75L9 5.125L8.125 6L4.625 2.5L1.125 6L0.25 5.125L4.625 0.75Z" fill="#1D1D1D"/>
+            </svg>
+
+            <div class="language-switcher__other-lang">
+                <div class="language-switcher__mobile-controls">
+                    <div class="language-switcher__back-btn">
+                        <svg width="6" height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M-2.86102e-06 5.5L5 10.5L5.7 9.8L1.4 5.5L5.7 1.2L5 0.5L-2.86102e-06 5.5Z" fill="black"/>
+                        </svg>
+                        <span>{{text.mobile_back_button_text}}</span>    
+                    </div>
+
+                    <div class="language-switcher__mobile-title">
+                        {{text.mobile_lang_title}}
+                    </div>
+
+                    <div class="language-switcher__mobile-button  active">
+                        <span class="line-1"></span>
+                        <span class="line-2"></span>
+                    </div>
+    
+                </div>
+                <div class="language-switcher__link  language-switcher__link--current">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 0C5.61553 0 4.26215 0.410543 3.11101 1.17971C1.95987 1.94888 1.06266 3.04213 0.532846 4.32122C0.00303298 5.6003 -0.13559 7.00777 0.134506 8.36563C0.404603 9.7235 1.07129 10.9708 2.05026 11.9497C3.02922 12.9287 4.2765 13.5954 5.63437 13.8655C6.99224 14.1356 8.3997 13.997 9.67879 13.4672C10.9579 12.9373 12.0511 12.0401 12.8203 10.889C13.5895 9.73785 14 8.38447 14 7C14 5.14349 13.2625 3.36301 11.9497 2.05025C10.637 0.737498 8.85652 0 7 0ZM6 9.795L3.5 7.295L4.295 6.5L6 8.205L9.705 4.5L10.503 5.293L6 9.795Z" fill="#585FFF"/>
+                    </svg>
+                    <span lass="language-switcher__country"> {{ languageNames(currentlang) }}</span>
+                    <span class="language-switcher__tag"> 
+                        {% if currentlang  == "nl" || currentlang  == "nl-nl" %}
+                            NL
+                        {% endif %}
+
+                        {% if currentlang  == "be" || currentlang  == "nl-be" %}
+                            BE
+                        {% endif %}
+
+                        {% if currentlang  != "nl" && currentlang  != "nl-nl" && currentlang  != "be" && currentlang  != "nl-be"  %}
+                            {{currentlang }}
+                        {% endif %}
+                    </span> 
+                </div>
+                {% for lang in otherlang %}
+                    <!-- {% if lang.values()|selectattr('published')|length || is_listing_view && group.translations %}
+                        <h1>published</h1>
+                    {% endif %}  -->
+                    <a data-published="{{lang.publish_date}}" class="language-switcher__link" href="{{company_domain}}/{{lang.slug}}">
+                        <span class="language-switcher__country"> {{ languageNames(lang.language) }}</span>
+                        <span class="language-switcher__tag">
+                            {% if lang.language  == "nl" || lang.language  == "nl-nl" %}
+                                NL
+                            {% endif %}
+
+                            {% if lang.language  == "be" || lang.language  == "nl-be" %}
+                                BE
+                            {% endif %}
+
+                            {% if lang.language  != "nl" && lang.language  != "nl-nl" && lang.language  != "be" && lang.language  != "nl-be"  %}
+                                {{lang.language }}
+                            {% endif %}
+                        </span>   
+                    </a>
+                {% endfor %}
+            </div>
+    </div>    
+    {% else %}
+
+        {# Laguage switch for pages without lang tag || for example 404 error page#}
+        {{ languageSwitchStatic() }}
+
+    {% endif %}
+{%- endmacro %}
+
+{% macro languageNames(lang) -%}
+    {% if lang|lower  == "nl" || lang|lower  == "nl-nl" %}
+        Nederlands
+    {% endif %}
+
+    {% if lang|lower  == "be" || lang|lower  == "nl-be" %}
+        Vlaams
+    {% endif %}
+
+    {% if lang|lower == "en"  %} 
+        English
+    {% endif %}
+
+    {% if lang|lower == "de"  %} 
+        Deutsch
+    {% endif %}
+
+    {% if lang|lower == "fr"  %} 
+        Français
+    {% endif %}
+
+{%- endmacro %}
+
+
+
+{% macro languageSwitchStatic() -%}
+
+    <div class="language-switcher language-switcher--{{device}} js-click flex">
+    {% if request is containing "en/" %}
+        en
+    {% else if request is containing "nl/" %}
+        nl
+    {% else if request is containing "de/" %}
+        de
+    {% else if request is containing "be/" %}
+        be
+    {% else if request is containing "fr/" %}
+        fr
+    {%  endif %}
+    <svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.625 0.75L9 5.125L8.125 6L4.625 2.5L1.125 6L0.25 5.125L4.625 0.75Z" fill="#1D1D1D"/>
+    </svg>
+
+    <div class="language-switcher__other-lang">
+        <div class="language-switcher__link  language-switcher__link--current">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 0C5.61553 0 4.26215 0.410543 3.11101 1.17971C1.95987 1.94888 1.06266 3.04213 0.532846 4.32122C0.00303298 5.6003 -0.13559 7.00777 0.134506 8.36563C0.404603 9.7235 1.07129 10.9708 2.05026 11.9497C3.02922 12.9287 4.2765 13.5954 5.63437 13.8655C6.99224 14.1356 8.3997 13.997 9.67879 13.4672C10.9579 12.9373 12.0511 12.0401 12.8203 10.889C13.5895 9.73785 14 8.38447 14 7C14 5.14349 13.2625 3.36301 11.9497 2.05025C10.637 0.737498 8.85652 0 7 0ZM6 9.795L3.5 7.295L4.295 6.5L6 8.205L9.705 4.5L10.503 5.293L6 9.795Z" fill="#585FFF"/>
+            </svg>
+            
+            <span lass="language-switcher__country"> 
+                {% if request is containing "en/" %}
+                    English
+                {% else if request is containing "nl/" %}
+                    Nederlands
+                {% else if request is containing "de/" %}
+                    Deutsch
+                {% else if request is containing "be/" %}
+                    Vlaams
+                {% else if request is containing "nl-be/" %}
+                    Vlaams
+                {% else if request is containing "fr/" %}
+                    Français
+                {%  endif %}
+            </span>
+            <span class="language-switcher__tag"> 
+                {% if request is containing "en/" %}
+                    en
+                {% else if request is containing "nl/" %}
+                    nl
+                {% else if request is containing "de/" %}
+                    de
+                {% else if request is containing "be/" %}
+                    be
+                {% else if request is containing "fr/" %}
+                    fr
+                {%  endif %}
+            </span> 
+        </div>
+
+            <a  class="language-switcher__link" href="{{company_domain}}/nl?hsLang=nl">
+                <span class="language-switcher__country"> Nederlands</span>
+                <span class="language-switcher__tag">nl</span>   
+            </a>
+
+            <a  class="language-switcher__link" href="{{company_domain}}/de?hsLang=de">
+                <span class="language-switcher__country"> Deutsch</span>
+                <span class="language-switcher__tag">de</span>   
+            </a>
+
+            <a  class="language-switcher__link" href="{{company_domain}}/en?hsLang=en">
+                <span class="language-switcher__country"> English</span>
+                <span class="language-switcher__tag">en</span>   
+            </a>
+
+            <a  class="language-switcher__link" href="{{company_domain}}/be?hsLang=be">
+                <span class="language-switcher__country"> Vlaams</span>
+                <span class="language-switcher__tag">be</span>   
+            </a>
+
+    </div>
+</div>    
+
+{%- endmacro %}

@@ -1,0 +1,36 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/pay-culture-module.css"), { async: true }) }}
+
+<section class="pay-culture-module bg-purple global-tb-padding">
+    <div class="culture-container container">
+        <div class="culture-row row align-items-center">
+            <h2 class="col-md-9 heading-1">{{ module.title.content }}</h2>
+        </div>
+        <div class="slider-wrapper slider-row-height">
+            <div class="culture-slider">
+                {% for img in module.culture_elmts.img_slider %}
+                    {% set img_url = get_asset_url(img.culture_img.src) %}
+                    <div class="balloon balloon-lg {% cycle "balloon-br","balloon-bl" %} ">
+                        {% set asset = { src: img_url ? img_url : img.culture_img.src, alt: img.culture_img.alt } %}
+                        {{ image.img(asset, "cover", "lazy", [315, 460, 460]) }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="culture-slider">
+                {% for img in module.culture_elmts.img_slider %}
+                    {% set img_url = get_asset_url(img.culture_img.src) %}
+                    <div class="balloon balloon-lg {% cycle "balloon-br","balloon-bl" %} ">
+                        {% set asset = { src: img_url ? img_url : img.culture_img.src, alt: img.culture_img.alt } %}
+                        {{ image.img(asset, "cover", "lazy", [315, 460, 460]) }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="slider-row-height"></div>
+        <div class="culture-row row align-items-start">
+            <h3 class="col-lg-5 heading-4">{{ module.culture_elmts.left_text }}</h3>
+            <div class="col-lg-5 offset-lg-1">{{ module.culture_elmts.right_text }}</div>
+        </div>
+    </div>
+</section>

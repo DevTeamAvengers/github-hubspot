@@ -1,0 +1,60 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Oplossing detail
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+
+  {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/hero-text-balloon' label='Header'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/simple-intro' label='Simple intro' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/features' label='Features'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/usp' label='Intro' module_data = {"module_name": 'UPS'} %} {% end_dnd_module %}
+  {% end_dnd_section %}
+  
+  {% dnd_section %}
+    {% dnd_module path='../../modules/reference-grid' label='Logo grid'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/single-case.module' label='Case' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/plugins' label='Plugins'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/features' label='Features'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/two-columns-shadow-card' label='Text shadow-card' fields={ columns_layout: { bg_color: 'bg-extra-light-purple' } } %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/crosslinks' label='Crosslinks'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/register-cta' label='Register (CTA)'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+  
+{% endblock body %}

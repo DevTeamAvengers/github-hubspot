@@ -1,0 +1,27 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+
+<section class="crosslinks-module global-tb-padding">
+    <div class="container bg-white">
+
+        <h2 class="pb-5 heading-3">{{ module.title.content }}</h2>
+
+        <div class="row justify-content-between">
+
+            {% for item in module.crosslink_content %}
+                <div class="col-md-6 col-xl-3">
+                    
+                    <div class="card card-pay h-100 text-block corner-tl bg-extra-light-purple">
+                        <div class="card-body">
+                            <h3 class="card-title heading-4">{{ item.title }}{% if item.image.src %} <img class="ms-auto" src="{{ item.image.src }}" alt="{{ item.image.alt }}" loading="lazy"/>{% endif %}</h3>
+                            <p class="card-text">{{ item.text }}</p>
+                            {{macroBtn.link(item.button, "mt-auto")}}
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>

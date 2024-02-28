@@ -1,0 +1,7 @@
+{
+  "global" : false,
+  "host_template_types" : [ "ANY" ],
+  "module_id" : 84873648578,
+  "label" : "Image Placeholder",
+  "is_available_for_new_content" : true
+}

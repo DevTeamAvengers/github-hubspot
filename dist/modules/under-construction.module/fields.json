@@ -1,0 +1,27 @@
+[{
+  "name": "module_data",
+  "label": "Module under construction",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "module_name",
+      "label": "Module name",
+      "required": true,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "pagepart"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+]

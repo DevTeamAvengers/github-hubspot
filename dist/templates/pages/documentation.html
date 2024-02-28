@@ -1,0 +1,36 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Documentatie
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+
+  {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/hero-text-text' label='Header'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/crosslinks-variant' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/usp-text' label="USP met tekst (icon grid)" %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/big-link' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/statement' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+  
+{% endblock body %}

@@ -1,0 +1,67 @@
+[{
+  "id": "",
+  "name": "title",
+  "label": "Title",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Title"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+    "name": "faq_items",
+    "label": "FAQ items",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+        "min": 1,
+        "max": null,
+        "sorting_label_field": null,
+        "default": 1
+    },
+    "children": [
+        {
+            "name": "question",
+            "label": "Question",
+            "required": false,
+            "locked": false,
+            "validation_regex": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "placeholder": "",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": "Hoe ontvang ik een offerte?"
+        },
+        {
+            "name": "answer",
+            "label": "Answer",
+            "required": false,
+            "locked": false,
+            "type": "richtext",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": "Door een online aanvraag in te dienen kun je dezelfde dag nog een offerte ontvangen. In de aanvraag word je gevraagd om Youlend meer te vertellen over jouw bedrijf en jouw online omzet en/of kaartterminal omzet. Dit duurt meestal 5-10 minuten en het team van Youlend staat altijd voor je klaar als je vragen hebt.<br>Zodra je ten minste één keer door Youlend bent gefinancierd, kun je meestal aanvullende financiering op de dag van aanvraag nog ontvangen."
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": []
+}]

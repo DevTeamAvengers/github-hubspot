@@ -1,0 +1,107 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+
+{{ require_css(get_asset_url("../../css/features-module.css"), { async: true }) }}
+
+{% set contentOffset = "" %}
+{% set gridOffset = "offset-xl-1" %}
+{% if module.layout.grid_pos == 'left' %}
+	{% set contentOffset = "offset-xl-1" %}
+	{% set gridOffset = "order-xl-first" %}
+{% endif %}
+
+<section class="features-module {{ module.layout.bg_color }} global-tb-padding">
+	
+	<div class="container">
+		<div class="row features-row">
+
+			<div class="text-content col-xl-5 align-self-center {{ contentOffset }}">
+					
+			{% if module.content_group %}
+				<div class="content-column">
+
+					{% if module.content_group.tag %}
+						<span class="subtitle balloon balloon-sm balloon-pill balloon-bl balloon-outline-pink">{{ module.content_group.tag }}</span>
+					{% endif %}
+
+					{% if module.content_group.title %}
+						<h2 class="heading heading-2">{{ module.content_group.title }}</h2>
+					{% endif %}
+					
+					{% if module.content_group.text %}
+						<div class="richtext text">{{ module.content_group.text }}</div>
+					{% endif %}
+
+					{% if module.content_group.buttons %}
+						<div class="controls">
+							{% for btn in module.content_group.buttons %}
+								{{ button.link(btn) }}
+							{% endfor %}
+						</div>
+					{% endif %}
+
+				</div>
+			{% endif %}
+
+			</div>
+
+			<div class="col-xl-6 align-self-center {{ gridOffset }}">
+
+				{% set isEqual =  module.grid_style.grid_type == 'equal' %}
+				{% set withHero =  module.grid_style.grid_type == 'with-hero' %}
+				{% set itemRange = isEqual ? range(0,9) : withHero ? range(0,6) : range(0, 0) %}
+
+				{% set balloonShapes = [] %}
+				{% if withHero %}
+					{% set balloonShapes = ['br', 'bl', 'tl', 'tl', 'tl', 'tl'] %}
+				{% else %}
+					{% set balloonShapes = ['br', 'bl', 'bl', 'tr', '', 'bl', 'tr', 'tl', 'tl'] %}
+				{% endif %}
+
+				{% set cardLayout = module.grid_style.img_style == "bl-corner" ? "content-left-inverse" : "" %}
+				{% set textCentered = module.grid_style.img_style == "full-w-text" ? "text-center" : "" %}
+
+				<div class="grid-squares grid-secondary {{ cardLayout }} {{ module.grid_style.grid_type }}">
+					{% for i in itemRange %}
+						{% set item = module.grid_items[i] %}
+						{% set firstItemStyle = loop.index == 1 ? "first-item" : "" %}
+
+						<div class="ratio ratio-1x1">
+						<div>
+
+						{% if item.item_link.url.href %}
+							<a href="{{ item.item_link.url.href }}" class="col-square balloon balloon-{{ balloonShapes[i] }} btn balloon-shadow balloon-shadow-hover h-100 {{ firstItemStyle }}">
+						{% else %}
+							<div class="col-square balloon balloon-{{ balloonShapes[i] }} h-100 {{ firstItemStyle }}">
+						{% endif %}
+
+							{% if item %}
+								<img class="img-fluid {{ firstItemStyle }}" src="{{ item.item_image.src }}" alt="{{ item.item_image.alt }}" loading="lazy" />
+
+								{% if item.item_name and module.grid_style.img_style != "centered" %}
+									<span class="heading heading-5 {{ textCentered }}">{{ item.item_name }}</span>
+								{% endif %}
+
+								{% if withHero and module.grid_style.img_style == "centered" and i == itemRange|last %}
+									<span class="heading heading-5">{{ item.item_name }}</span>
+								{% endif %}
+							{% endif %}
+
+						{% if item.item_link.url.href %}
+							</a>
+						{% else %}
+							</div>
+						{% endif %}
+
+						</div>
+						</div>
+						
+					{% endfor %}
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+</section>
+
+

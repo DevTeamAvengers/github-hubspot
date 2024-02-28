@@ -1,0 +1,55 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_js(get_asset_url("../../js/historyModule.js"), { position: "footer", defer: true }) }}
+{{ require_css(get_asset_url("../../css/history-module.css"), { async: true }) }}
+
+{% set pics = module.pictures %}
+{% set pic_tl = get_asset_url(pics.top_left.src) %}
+{% set pic_bl = get_asset_url(pics.bottom_left.src) %}
+{% set pic_tr = get_asset_url(pics.top_right.src) %}
+{% set pic_cr = get_asset_url(pics.center_right.src) %}
+{% set pic_br = get_asset_url(pics.bottom_right.src) %}
+
+<section class="history-module bg-purple global-tb-padding">
+    <div class="container">
+        <div class="row title">
+            <h2 class="heading-1 col-10">{{ module.title.content }}</h2>
+        </div>
+        <div class="row align-items-center content">
+            <div class="col-xl-6">
+                <div class="row align-items-center history-pictures">
+                    <div class="pic-column d-flex flex-column align-items-end justify-content-center col-6">
+                        <div class="balloon balloon-lg balloon-br top-left first-anim">
+                            {% set asset = { src: pic_tl ? pic_tl : pics.top_left.src, alt: pics.top_left.alt } %}
+                            {{ image.img(asset, "cover", "lazy", [240, 456, 300]) }}
+                        </div>
+                        <div class="balloon balloon-lg balloon-tr bottom-left second-anim">
+                            {% set asset = { src: pic_bl ? pic_bl : pics.bottom_left.src, alt: pics.bottom_left.alt } %}
+                            {{ image.img(asset, "cover", "lazy", [240, 456, 300]) }}
+                        </div>
+                    </div>
+                    <div class="pic-column d-flex flex-column align-items-start justify-content-center col-6">
+                        <div class="balloon balloon-lg balloon-bl top-right first-anim">
+                            {% set asset = { src: pic_tr ? pic_tr : pics.top_right.src, alt: pics.top_right.alt } %}
+                            {{ image.img(asset, "cover", "lazy", [166, 224, 204]) }}
+                        </div>
+                        <div class="balloon balloon-lg balloon-bl balloon-tl center-right second-anim">
+                            {% set asset = { src: pic_cr ? pic_cr : pics.center_right.src, alt: pics.center_right.alt } %}
+                            {{ image.img(asset, "cover", "lazy", [240, 456, 300]) }}
+                        </div>
+                        <div class="balloon balloon-lg balloon-tl bottom-right third-anim">
+                            {% set asset = { src: pic_br ? pic_br : pics.bottom_right.src, alt: pics.bottom_right.alt } %}
+                            {{ image.img(asset, "cover", "lazy", [166, 224, 204]) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-xl-1 col-xl-4">
+                {% for item in module.text_column %}
+                    <h3 class="heading-4">{{ item.subtitle }}</h3>
+                    <div class="richtext">{{ item.description }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

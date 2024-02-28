@@ -1,0 +1,59 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_js(get_asset_url("../../js/loadVideos.js"), { position: "footer", defer: true }) }}
+{{ require_css(get_asset_url("../../css/video-content-module.css"), { async: true }) }}
+
+{% set videoPosition = module.video_layout.positioning %}
+{% set videoWidth = "col-lg-7" %}
+{% set videoOffset = "offset-lg-1" %}
+{% if videoPosition == "center" %}
+    {% set videoWidth = "col-lg-10 col-xl-8" %}
+    {% set videoOffset = "offset-lg-1 offset-xl-2" %}
+{% endif %}
+
+{% set rowFormat = "" %}
+{% set textBlockOffset = "" %}
+{% if videoPosition == "left" %}
+    {% set rowFormat = "flex-row-reverse" %}
+    {% set videoOffset = "" %}
+    {% set textBlockOffset = "offset-lg-1" %}
+{% endif %}
+
+<section class="video-content-module global-tb-padding">
+    <div class="container">
+        <div class="video-row row align-items-center {{ rowFormat }}">
+            {% if videoPosition != "center" %}
+                <div class="text-column col-lg-4 {{ textBlockOffset }} d-flex flex-column">
+                    {% if module.video_data.tag %}
+                        <p class="tag">{{ module.video_data.tag }}</p>
+                    {% endif %}
+                    <div class="heading {{ module.video_data.title_style }}">{{ module.video_data.title }}</div>
+                    <div class="body-medium">{{ module.video_data.description }}</div>
+                    {% if module.video_data.buttons|length != 0 %}
+                        <div class="btns">
+                            {% for btn in module.video_data.buttons %}
+                                {{ button.link(btn, btn.style) }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="{{ videoWidth }} {{ videoOffset }}">
+                <div class="video-balloon {{ videoPosition }}">
+                    {% set videoSrc = module.video_data.video_link.url.href ~ "?modestbranding=1&autohide=1&autoplay=1" %}
+                    {% set imgSrc = get_asset_url(module.video_data.video_placeholder.src) %}
+                    {% set imgSrc = imgSrc ? imgSrc : module.video_data.video_placeholder.src %}
+                    <a class="video-link" href="{{ videoSrc }}">Video content</a>
+                    {% set asset = { src: imgSrc, alt: module.video_data.video_placeholder.alt } %}
+                    {{ image.img(asset, "placeholder", "lazy", [500, 600, 750]) }}
+                    <button class="play-button" aria-label="Play the video">
+                        <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1.25 17.9999C1.05109 17.9999 0.860322 17.9209 0.71967 17.7802C0.579018 17.6396 0.5 17.4488 0.5 17.2499V0.749872C0.500022 0.619544 0.534006 0.491471 0.5986 0.378277C0.663195 0.265083 0.756171 0.170674 0.868365 0.104357C0.980559 0.0380404 1.1081 0.00210363 1.23841 8.95819e-05C1.36872 -0.00192447 1.49731 0.0300537 1.6115 0.0928718L16.6115 8.34287C16.7291 8.40762 16.8271 8.50273 16.8954 8.6183C16.9637 8.73386 16.9998 8.86564 16.9998 8.99987C16.9998 9.13411 16.9637 9.26588 16.8954 9.38145C16.8271 9.49701 16.7291 9.59213 16.6115 9.65687L1.6115 17.9069C1.50076 17.9678 1.37641 17.9998 1.25 17.9999ZM2 2.01737V15.9824L14.6937 8.99987L2 2.01737Z" fill="black"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

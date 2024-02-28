@@ -1,0 +1,28 @@
+{{ require_js(get_asset_url("../../js/faq.js"), { position: "footer", defer: true }) }}
+{{ require_css(get_asset_url("../../css/faq-module.css"), { async: true }) }}
+
+<div class="faq-module global-tb-padding">
+    <h2>{{ module.title.content }}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="faq-wrapper col-xl-8 col-lg-10 offset-xl-2 offset-lg-1">
+                {% for faq in module.faq_items %}
+                    <div class="faq-item">
+                        <div class="question-block">
+                            <p class="faq-question" data-question="{{ faq.question }}">{{ faq.question }}</p>
+                            <div class="faq-plus-icon">
+                                <span class="plus-icon horizontal"></span>
+                                <span class="plus-icon vertical"></span>
+                            </div>
+                        </div>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                {{ faq.answer }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

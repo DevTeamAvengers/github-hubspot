@@ -1,0 +1,183 @@
+[{
+  "id": "",
+  "name": "menu",
+  "label": "Menu options",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": 3,
+    "sorting_label_field": null,
+    "default": null
+  },
+  "children": [
+    {
+      "name": "content",
+      "label": "Navigatie titel",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "menu",
+      "label": "Menu",
+      "required": false,
+      "locked": false,
+      "type": "menu",
+      "default": null
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "id": "",
+  "name": "contact",
+  "label": "Contact options",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": null
+  },
+  "children": [
+    {
+      "name": "content",
+      "label": "Contact titel",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "link_content",
+      "label": "Link content (name)",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "link",
+      "label": "Link to",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "link_type",
+      "label": "Link type",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "display": "select",
+      "choices": [
+        ["tel:", "Phone"],
+        ["mailto:", "Email"],
+        ["", "URL (page)"]
+      ],
+      "type": "choice",
+      "default": ""
+    },
+    {
+      "name": "open_in_new_tab",
+      "label": "Open link in new tab",
+      "required": false,
+      "locked": false,
+      "type": "boolean",
+      "display": "checkbox",
+      "default": false
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "id": "",
+  "name": "social",
+  "label": "Social options",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": null
+  },
+  "children": [
+    {
+      "name": "link",
+      "label": "Link",
+      "required": false,
+      "locked": false,
+      "supported_types": ["EXTERNAL"],
+      "type": "link",
+      "show_advanced_rel_options": false,
+      "default": {
+        "url": {
+          "content_id": null,
+          "type": "EXTERNAL",
+          "href": ""
+        },
+        "open_in_new_tab": false,
+        "no_follow": false,
+        "sponsored": false,
+        "user_generated_content": false
+      }
+    },
+    {
+      "name": "icon_field",
+      "label": "Icon",
+      "required": true,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": true,
+      "resizable": false,
+      "show_loading" : false,
+      "type": "image",
+      "default": {
+          "src": "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/icons%20Pay/carbon_logo-twitter.svg",
+          "alt": "Twitter icon"
+      }
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "id": "",
+  "name": "sub_menu",
+  "label": "Sub menu options (Disclaimer)",
+  "required": false,
+  "locked": false,
+  "type": "menu",
+  "default": null
+}
+]

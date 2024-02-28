@@ -1,0 +1,44 @@
+{% import 'wirelabtheme/macros/navigatie.html' as navigatie %}
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top-footer flex">
+            {% for naviation in module.menu %}
+                <nav class="footer__nav">
+                    <p class="heading-4">{{naviation.content}}</p>
+                    {{ navigatie.nav(naviation.menu, "footer__nav") }}
+                </nav>
+            {% endfor %}
+
+            <div class="footer__contact">
+                {% for contact in module.contact %}
+                    <p class="heading-5">{{contact.content}}</p>
+                    <a class="footer__contact-link"href="{{contact.link_type}}{{contact.link}}">{{contact.link_content}}</a>
+                {% endfor %}
+
+                <div class="footer__socials flex">
+                    {% for social in module.social %}
+                        {% set href = social.link.url.href %}
+                        {% set linkTo = href|split("/") %}
+                        <a class="footer__social-link" href="{{href}}"{% if social.link.open_in_new_tab %}target="_blank"{% endif %}{% if social.link.rel %}rel="{{ social.link.rel }}"{% endif %} aria-label="Go to {{ linkTo[1] }}" >
+                            <img class="footer__icon" src="{{ social.icon_field.src }}" alt="{{ social.icon_field.alt }}" loading="lazy" />
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom flex">
+            <div class="footer__copyright">
+                &copy; {% if site_settings.company_name %}{{site_settings.company_name}}{% else %} Pay. {% endif %} {{ year }} 
+            </div>
+
+            <nav class="footer__disclaimer-nav flex">
+                {{ navigatie.nav(module.sub_menu, "footer__disclaimer-nav") }}
+            </nav>
+        </div>
+    </div>
+</footer>
+
+
+

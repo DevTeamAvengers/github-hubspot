@@ -1,0 +1,64 @@
+<section class="smoelenbook">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-6"><h2 class="heading2">{{module.content.title}}</h2></div>
+			<div class="col-12 col-lg-6"><p class="top-content">{{module.content.content}}</p></div>
+		</div>
+	</div>
+	<div class="container slider-container {% for item in module.smoelen %}{% if loop.first %}{{item.choice_field}}{% endif %}{% endfor %}">
+		<div class="row">
+			<div class="col-12 col-lg-3 buttons-col">
+				<div class="buttons-col-container">
+					{% for item in module.smoelen %}
+						<div data-buttonid="{{loop.index0}}" data-backgroundcolor="{{item.choice_field}}" class="smoel-button {% if loop.first %}active{% endif %}">
+							<span class="name">{{item.person_name}}</span>
+							<span class="job">{{item.job}}</span>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-4 image-col">
+				<div class="image-slider">
+					{% for item in module.smoelen %}
+						<div class="image-container">
+							<img src="{{item.image.src}}" />
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-5 content-col">
+				<div class="content-slider">
+					{% for item in module.smoelen %}
+						<div class="sildercontent-container">
+							<div class="contect-text">
+								<p>{{item.content}}</p>
+							</div>
+							
+							<div class="person-information">
+								<div class="name-job">
+									<span class="name">{{item.person_name}}</span>
+									<span class="job">{{item.job}}</span>
+								</div>
+
+								<a href="{{item.link_field.url.href}}">
+									<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 10C0 4.47715 4.47715 0 10 0H38C43.5228 0 48 4.47715 48 10V38C48 43.5228 43.5228 48 38 48H0V10Z" fill="#1D1D1D"/>
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M17.7747 16.2839C17.7747 17.529 16.8267 18.5366 15.3442 18.5366C13.9194 18.5366 12.9713 17.529 13.0007 16.2839C12.9713 14.9783 13.9193 14 15.3726 14C16.8267 14 17.7463 14.9783 17.7747 16.2839ZM13.1199 34.8191V20.3162H17.6271V34.8181H13.1199V34.8191Z" fill="white"/>
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M21.2398 24.9441C21.2398 23.1352 21.1802 21.593 21.1206 20.3177H25.0356L25.2437 22.3045H25.3326C25.9259 21.3849 27.4084 19.9922 29.8106 19.9922C32.7757 19.9922 35 21.9497 35 26.2186V34.8205H30.4927V26.7833C30.4927 24.9139 29.8408 23.6394 28.2098 23.6394C26.9637 23.6394 26.2229 24.4995 25.9268 25.3292C25.8076 25.6263 25.7489 26.0407 25.7489 26.4569V34.8205H21.2416V24.9441H21.2398Z" fill="white"/>
+									</svg>
+
+								</a>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+

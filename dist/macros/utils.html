@@ -1,0 +1,74 @@
+{#
+  Examples in order:
+  createQueryUrl('tags', 'online') // {url}?tags=online
+  createQueryUrl('tags', 'in-store', true) // {url}?tags=online,in-store
+  createQueryUrl('tags', 'omnichannel', true) // {url}?tags=online,in-store,omnichannel
+  createQueryUrl('tags', 'in-store', true) // {url}?tags=online,omnichannel
+  createQueryUrl('tags', null) // {url}
+#}
+
+{% macro createQueryUrl(key, value, toggleValue = false, fullPath = false) %}
+  {% set dictItems = request.queryDict.items() %}
+
+  {# collect all keys in the queryDict (queryDict.keys() doesn't work) #}
+  {% set keys = [] %}
+  {% for k, v in dictItems %}
+    {% do keys.append(k) %}
+  {% endfor %}
+
+  {% set hasKey = key in keys %}
+  {% set hasValue = value is not none %}
+  {% set stringValue = value|string %}
+  
+  {% set parts = [] %}
+    
+  {% for k, v in dictItems %}
+    {% if k == key %}
+        {% if hasValue %}
+          
+          {# toggle or set value #}
+          {% set values = v|split(',') %}
+          
+          {% if toggleValue %}
+            {% if stringValue in values %}
+              {# remove value from values array #}
+              {% set values = values|reject('in', [stringValue]) %}
+            {% else %}
+              {# add value to values array #}
+              {% do values.append(stringValue) %}
+            {% endif %}
+          {% else %}
+            {# overwrite the value instead #}
+            {% set values = [stringValue] %}
+          {% endif %}
+
+          {% if values|length > 0 %}
+            {% do parts.append(k ~ '=' ~ values|join(',')) %}
+          {% endif %}
+
+        {# else don't append it to the parts #}
+        {% endif %}
+    {% else %}
+        {% do parts.append(k ~ '=' ~ v) %}
+    {% endif %}
+  {% endfor %}
+
+  {# if the key was not present in the queryDict we still want to add it #}
+  {% if not hasKey and hasValue %}
+    {% do parts.append(key ~ '=' ~ stringValue) %}
+  {% endif %}
+  
+  {% set basePath = fullPath ? request.fullUrl : request.path %}
+  {{basePath ~ '?' ~ parts|join('&')}}
+{% endmacro %}
+
+{% macro getSearchParams(ignoreKey) %}
+    {# copy queryDict but leave out our ignoreKey #}
+    {% set searchParams = {} %}
+    {% for key, value in request.queryDict.items() %}
+        {% if key != ignoreKey %}
+            {% do searchParams.put(key, value) %}
+        {% endif %}
+    {% endfor %}
+    {{ searchParams }}
+{% endmacro %}

@@ -1,0 +1,29 @@
+
+
+
+<div class="container">
+  <div class="row">
+    {% for item in module.posts %}
+      {% set posts = blog_recent_topic_posts(item.blog_field, item.tag_field, item.number_field ) %}
+    
+      {% for post in posts %}
+        <div class="col-sm-4">
+          <div class="post-article">
+            <figure>
+              <img src="{{ post.featured_image }}" alt="{{ post.name }}">
+            </figure>
+
+
+            <div class="post-article__content">
+              <h4><a href="{{ post.absolute_url }}">{{ post.name }}</a></h4>
+
+              <p>{{ post.post_summary|striptags|truncate(160, breakword=False, end='...') }}</p>
+
+              <a href="{{ post.absolute_url }}">Read More</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </div>
+</div>

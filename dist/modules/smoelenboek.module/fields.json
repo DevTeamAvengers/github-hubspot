@@ -1,0 +1,162 @@
+[{
+  "name": "smoelen",
+  "label": "smoelen",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": 0,
+    "max": 4,
+    "sorting_label_field": null,
+    "default": null
+  },
+  "children": [
+    {
+      "name": "person_name",
+      "label": "Naam",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Payter Achteraf"
+    },
+    {
+      "name": "job",
+      "label": "Functie",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Co-Founder / CEO"
+    },
+    {
+      "name": "content",
+      "label": "content",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "“Als CEO bij Pay. ben ik altijd aliquet faucibus tristique id consectetur. Egestas ut curabitur felis volutpat sit pharetra vehicula pellentesque. Elit amet, senectus mauris molestie amet dolor maecenas. Nunc viverra neque tellus amet, mi et arcu. Diam turpis ac cum odio nisl.”"
+    },
+    {
+      "name": "link_field",
+      "label": "Linkedin link",
+      "required": false,
+      "locked": false,
+      "supported_types": [
+        "EXTERNAL",
+        "CONTENT",
+        "FILE",
+        "EMAIL_ADDRESS",
+        "BLOG"
+      ],
+      "type": "link",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {
+        "url": {
+          "content_id": null,
+          "type": "EXTERNAL",
+          "href": "https://www.linkedin.com/company/pay-nl/"
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      }
+    },
+    {
+      "name": "choice_field",
+      "label": "Background color",
+      "required": false,
+      "locked": false,
+      "display": "select",
+      "inline_help_text": "",
+      "help_text": "",
+      "choices": [
+        ["pay-extra-light-purple", "Extra light purple"],
+        ["pay-light-purple", "Light purple"],
+        ["pay-purple", "Purple"],
+        ["pay-purple-dark", "Dark purple"],
+        ["pay-aqua", "Aqua"],
+        ["pay-pink", "Pink"],
+        ["pay-dark-pink", "Dark pink"],
+        ["pay-light-blue", "Light blue"],
+        ["pay-mid-blue", "Mid blue"],
+        ["pay-green", "Green"],
+        ["pay-red", "Red"]
+      ],
+      "type": "choice",
+      "placeholder": "",
+      "default": "pay-extra-light-purple"
+    },
+    {
+      "name": "image",
+      "label": "Image",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": false,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "size_type": "auto",
+        "src": "https://www.pay.nl/hubfs/smoelboek-placeholder.png",
+        "alt": null,
+        "loading": "disabled"
+      }
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": []
+}
+,
+{
+  "name": "content",
+  "label": "Content",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "title",
+      "label": "Title field",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Meet the Pay. board"
+    },
+    {
+      "name": "content",
+      "label": "content",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Viverra ac volutpat risus aliquam. Quam et et tellus et gravida diam scelerisque cursus odio. Pharetra, augue neque mattis faucibus eget. Morbi in a, augue aenean consectetur eu, id."
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+]

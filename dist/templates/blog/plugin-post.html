@@ -1,0 +1,27 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Pay - Plugin post
+  screenshotPath: ../../images/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+  {{ require_css(get_asset_url("../../css/blog-post-module.css")) }}
+
+  <section class="blog-post-module blog-plugins">
+  
+    {% module 'Hero text image' path='../../modules/hero-text-balloon' fields={ content_group: { tag: 'Feature' } } %}
+    {% module 'Intro text' path='../../modules/simple-intro' %}
+    {% module 'Card' path='../../modules/two-columns-shadow-card' %}
+    {% module 'Two column texts' path='../../modules/simple-intro' fields={ img_col: { shadow_color: 'bg-light-blue' } } %}
+    {% module 'How-to With steps' path='../../modules/how-to' %}
+    {% module 'References' path='../../modules/reference-grid' %}
+    {% module 'Image' path='../../modules/image-block' %}
+    {% module 'Payment methods' path='../../modules/reference-grid' %}
+    {% module 'USP text' path='../../modules/usp-text' %}
+    {% module 'Crosslinks' path='../../modules/crosslinks' %}
+    {% module 'Register CTA' path='../../modules/register-cta' %}
+      
+  </section>
+{% endblock body %}

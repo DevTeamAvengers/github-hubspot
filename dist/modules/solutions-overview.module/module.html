@@ -1,0 +1,16 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+
+<div class="solutions-overview-module bg-extra-light-purple global-tb-padding">
+    <div class="container">
+        <div class="row solutions-row">
+            {% for item in module.solution_items %}
+            <div class="solution-item col-md-4">
+                <p class="heading-4">{{ item.solution_title }}</p>
+                <p>{{ item.solution_descr }}</p>
+        
+                {{ button.link(item.solution_link, "btn-link btn-link-primary") }}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

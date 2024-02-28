@@ -1,0 +1,43 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+<section class="hero-big-small hero-text-balloon hero-module global-tb-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-5 flex flex--v-center">
+                <div class="content-column">
+                    {% if module.content_group.tag %}
+                        <span class="subtitle balloon balloon-sm balloon-pill balloon-bl balloon-outline-pink">{{ module.content_group.tag }}</span>
+                    {% endif %}
+
+                    {% if module.content_group.title %}
+                        <h1 class="heading heading-2">{{ module.content_group.title }}</h1>
+                    {% endif %}
+                    
+                    {% if module.content_group.text %}
+                        <div class="text">{{ module.content_group.text }}</div>
+                    {% endif %}
+
+                    {% if module.content_group.buttons %}
+                        <div class="controls">
+                            {% for btn in module.content_group.buttons %}
+                                {{ macroBtn.link(btn) }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% set bg = module.balloon.bg_color.color %}
+            <div class="col-12 col-md-6 offset-md-1">
+                <div class="ratio ratio-1x1">
+                    <div class="new-context">
+                        <div class="balloon balloon-lg balloon-tr w-100 h-100 bg-extra-light-purple aspect-1 d-flex justify-content-center align-items-center" style="background: {{ bg }};">
+                            {{ image.img(module.balloon.img_group.image_desktop, "", "eager", [300, 400, 530]) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

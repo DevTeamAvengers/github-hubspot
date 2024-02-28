@@ -1,0 +1,23 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Case form
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+
+  {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/dispute-form' label='Dispute form'%} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}
+
+{% block scripts %}
+  {{ require_js(get_asset_url('../../js/disputeForm.js')) }}
+{% endblock scripts %}

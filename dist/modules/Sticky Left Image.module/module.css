@@ -1,0 +1,8 @@
+.sticky-left-image { direction: rtl; }
+.sticky-left-image__inner { width: 50vw; text-align: left; }
+
+.sticky-left-image img { display: block; margin-right: auto; }
+
+@media only screen and (max-width: 767px) {
+  .sticky-left-image__inner { width: 100vw; }
+}

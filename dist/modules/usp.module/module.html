@@ -1,0 +1,28 @@
+{{ require_css(get_asset_url("../../css/usp-module.css"), { async: true }) }}
+
+<section class="usp-module {{ module.style.background_style }} global-tb-padding" {% if module.style.remove_top_padding %} style="padding-top: 0;"{% endif %}>
+    <div class="container">
+
+        {% if module.title.content %}
+            <h2 class="heading heading-3">{{ module.title.content }}</h2>
+        {% endif %}
+
+        <div class="row">
+            {% for usp in module.slides %}
+                {% set iconUrl = get_asset_url(usp.icon.src) %}
+                {% set icon = iconUrl ? iconUrl : usp.icon.src %}
+                <div class="col-md-6 col-xl-3 mb-4">
+                    <div class="h-100 text-block">
+                        <div class="balloon balloon-icon balloon-bl bg-extra-light-purple balloon-icon--small">
+                            <span class="icon text-primary">
+                                <img src="{{ icon }}" alt="{{ usp.icon.alt }}" loading="lazy" />
+                            </span>
+                        </div>
+                        <h3 class="heading heading-4">{{ usp.title }}</h3>
+                        <p class="text">{{ usp.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

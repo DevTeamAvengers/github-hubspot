@@ -1,0 +1,22 @@
+{{ require_css(get_asset_url("../../css/other-contacts-module.css"), { async: true }) }}
+
+<section class="other-contacts-module bg-white global-tb-padding">
+    <div class="container">
+        <div class="other-row row">
+            {% for item in module.other_contacts %}
+            <div class="other-contact col-lg-4 col-md-6 d-flex flex-column justify-content-between">
+                <div class="other-contact-info">
+                    <p class="heading heading-4">{{ item.title }}</p>
+                    <p>{{ item.description }}</p>
+                </div>
+                <div class="other-contact-info">
+                    {% for contact in item.contacts %}
+                        <p class="heading heading-6">{{ contact.title }}</p>
+                        <a class="contact-data" href="{{ contact.link_type }}{{ contact.link }}" {% if contact.open_in_new_tab %} target="_blank" {% endif %}>{{ contact.link_name }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

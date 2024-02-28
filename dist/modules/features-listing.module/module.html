@@ -1,0 +1,100 @@
+{% import 'wirelabtheme/macros/utils.html' as utils %}
+
+{% set blogId = group ? module.blog_group.blog|default(group.id) : module.blog_group.blog %}
+{% if not group or module.blog_group.blog %}
+    {% set contents = blog_recent_posts(blogId) %}
+{% endif %}
+
+{# collect all tags from query #}
+{% set TAGS = 'tags' %}
+{% set FEATURED = 'featured' %}
+{% set allTags = blog_tags("default") %}
+{% set hasTagsQuery = TAGS in request.queryDict %}
+{% set tagSlugs = hasTagsQuery ? request.queryDict[TAGS]|split(',') : [] %}
+
+{# if we have tags in the query, collect blog posts by tags #}
+{% if hasTagsQuery %}
+    {% set contents = blog_recent_tag_posts(blogId, tagSlugs) %}
+{% endif %}
+
+<section class="features-listing-module global-tb-padding">
+    <div class="container">
+
+        {% if module.title %}
+            <h1 class="heading text-center">{{ module.title.content }}</h1>
+        {% endif %}
+
+        <div class="d-flex justify-content-center">
+            <div class="btn-tab-group">
+                {% set active = tagSlugs|length == 0 ? 'active' : '' %}
+                <a href="{{ utils.createQueryUrl(TAGS, null) }}" class="btn btn-tab solid heading-5 {{ active }}">{{ module.blog_group.text_all }}</a>
+
+                {% for tag in allTags %}
+                    {% if tag.slug != FEATURED %}
+                        {% set active = tag.slug in tagSlugs ? 'active' : '' %}
+                        <a href="{{ utils.createQueryUrl(TAGS, tag.slug, true) }}" class="btn btn-tab solid heading-5 {{ active }}" >{{ tag.name }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        {# Blog previews #}
+        <div class="row row-cards">
+            {% for content in contents %}
+                <div class="col-lg-4 vstack">
+
+                    <div class="text-block">
+                        <a href="{{ content.absolute_url }}">
+                            <div class="balloon balloon-icon balloon-bl bg-extra-light-purple">
+                                <span class="icon text-primary">
+                                    <img src="{{ content.post_list_summary_featured_image }}" loading="lazy" alt="{{ content.name }}" >
+                                </span>
+                            </div>
+                        </a>
+                        <h4 class="heading">{{ content.name }}</h4>
+                        <p class="text">{{ content.widgets.Hero_text_image.body.content_group.text|default('') }}</p>
+                    </div>
+                    
+                    <a href="{{ content.absolute_url }}" class="btn btn-link">{{ module.blog_group.text_more }}</a>
+                
+                </div>
+            {% endfor %}
+        </div>
+
+        {# Pagination #}
+        {% if contents.total_page_count > 1 %}
+            <div class="blog-pagination">
+                {% set offset = 0 %}
+                {% set page_list = [-2, -1, 0, 1, 2] %}
+                
+                {% if contents.total_page_count - current_page_num == 1 %}{% set offset = -1 %}
+                {% elif contents.total_page_count - current_page_num == 0 %}{% set offset = -2 %}
+                {% elif current_page_num == 2 %}{% set offset = 1 %}
+                {% elif current_page_num == 1 %}{% set offset = 2 %}
+                {% else %}{% set offset = 0 %}{% endif %}
+            
+                <a class="btn btn-pagination prev {{ 'disabled' if !last_page_num }}" href="{{ blog_page_link(last_page_num) }}" aria-label="Go to previous page">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="btn-icon chevron-left">
+                        <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" fill="#1D1D1D" />
+                    </svg>
+                </a>
+
+                {% for page in page_list %}
+                    {% set page_index = current_page_num + page + offset %}
+                    {% if page_index > 0 and page_index <= contents.total_page_count %}
+                        <a class="btn btn-pagination {{ 'active' if page_index == current_page_num }}" href="{{ blog_page_link(page_index) }}">{{ page_index }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                <a class="btn btn-pagination next {{ 'disabled' if !next_page_num }}" href="{{ blog_page_link(current_page_num + 1) }}" aria-label="Go to next page">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="btn-icon">
+                        <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" fill="#1D1D1D" />
+                    </svg>
+                </a>
+            </div>
+        {% endif %}
+
+    </div>
+</section>

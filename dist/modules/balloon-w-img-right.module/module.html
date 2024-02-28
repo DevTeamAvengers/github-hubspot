@@ -1,0 +1,27 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/balloon-w-img-right-module.css"), { async: true }) }}
+
+{% set left_data = module.balloon_data.left_col %}
+{% set img = module.balloon_data.right_col_img %}
+{% set imgUrl = get_asset_url(img.src) ? get_asset_url(img.src) : img.src %}
+{% set paddingReduced = module.layout.padding_reduced ? "pt-30" : "" %}
+
+<div class="balloon-w-img-right balloon-w-img-right-module {{ paddingReduced }} global-tb-padding">
+    <div class="container">
+        <div class="balloon-w-img-row row">
+            <div class="two-col-balloon col-lg-10 col-xl-8 offset-lg-1 offset-xl-2 bg-pink">
+                <div class="left-col">
+                    <div class="heading-4">{{ left_data.title }}</div>
+                    <p>{{ left_data.description }}</p>
+                    {{ button.link(left_data.btn, "btn-primary btn-text-hover") }}
+                </div>
+                <div class="right-col">
+                    {% set asset = { src: imgUrl, alt: img.alt } %}
+                    {{ image.img(asset, "righ-img", "lazy", [300, 350, 420]) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

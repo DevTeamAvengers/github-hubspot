@@ -1,0 +1,77 @@
+[{
+  "name": "text_group",
+  "label": "Text",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "text",
+      "label": "Title",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Schrijf je in op onze nieuwsbrief om  de laatste updates te ontvangen"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": null
+}
+,
+{
+  "name": "form_group",
+  "label": "Form",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "form",
+      "label": "Form",
+      "required": false,
+      "locked": false,
+      "type": "form",
+      "default": null
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": null
+}
+,
+{
+  "id": "",
+  "name": "image_group",
+  "label": "Image",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "id": "",
+      "name": "image_desktop",
+      "label": "Select a image for desktop",
+      "help_text": "Always fill this image",
+      "inline_help_text": "Always fill this image",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "resizable": false,
+      "type": "image",
+      "default": {
+        "src": "",
+        "alt": null
+      }
+    }
+  ],
+  "type": "group",
+  "default": {
+    "image_desktop": {
+      "src": "https://www.pay.nl/hubfs/custom-video-thumbnails/newslettersignup.webp"
+    }
+  }
+}
+]

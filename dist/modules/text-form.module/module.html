@@ -1,0 +1,72 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/text-form-module.css"), { async: true }) }}
+
+{# Check if content exists #}
+{% set tag = module.content_group.tag %}
+{% set title = module.content_group.title %}
+{% set description = module.content_group.text %}
+{% set buttons = (module.content_group.buttons|first).cta.cta or (module.content_group.buttons|first).link.link.url.href %}
+{% set isThereContent = tag or title or description or buttons %}
+{% set sideImage = module.image_group.image_desktop.src %}
+
+<section class="text-form-module global-tb-padding">
+    {% if isThereContent %}
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-8 offset-md-2 flex flex--v-center text-form-title">
+                    <div class="hero-big-small__center-text">
+                        {% if tag %}
+                            <div style="width: 100%;">
+                                <span class="subtitle balloon balloon-sm balloon-pill balloon-bl balloon-outline-pink">{{ module.content_group.tag }}</span>
+                            </div>
+                        {% endif %}
+                        {% if title %}
+                            <div class="heading heading-2">{{ module.content_group.title }}</div>
+                        {% endif %}
+                        
+                        {% if description %}
+                            <div class="text">{{ module.content_group.text }}</div>
+                        {% endif %}
+
+                        {% if buttons %}
+                            <div class="controls">
+                                {% for btn in module.content_group.buttons %}
+                                    {{ macroBtn.link(btn) }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if sideImage %}
+        <div class="text-form-module__left-image-container">
+            <div class="text-form-module__left-image">
+                {{image.img(module.image_group.image_desktop, "")}}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="container text-form-module__form-content-container{% if isThereContent or image %} content-above{% endif %}">
+        <div class="row">
+            <div class="col-12 col-lg-4 offset-lg-1 text-form-module__form-content">
+                <h2 class="heading-4">{{module.title.content}}</h2>
+                {{module.text.content}}
+            </div>
+
+            <div class="col-12 col-lg-6 offset-lg-1 text-form-module__form">
+                {% form
+                    form_to_use="{{ module.form.form_id }}"
+                    response_response_type="{{ module.form.response_type }}"
+                    response_message="{{ module.form.message }}"
+                    response_redirect_id="{{ module.form.redirect_id }}"
+                    response_redirect_url="{{module.form.redirect_url}}"
+                    gotowebinar_webinar_key="{{ module.form.gotowebinar_webinar_key }}"
+                %}
+            </div>
+        </div>
+    </div>
+</section>

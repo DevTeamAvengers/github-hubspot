@@ -1,0 +1,86 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Over ons
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+
+  {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/hero-text-image' label='Header'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/simple-intro' label='Simple intro' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/image-block.module' fields={
+        balloon_size: 'balloon-md',
+        balloon_corners: ['balloon-tr'],
+        style: {
+          background_style: 'bg-white-to-purple'
+        }
+      } %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/statement' label='Statement'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/history' label='History'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/pay-culture' label='Pay culture'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/team-members.module' label='Team members'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/image-block.module' fields={
+        balloon_size: 'balloon-md',
+        balloon_corners: ['balloon-tr'],
+        style: {
+          background_style: 'bg-purple'
+        }
+      } %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/statement' label='Statement'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/single-case.module' label='Case' %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/two-columns-shadow-card' label='Text shadow-card' fields={ columns_layout: { img_position: 'img_right' } } %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/two-columns-shadow-card' label='Text shadow-card' fields={ columns_layout: { bg_color: 'bg-extra-light-purple' } } %} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/crosslinks' label='Crosslinks'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/register-cta' label='Register (CTA)'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+  
+{% endblock body %}

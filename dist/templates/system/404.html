@@ -1,0 +1,155 @@
+<!--
+  templateType: error_page
+  isAvailableForNewContent: true
+  label: Pay - 404 error
+-->
+{% set template_css = '../../css/templates/system.css' %}
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+{# The main-content ID is used for the navigation skipper in the header.html file. More information on the navigation skipper can be found here: https://github.com/HubSpot/cms-theme-boilerplate/wiki/Accessibility #}
+<main id="main-content" class="body-container-wrapper">
+
+  <section class="content-wrapper">
+
+    {% if request is containing "en/" %}
+    {% module "404_page" path='../../modules/success-notification' label='404 not found',
+        layout={
+          "balloon_color": "bg-mid-blue",
+          "title_width": "offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6"
+        },
+        image_group={
+          "image_desktop": {
+            "src": "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/default-images/404.png",
+            "alt": "Woman with phone default image"
+          }
+        },
+        content_group={
+          "tag": "The page was not found",
+          "title": "Oops! Something seems to have gone wrong.",
+          "first_text_block": "Use the navigation to go to the page you are looking for or return to home.",
+          "buttons": {
+            "content": "Back to home",
+            "style": "btn-primary btn-text-hover"
+          }
+        }
+    %}
+    {% else if request is containing "nl/" %}
+      {% module "404_page" path='../../modules/success-notification' label='404 not found',
+        layout={
+          "balloon_color": "bg-mid-blue",
+          "title_width": "offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6"
+        },
+        image_group={
+          "image_desktop": { 
+            "src": "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/default-images/404.png",
+            "alt": "Woman with phone default image"
+          }
+        },
+        content_group={
+          "tag": "De pagina is niet gevonden",
+          "title": "Oops! Er lijkt iets mis gegaan te zijn.",
+          "first_text_block": "Gebruik de navigatie om naar de pagina te gaan die je zoekt of keer terug naar home.",
+          "buttons": {
+            "content": "Terug naar home",
+            "style": "btn-primary btn-text-hover"
+          }
+        }
+    %}
+    {% else if request is containing "de/" %}
+        {% module "404_page" path='../../modules/success-notification' label='404 not found',
+          layout={
+            "balloon_color": "bg-mid-blue",
+            "title_width": "offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6"
+          },
+          image_group={
+            "image_desktop": {
+              "src": "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/default-images/404.png",
+              "alt": "Woman with phone default image"
+            }
+          },
+          content_group={
+            "tag": "Die Seite wurde nicht gefunden",
+            "title": "Huch! Irgendetwas scheint schief gelaufen zu sein.",
+            "first_text_block": "Benutzen Sie die Navigation, um zur gesuchten Seite zu gelangen oder zur Startseite zurückzukehren.",
+            "buttons": {
+              "content": "Zurück nach Hause",
+              "style": "btn-primary btn-text-hover"
+            }
+          }
+      %}
+    {% else if request is containing "be/" %}
+    {% module "404_page" path='../../modules/success-notification' label='404 not found',
+    layout={
+      "balloon_color": "bg-mid-blue",
+      "title_width": "offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6"
+    },
+    image_group={
+      "image_desktop": {
+        "src": "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/default-images/404.png",
+        "alt": "Woman with phone default image"
+      }
+    },
+    content_group={
+      "tag": "De pagina is niet gevonden",
+      "title": "Oops! Er lijkt iets mis gegaan te zijn.",
+      "first_text_block": "Gebruik de navigatie om naar de pagina te gaan die je zoekt of keer terug naar home.",
+      "buttons": {
+        "content": "Terug naar home",
+        "style": "btn-primary btn-text-hover"
+      }
+    }
+%}
+    {% else if request is containing "fr/" %}
+    {% module "404_page" path='../../modules/success-notification' label='404 not found',
+    layout={
+      "balloon_color": "bg-mid-blue",
+      "title_width": "offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6"
+    },
+    image_group={
+      "image_desktop": {
+        "src": "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/default-images/404.png",
+        "alt": "Woman with phone default image"
+      }
+    },
+    content_group={
+      "tag": "La page n'a pas été trouvée",
+      "title": "Oups ! Quelque chose semble avoir mal tourné.",
+      "first_text_block": "Utilisez la navigation pour aller à la page que vous recherchez ou revenir à l'accueil.",
+      "buttons": {
+        "content": "Retour à l'accueil",
+        "style": "btn-primary btn-text-hover"
+      }
+    }
+%}
+
+    {% else %}
+
+        {% module "404_page" path='../../modules/success-notification' label='404 not found',
+        layout={
+          "balloon_color": "bg-mid-blue",
+          "title_width": "offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6"
+        },
+        image_group={
+          "image_desktop": {
+            "src": "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/default-images/404.png",
+            "alt": "Woman with phone default image"
+          }
+        },
+        content_group={
+          "tag": "De pagina is niet gevonden",
+          "title": "Oops! Er lijkt iets mis gegaan te zijn.",
+          "first_text_block": "Gebruik de navigatie om naar de pagina te gaan die je zoekt of keer terug naar home.",
+          "buttons": {
+            "content": "Terug naar home",
+            "style": "btn-primary btn-text-hover"
+          }
+        }
+      %}
+    {%  endif %}
+
+
+
+  </section>
+</main>
+{% endblock body %}

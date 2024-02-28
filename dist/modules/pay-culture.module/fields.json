@@ -1,0 +1,96 @@
+[{
+  "id": "",
+  "name": "title",
+  "label": "Title",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Title"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "name": "culture_elmts",
+  "label": "Culture elements",
+  "required": true,
+  "locked": false,
+  "children": [
+    {
+      "name": "left_text",
+      "label": "Left section text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Sed ac facilisis fermentum ac quis faucibus neque scelerisque. Felis fusce felis sed luctus. Tincidunt amet, phasellus interdum lectus mauris vestibulum sagittis, at nunc. Suspendisse faucibus placerat nullam mi quis. Enim, nisi, aliquet ac sodales dui ornare quam potenti augue."
+    },
+    {
+      "name": "right_text",
+      "label": "Right section text",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "<p>Feugiat feugiat tellus lacus nunc interdum etiam odio. At velit, imperdiet fringilla dictum. Lacus, lacinia convallis eros aliquam felis urna sagittis netus. At mi cursus id faucibus blandit amet auctor. Pretium sed aenean tempus id amet ac sed. Risus curabitur ornare tristique tempor. Semper egestas augue leo sollicitudin hendrerit bibendum mauris. Pellentesque egestas dictum ut luctus aliquam. Nisl tempor consequat praesent scelerisque quisque eget pellentesque. Felis aliquam, in et non, felis lobortis.</p>\n<p>Quis in ultrices vulputate molestie penatibus nunc tellus egestas. Vel, enim, nam justo, diam commodo metus. Mattis a nunc luctus sit massa hendrerit erat. Nullam malesuada nisi, auctor integer ut. Netus ut iaculis nisl ut amet tortor pharetra quam.</p>"
+    },
+    {
+      "name": "img_slider",
+      "label": "Image slider",
+      "required": false,
+      "locked": false,
+      "occurrence": {
+        "min": 5,
+        "max": null,
+        "sorting_label_field": null,
+        "default": 5
+      },
+      "children": [
+        {
+          "name": "culture_img",
+          "label": "Culture image",
+          "required": true,
+          "locked": false,
+          "inline_help_text": "",
+          "help_text": "",
+          "responsive": true,
+          "resizable": false,
+          "show_loading": false,
+          "type": "image",
+          "default": {
+            "src": "/wirelabtheme/assets/default-images/culture-slider.jpg",
+            "alt": "Culture default"
+          }
+        }
+      ],
+      "type": "group",
+      "inline_help_text": "The number of pictures added to this block should be even!",
+      "help_text": "The number of pictures added to this block should be even!",
+      "default": []
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+]

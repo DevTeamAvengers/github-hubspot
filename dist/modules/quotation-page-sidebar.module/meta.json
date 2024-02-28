@@ -1,0 +1,7 @@
+{
+  "global" : false,
+  "host_template_types" : [ "ANY" ],
+  "module_id" : 49205537255,
+  "label" : "Offerte opvragen - sidebar",
+  "is_available_for_new_content" : true
+}

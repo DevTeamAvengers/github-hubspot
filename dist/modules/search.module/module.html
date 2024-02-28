@@ -1,0 +1,10 @@
+{{ require_css(get_asset_url("../../css/search.css"), { async: true }) }}
+
+{% set labels = {
+    text: module.text_group,
+    blog: module.blogs
+}  %}
+
+<section id="search-results" data-language="{{html_lang}}" data-labels="{{labels|tojson|escape}}">
+</section>
+

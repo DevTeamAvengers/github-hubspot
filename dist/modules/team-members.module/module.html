@@ -1,0 +1,35 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_js(get_asset_url("../../js/teamMembers.js"), { position: "footer", defer: true }) }}
+{{ require_css(get_asset_url("../../css/team-members-module.css"), { async: true }) }}
+
+{% set pics = module.team_data.team_members %}
+{% set teamImage = module.team_data.team_image %}
+{% set teamImgUrl = get_asset_url(teamImage.src) %}
+
+<div class="team-members-module bg-purple global-tb-padding">
+    <div class="team-container container">
+        <div class="team-row row align-items-end">
+            <h2 class="col-lg-5 col-xl-4 heading-1">{{ module.title.content }}</h2>
+            <div class="col-lg-7 col-xl-8 balloon balloon-lg balloon-bl team-member-pics">
+                {% set firstMemberPic = get_asset_url(pics[pics|length - 1].team_member_pic.src) %}
+                {% set asset = { src: firstMemberPic ? firstMemberPic : pics[pics|length - 1].team_member_pic.src, alt: pics[pics|length - 1].team_member_pic.alt } %}
+                {{ image.img(asset, "cover", "lazy", [440, 700, 860]) }}
+                {% for pic in pics %}
+                    {% set memberPic = get_asset_url(pic.team_member_pic.src) %}
+                    {% set asset = { src: memberPic ? memberPic : pic.team_member_pic.src, alt: pic.team_member_pic.alt } %}
+                    {{ image.img(asset, "cover", "lazy", [440, 700, 860]) }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="team-row row align-items-top">
+            <h3 class="col-lg-5 heading-4">{{ module.team_data.left_text }}</h3>
+            <div class="col-lg-5 offset-lg-1">{{ module.team_data.right_text }}</div>
+        </div>
+        <div class="team-row row align-items-center">
+            <div class="team-image col-lg-12 balloon balloon-lg balloon-tr">
+                {{ image.img(module.team_data.team_image, "cover", "lazy", [440, 930, 1296]) }}
+            </div>
+        </div>
+    </div>
+</div>

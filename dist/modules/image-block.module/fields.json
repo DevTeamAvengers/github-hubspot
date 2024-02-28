@@ -1,0 +1,82 @@
+[{
+  "name": "image",
+  "label": "Image",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "responsive": false,
+  "resizable": false,
+  "show_loading": false,
+  "type": "image",
+  "default": {
+    "size_type": "auto",
+    "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/team-pic.jpg",
+    "alt": null,
+    "loading": "disabled"
+  }
+}
+,
+{
+  "name": "balloon_size",
+  "label": "Ronding",
+  "required": false,
+  "locked": false,
+  "display": "select",
+  "inline_help_text": "",
+  "help_text": "",
+  "choices": [
+    ["balloon-sm", "Small"],
+    ["balloon-md", "Medium"],
+    ["balloon-lg", "Large"]
+  ],
+  "type": "choice",
+  "placeholder": "Kies een ronding grootte",
+  "default": "balloon-lg"
+}
+,
+{
+  "name": "balloon_corners",
+  "label": "Scherpe hoeken",
+  "required": false,
+  "locked": false,
+  "display": "select",
+  "inline_help_text": "",
+  "help_text": "",
+  "choices": [
+    ["balloon-tl", "Top left"],
+    ["balloon-tr", "Top right"],
+    ["balloon-br", "Bottom right"],
+    ["balloon-bl", "Bottom left"]
+  ],
+  "type": "choice",
+  "multiple": true,
+  "placeholder": "Kies een of meerdere hoeken",
+  "default": ["balloon-bl"]
+}
+,
+{
+  "type": "group",
+  "isNew": false,
+  "name": "style",
+  "label": "Style",
+  "tab": "STYLE",
+  "children": [
+    {
+      "type": "choice",
+      "display": "select",
+      "choices": [
+        ["bg-white-to-purple", "wit naar paars"],
+        ["bg-light-to-purple", "licht naar paars"],
+        ["bg-white", "wit"],
+        ["bg-extra-light-purple", "licht"],
+        ["bg-purple", "paars"]
+      ],
+      "label": "Background style",
+      "name": "background_style",
+      "default": "bg-white"
+    }
+  ],
+  "default": {}
+}
+]

@@ -1,0 +1,97 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+
+{{ require_css(get_asset_url("../../css/plugins-module.css"), { async: true }) }}
+
+<section class="plugins-module global-tb-padding">
+	
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-lg-5 offset-lg-1 align-self-center order-lg-2">
+				
+				{% if module.content_group %}
+					<div class="content-column">
+
+						{% if module.content_group.title %}
+							<h2 class="heading heading-2">{{ module.content_group.title }}</h2>
+						{% endif %}
+						
+						{% if module.content_group.text %}
+							<div class="richtext text">{{ module.content_group.text }}</div>
+						{% endif %}
+
+						{% if module.content_group.buttons %}
+							<div class="controls">
+								{% for btn in module.content_group.buttons %}
+									{{ button.link(btn) }}
+								{% endfor %}
+							</div>
+						{% endif %}
+
+					</div>
+				{% endif %}
+
+			</div>
+
+			<div class="col-lg-6 align-self-center order-lg-1">
+
+				{% set isEqual =  module.grid_type == 'equal' %}
+				{% set withHero =  module.grid_type == 'with-hero' %}
+				{% set itemRange = isEqual ? range(0,8) : withHero ? range(0,5) : range(0, 0) %}
+
+				{% set balloonShapes = [] %}
+				{% if withHero %}
+					{% set balloonShapes = ['br', 'bl', 'tl', 'tr', 'tl'] %}
+				{% else %}
+					{% set balloonShapes = ['br', 'bl', 'bl', 'tr', 'bl', 'tr', 'tl', 'tl'] %}
+				{% endif %}
+				
+				<div class="grid-squares {{ module.grid_type }}">
+					{% for i in itemRange %}
+
+						{% set item = module.grid_items[i] %}
+
+						{% if isEqual and i == 4 %} {# 4 = middle cell #}
+							<div class="ratio ratio-1x1 middle-cell">
+								<div>
+									<div class="col-square pay h-100">
+										<img src="{{ get_asset_url('../../assets/brand/pay-purple-stroke.svg') }}" alt="Pay." loading="lazy" />
+									</div>
+								</div>
+							</div>
+						{% endif %}
+
+						<div class="ratio ratio-1x1">
+							<div>
+
+								{% if item.item_link.url.href %}
+									<a href="{{ item.item_link.url.href }}" class="col-square balloon balloon-{{ balloonShapes[i] }} btn balloon-shadow balloon-shadow-hover h-100">
+								{% else %}
+									<div class="col-square balloon balloon-{{ balloonShapes[i] }} h-100">
+								{% endif %}
+
+									{% if item %}
+										<img class="img-fluid" src="{{ item.item_image.src }}" alt="{{ item.item_image.alt }}" loading="lazy" />
+										<span class="heading heading-5">{{ item.item_name }}</span>
+									{% endif %}
+
+								{% if item.item_link.url.href %}
+									</a>
+								{% else %}
+									</div>
+								{% endif %}
+
+							</div>
+						</div>
+
+					{% endfor %}
+				</div>
+
+			</div>
+			
+		</div>
+	</div>
+	
+</section>
+
+

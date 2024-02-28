@@ -1,0 +1,60 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Home
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+
+  {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/home-header' label='Home header'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/onestopshop' label='One stop shop'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/reference-grid' label='Icon grind'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/cases' label='Cases' fields={ style: { background_style: 'bg-light-to-purple' } }%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/statement' label='Statement'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/payment-methods' label='Payment methods'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/features' label='Features'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/why-pay' label='Waarom pay'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/plugins' label='Plugins'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/actueel' label='Actueel (blog)'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/register-cta' label='Register (CTA)'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+
+{% endblock body %}

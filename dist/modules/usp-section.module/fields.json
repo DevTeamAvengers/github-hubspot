@@ -1,0 +1,472 @@
+[
+ {
+  "children": [
+   {
+    "choices": [
+     [
+      "labeltag",
+      "Blue"
+     ],
+     [
+      "labeltag--pink",
+      "Pink"
+     ],
+     [
+      "labeltag--light-blue",
+      "Light Blue"
+     ],
+     [
+      "labeltag--alt",
+      "Blue Text Light Background"
+     ],
+     [
+      "labeltag--pink-alt",
+      "Pink Text Light Background"
+     ],
+     [
+      "labeltag--light-blue-alt",
+      "Light Blue Text Light Background"
+     ]
+    ],
+    "default": "labeltag--pink-alt",
+    "display": "select",
+    "display_width": null,
+    "id": "07615e0e-3c90-d8a4-b946-a12b56efbb9a",
+    "label": "Style",
+    "locked": false,
+    "multiple": false,
+    "name": "style",
+    "preset": null,
+    "reordering_enabled": true,
+    "required": false,
+    "type": "choice"
+   },
+   {
+    "allow_new_line": false,
+    "default": "Payment methods",
+    "display_width": null,
+    "id": "bf0ed240-9607-d36f-38b7-b64fa2e6779a",
+    "label": "Content",
+    "locked": false,
+    "name": "content",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+   }
+  ],
+  "default": {
+   "style": "labeltag--pink-alt",
+   "content": "Payment methods"
+  },
+  "display_width": null,
+  "expanded": false,
+  "id": "755e5bdd-266a-2535-dfc3-fba6501b2256",
+  "label": "Tag",
+  "locked": false,
+  "name": "tag",
+  "required": false,
+  "tab": "CONTENT",
+  "type": "group"
+ },
+ {
+  "allow_new_line": false,
+  "default": "Pay. is acquirer van iDEAL",
+  "display_width": null,
+  "id": "ff3579c4-9c29-328c-e348-a5bed44fe00b",
+  "label": "Title",
+  "locked": false,
+  "name": "title",
+  "required": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "validation_regex": ""
+ },
+ {
+  "children": [
+   {
+    "allow_new_line": false,
+    "default": "Title",
+    "display_width": null,
+    "id": "ab2cfb71-61e4-ef41-541b-cd1f339526c0",
+    "label": "Title",
+    "locked": false,
+    "name": "title",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+   },
+   {
+    "children": [
+     {
+      "allow_new_line": false,
+      "default": "",
+      "display_width": null,
+      "id": "buttons.content",
+      "label": "Link content",
+      "locked": false,
+      "name": "content",
+      "required": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "validation_regex": ""
+     },
+     {
+      "choices": [
+       [
+        "btn-primary btn-text-hover",
+        "Primary styling"
+       ],
+       [
+        "btn-outline-primary btn-text-hover",
+        "Outline styling"
+       ],
+       [
+        "btn-dark btn-text-hover",
+        "Dark styling"
+       ],
+       [
+        "btn-pink btn-text-hover",
+        "Pink styling"
+       ],
+       [
+        "btn-link",
+        "Link styling"
+       ]
+      ],
+      "default": "btn-primary btn-text-hover",
+      "display": "select",
+      "display_width": null,
+      "id": "buttons.style",
+      "label": "Link style",
+      "locked": false,
+      "multiple": false,
+      "name": "style",
+      "preset": null,
+      "reordering_enabled": true,
+      "required": false,
+      "type": "choice"
+     },
+     {
+      "children": [
+       {
+        "display_width": null,
+        "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+        "id": "buttons.cta.cta",
+        "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+        "label": "CTA",
+        "locked": false,
+        "name": "cta",
+        "required": false,
+        "type": "cta"
+       }
+      ],
+      "default": {},
+      "display_width": null,
+      "expanded": false,
+      "help_text": "If a CTA is added, its link will be the one used for the button. Use meaningful CTAs with the needed link!",
+      "id": "buttons.cta",
+      "inline_help_text": "If a CTA is added, its link will be the one used for the button. Use meaningful CTAs with the needed link!",
+      "label": "Use HubSpot CTA (recommended)",
+      "locked": false,
+      "name": "cta",
+      "required": false,
+      "tab": "CONTENT",
+      "type": "group"
+     },
+     {
+      "children": [
+       {
+        "default": {
+         "url": {
+          "content_id": null,
+          "type": "CONTENT",
+          "href": ""
+         },
+         "open_in_new_tab": false,
+         "no_follow": false,
+         "sponsored": false,
+         "user_generated_content": false
+        },
+        "display_width": null,
+        "id": "buttons.link.link",
+        "label": "Link",
+        "locked": false,
+        "name": "link",
+        "required": false,
+        "show_advanced_rel_options": false,
+        "supported_types": [
+         "EXTERNAL",
+         "CONTENT",
+         "BLOG"
+        ],
+        "type": "link"
+       }
+      ],
+      "default": {
+       "link": {
+        "url": {
+         "content_id": null,
+         "type": "CONTENT",
+         "href": ""
+        },
+        "open_in_new_tab": false,
+        "no_follow": false,
+        "sponsored": false,
+        "user_generated_content": false
+       }
+      },
+      "display_width": null,
+      "expanded": false,
+      "help_text": "If a CTA was added, this link won't be used!",
+      "id": "buttons.link",
+      "inline_help_text": "If a CTA was added, this link won't be used!",
+      "label": "Use URL",
+      "locked": false,
+      "name": "link",
+      "required": false,
+      "tab": "CONTENT",
+      "type": "group"
+     }
+    ],
+    "default": [
+     {
+      "content": "",
+      "style": "btn-primary btn-text-hover",
+      "cta": {},
+      "link": {
+       "link": {
+        "url": {
+         "content_id": null,
+         "type": "CONTENT",
+         "href": ""
+        },
+        "open_in_new_tab": false,
+        "no_follow": false,
+        "sponsored": false,
+        "user_generated_content": false
+       }
+      }
+     },
+     {
+      "content": "",
+      "style": "btn-primary btn-text-hover",
+      "cta": {},
+      "link": {
+       "link": {
+        "url": {
+         "content_id": null,
+         "type": "CONTENT",
+         "href": ""
+        },
+        "open_in_new_tab": false,
+        "no_follow": false,
+        "sponsored": false,
+        "user_generated_content": false
+       }
+      }
+     }
+    ],
+    "display_width": null,
+    "expanded": false,
+    "id": "buttons",
+    "label": "Buttons",
+    "locked": false,
+    "name": "buttons",
+    "occurrence": {
+     "default": 2
+    },
+    "required": false,
+    "tab": "CONTENT",
+    "type": "group"
+   }
+  ],
+  "default": {
+   "title": "Title",
+   "buttons": [
+    {
+     "content": "",
+     "style": "btn-primary btn-text-hover",
+     "cta": {},
+     "link": {
+      "link": {
+       "url": {
+        "content_id": null,
+        "type": "CONTENT",
+        "href": ""
+       },
+       "open_in_new_tab": false,
+       "no_follow": false,
+       "sponsored": false,
+       "user_generated_content": false
+      }
+     }
+    },
+    {
+     "content": "",
+     "style": "btn-primary btn-text-hover",
+     "cta": {},
+     "link": {
+      "link": {
+       "url": {
+        "content_id": null,
+        "type": "CONTENT",
+        "href": ""
+       },
+       "open_in_new_tab": false,
+       "no_follow": false,
+       "sponsored": false,
+       "user_generated_content": false
+      }
+     }
+    }
+   ]
+  },
+  "display_width": null,
+  "expanded": false,
+  "id": "ad6a1e43-02a5-8e2e-3c35-bc6a7b1ca6b4",
+  "label": "Feature Highlighted",
+  "locked": false,
+  "name": "feature_highlighted",
+  "required": false,
+  "tab": "CONTENT",
+  "type": "group"
+ },
+ {
+  "children": [
+   {
+    "default": {
+     "size_type": "auto",
+     "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/ico1.svg",
+     "alt": "ico1",
+     "loading": "lazy",
+     "width": 64,
+     "height": 64,
+     "max_width": 64,
+     "max_height": 64
+    },
+    "display_width": null,
+    "id": "c2b9c8aa-7a02-a2c6-b872-341fe52f0ad6",
+    "label": "Image",
+    "locked": false,
+    "name": "image_field",
+    "required": false,
+    "resizable": true,
+    "responsive": true,
+    "show_loading": false,
+    "type": "image"
+   },
+   {
+    "allow_new_line": false,
+    "default": "Title",
+    "display_width": null,
+    "id": "5a7a0962-d3d2-a1f8-ef6b-2e994d795ae0",
+    "label": "Title",
+    "locked": false,
+    "name": "title",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+   },
+   {
+    "allow_new_line": false,
+    "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices platea enim.",
+    "display_width": null,
+    "id": "cc7a83fc-63c5-5714-fc38-27cbfaadbb05",
+    "label": "Description",
+    "locked": false,
+    "name": "description",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+   }
+  ],
+  "default": [
+   {
+    "image_field": {
+     "size_type": "auto",
+     "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/ico1.svg",
+     "alt": "ico1",
+     "loading": "lazy",
+     "width": 64,
+     "height": 64,
+     "max_width": 64,
+     "max_height": 64
+    },
+    "title": "Title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices platea enim."
+   },
+   {
+    "image_field": {
+     "size_type": "auto",
+     "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/ico1.svg",
+     "alt": "ico1",
+     "loading": "lazy",
+     "width": 64,
+     "height": 64,
+     "max_width": 64,
+     "max_height": 64
+    },
+    "title": "Title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices platea enim."
+   },
+   {
+    "image_field": {
+     "size_type": "auto",
+     "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/ico1.svg",
+     "alt": "ico1",
+     "loading": "lazy",
+     "width": 64,
+     "height": 64,
+     "max_width": 64,
+     "max_height": 64
+    },
+    "title": "Title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices platea enim."
+   },
+   {
+    "image_field": {
+     "size_type": "auto",
+     "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/ico1.svg",
+     "alt": "ico1",
+     "loading": "lazy",
+     "width": 64,
+     "height": 64,
+     "max_width": 64,
+     "max_height": 64
+    },
+    "title": "Title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ultrices platea enim."
+   }
+  ],
+  "display_width": null,
+  "expanded": false,
+  "id": "97aa6181-639a-bc5c-31bd-546042d6cd88",
+  "label": "Feature",
+  "locked": false,
+  "name": "feature",
+  "occurrence": {
+   "default": 4
+  },
+  "required": false,
+  "tab": "CONTENT",
+  "type": "group"
+ },
+ {
+  "allow_new_line": false,
+  "default": "overview",
+  "display_width": null,
+  "id": "6365748f-e50e-4fcb-4d35-b1e138927cb6",
+  "inline_help_text": "",
+  "label": "Module ID",
+  "locked": false,
+  "name": "module_identifier",
+  "required": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "validation_regex": ""
+ }
+]

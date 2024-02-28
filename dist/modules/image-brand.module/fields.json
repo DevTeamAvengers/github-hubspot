@@ -1,0 +1,38 @@
+[{
+  "name": "image",
+  "label": "Image",
+  "required": true,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "responsive": true,
+  "resizable": true,
+  "show_loading": false,
+  "type": "image",
+  "default": {
+    "size_type": "auto",
+    "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/team-pic.jpg",
+    "alt": null,
+    "loading": "disabled"
+  }
+}
+,
+{
+  "name": "brand_image",
+  "label": "Brand image",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "responsive": true,
+  "resizable": true,
+  "show_loading": false,
+  "type": "image",
+  "default": {
+    "size_type": "auto",
+    "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/team-pic.jpg",
+    "alt": null,
+    "loading": "disabled"
+  }
+}
+]

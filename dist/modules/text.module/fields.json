@@ -1,0 +1,36 @@
+[{
+  "name": "text_group",
+  "label": "Texts",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 1
+  },
+  "children": [
+    {
+      "name": "text",
+      "label": "Rich text",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "<h4>Title</h4><p>Description</p>"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": [
+    {
+      "text": "<h4>Betaalmethode iDEAL op jouw website</h4><p>In Nederland is iDEAL al jaren de meest populaire online betaalmethode bij online shoppers en in webshops en webwinkels. Deze online SEPA betaling wordt direct verwerkt en is, anders dan bij creditcardbetalingen, altijd gegarandeerd wanneer consumenten ermee betalen in jouw webshop of webwinkel. Daarnaast kan jouw klant het afgeschreven bedrag direct terugvinden op zijn afschrift wanneer hij betaalt met iDEAL als betaalmethode.</p>"
+    },
+    {
+      "text": "<h4>PAY. is acquirer van iDEAL</h4><p>Een webshop met iDEAL geeft jouw klanten de mogelijkheid om snel en veilig te betalen. Via PAY. kan dit nóg sneller: sinds 15 februari 2018 heeft PAY. een eigen iDEAL acquirer licentie verworven. Dit maakt ons minder afhankelijk van derden. Deze acquirer licentie leidt tot een stabieler online betaalsysteem en een halvering van de verwerkingstijd bij het aanmaken van iDEAL betalingen.</p>"
+    }
+  ]
+}
+]

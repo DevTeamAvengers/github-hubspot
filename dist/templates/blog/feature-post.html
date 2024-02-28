@@ -1,0 +1,26 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Pay - Feature post
+  screenshotPath: ../../images/template-previews/template.png
+-->
+
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+  {{ require_css(get_asset_url("../../css/blog-post-module.css")) }}
+
+  <section class="blog-post-module blog-features">
+
+    {% module 'Hero text image' path='../../modules/hero-text-balloon' fields={ content_group: { tag: 'Feature' } } %}
+    {% module 'Intro text' path='../../modules/simple-intro' %}
+    {% module 'Card' path='../../modules/two-columns-shadow-card' %}
+    {% module 'Two column texts' path='../../modules/simple-intro' fields={ img_col: { shadow_color: 'bg-light-blue' } } %}
+    {% module 'USPs' path='../../modules/features-grid' fields={
+      title: { content: 'Meer features' },
+      style: { background_style: 'bg-extra-light-purple' }
+    } %}
+    {% module 'Register CTA' path='../../modules/register-cta' %}
+      
+  </section>
+{% endblock body %}

@@ -1,0 +1,29 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/text-form-module.css"), { async: true }) }}
+
+{# Check if content exists #}
+{% set tag = module.content_group.tag %}
+{% set title = module.content_group.title %}
+{% set description = module.content_group.text %}
+{% set buttons = (module.content_group.buttons|first).cta.cta or (module.content_group.buttons|first).link.link.url.href %}
+{% set isThereContent = tag or title or description or buttons %}
+{% set sideImage = module.image_group.image_desktop.src %}
+
+<section class="text-form-module text-form-module--alt global-tb-padding">
+    <div class="container text-form-module__form-content-container">
+        <div class="row">
+            <div class="col-12 text-form-module__form" style="max-width: 660px;">
+                {% form
+                    form_to_use="{{ module.form.form_id }}"
+                    response_response_type="{{ module.form.response_type }}"
+                    response_message="{{ module.form.message }}"
+                    response_redirect_id="{{ module.form.redirect_id }}"
+                    response_redirect_url="{{module.form.redirect_url}}"
+                    gotowebinar_webinar_key="{{ module.form.gotowebinar_webinar_key }}"
+                %}
+            </div>
+        </div>
+    </div>
+</section>

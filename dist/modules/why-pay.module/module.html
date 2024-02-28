@@ -1,0 +1,131 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{# {{ require_js(get_asset_url("../../js/whyPay.js"), { position: "footer", defer: true }) }} #}
+{{ require_css(get_asset_url("../../css/why-pay-module.css"), { async: true }) }}
+
+{% set jsFile = get_asset_url("../../js/whyPay.js") %}
+
+{% require_js position="footer" %}
+<script>
+    let isScripLoaded = false;
+
+    function loadScript() {
+        if (!isScripLoaded && window.innerWidth > 992) {
+            const whyPaySection = document.querySelector("section.why-pay-module");
+            const script = document.createElement("script"); 
+            script.setAttribute("src", whyPaySection.dataset.js);
+            script.setAttribute("defer", "defer");
+            document.body.append(script);
+            isScripLoaded = true;
+        } else {
+            isScripLoaded = false;
+        }
+    }
+    loadScript();
+
+    window.addEventListener("resize", loadScript);
+</script>
+{% end_require_js %}
+
+{% set height = module.field_group|length * 100 %}
+{% set contentheight = 100 / module.field_group|length %}
+
+<section class="why-pay why-pay-module global-tb-padding" data-js="{{ jsFile }}">
+    {# DESKTOP WITH ANIMATIONS #}
+    <div class="why-pay__container container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-5 why-pay__content">
+                <div class="why-pay__slide-container" style="height:{{height}}%;">
+                    {% for item in module.field_group %}
+                        <div data-id="{{loop.index0}}" class="why-pay__content-items why-pay__content-items-desktop flex flex--v-center" style="min-height:{{contentheight}}%;">
+                            <div>
+                                {% if item.content_group.tag %}
+                                    <span class="subtitle balloon balloon-sm balloon-pill balloon-bl balloon-outline-pink">{{ item.content_group.tag }}</span>
+                                {% endif %}
+
+                                {% if item.content_group.title %}
+                                    <h2 class="why-pay__heading heading heading-2">{{ item.content_group.title }}</h2>
+                                {% endif %}
+                                
+                                {% if item.content_group.text %}
+                                    <div class="why-pay__text text">{{ item.content_group.text }}</div>
+                                {% endif %}
+
+                                {{ macroBtn.link(item.content_group.buttons) }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-xl-7 offset-xl-1 col-lg-6 offset-lg-1 why-pay__images">
+                <div class="why-pay__top-image-container">
+                    {% for item in module.field_group %}
+                        <div data-id="{{loop.index0}}" class="why-pay__top-image  {% if loop.first %} active {% endif %}"> 
+                            {% set img = get_asset_url(item.image_field_top.src) %}
+                            {% set asset = { src: img ? img : item.image_field_top.src, alt: item.image_field_top.alt } %}
+                            {{ image.img(asset, "", "lazy", [230, 255, 400]) }}
+                        </div>
+                    {% endfor %}
+
+                </div>
+                <div class="why-pay__bottom-image-container">
+                    {% for item in module.field_group %}
+                        <div data-id="{{loop.index0}}" class="why-pay__bottom-image {% if loop.first %} active {% endif %} ">
+                            {% set img = get_asset_url(item.image_field_bottom.src) %}
+                            {% set asset = { src: img ? img : item.image_field_bottom.src, alt: item.image_field_bottom.alt } %}
+                            {{ image.img(asset, "", "lazy", [380, 450, 550]) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# DESKTOP STATIC #}
+    <div class="container why-pay__mobile">
+        <div class="row">
+            {% for item in module.field_group %}
+                <div class="col-12">
+                    <div data-id="{{loop.index0}}" class="why-pay__content-items flex flex--v-center" style="min-height:{{contentheight}}%;">
+                        <div>
+                            {% if item.content_group.tag %}
+                                <span class="subtitle balloon balloon-sm balloon-pill balloon-bl balloon-outline-pink">{{ item.content_group.tag }}</span>
+                            {% endif %}
+
+                            {% if item.content_group.title %}
+                                <h2 class="why-pay__heading heading heading-2">{{ item.content_group.title }}</h2>
+                            {% endif %}
+                            
+                            {% if item.content_group.text %}
+                                <div class="why-pay__text text">{{ item.content_group.text }}</div>
+                            {% endif %}
+
+                            {{ macroBtn.link(item.content_group.buttons) }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 why-pay__mobile-images">
+                    <div class="why-pay__top-image-container">
+                        <div data-id="{{loop.index0}}" class="why-pay__top-image  {% if loop.first %} active {% endif %}"> 
+                            {% set img = get_asset_url(item.image_field_top.src) %}
+                            {% set asset = { src: img ? img : item.image_field_top.src, alt: item.image_field_top.alt } %}
+                            {{ image.img(asset, "", "lazy", [230, 255, 400]) }}
+                        </div>
+                    </div>
+
+                    <div class="why-pay__bottom-image-container">
+                        <div data-id="{{loop.index0}}" class="why-pay__bottom-image {% if loop.first %} active {% endif %} ">
+                            {% set img = get_asset_url(item.image_field_bottom.src) %}
+                            {% set asset = { src: img ? img : item.image_field_bottom.src, alt: item.image_field_bottom.alt } %}
+                            {{ image.img(asset, "", "lazy", [380, 450, 550]) }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>

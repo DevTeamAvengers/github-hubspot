@@ -1,0 +1,7 @@
+{
+  "global" : false,
+  "host_template_types" : [ "BLOG_POST" ],
+  "module_id" : 49702080744,
+  "label" : "Blog template picker",
+  "is_available_for_new_content" : true
+}

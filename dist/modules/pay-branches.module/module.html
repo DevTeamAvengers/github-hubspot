@@ -1,0 +1,24 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/pay-branches-module.css"), { async: true }) }}
+
+<section class="pay-branches-module bg-extra-light-purple global-tb-padding">
+    <div class="branches-container container">
+        <div class="row title-row">
+            <h2>{{ module.title.content }}</h2>
+        </div>
+        <div class="row content-row">
+            {% for branch in module.locations %}
+                <div class="col-12 col-lg-4 branch-elm">
+                    <div class="balloon balloon-lg balloon-bl">
+                        {{ image.img(branch.location_img, "cover", "lazy", [400, 700, 400]) }}
+                    </div>
+                    <h3 class="heading-4">{{ branch.branch_city }}</h3>
+                    <div>{{ branch.branch_adress }}</div>
+                    {{ button.link(branch.map_link, "btn-link btn-link-primary") }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

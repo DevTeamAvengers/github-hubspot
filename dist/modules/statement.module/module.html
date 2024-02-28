@@ -1,0 +1,35 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+
+<section class="statement-module global-tb-padding">
+
+	<div class="container">
+		<div class="row statement-row">
+
+			<div class="col-md-4">
+				{% if module.content_group.title %}
+					<div class="heading {{ module.content_group.title_style }}">{{ module.content_group.title }}</div>
+				{% endif %}
+			</div>
+
+			<div class="offset-md-2 col-md-6 col-lg-5 content-column">
+
+				{% if module.content_group.text %}
+					<div class="text">{{ module.content_group.text }}</div>
+				{% endif %}
+
+				{% if module.content_group.buttons %}
+					<div class="controls">
+						{% for btn in module.content_group.buttons %}
+							{{ button.link(btn) }}
+						{% endfor %}
+					</div>
+				{% endif %}
+
+			</div>
+
+		</div>
+	</div>
+	
+</section>
+
+

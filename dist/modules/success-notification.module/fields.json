@@ -1,0 +1,282 @@
+[{
+  "id": "",
+  "name": "image_group",
+  "label": "Image",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "id": "",
+      "name": "image_desktop",
+      "label": "Select a image for desktop",
+      "help_text": "Always fill this image",
+      "inline_help_text": "Always fill this image",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "resizable": false,
+      "type": "image",
+      "default": {
+        "src": "",
+        "alt": null
+      }
+    }
+  ],
+  "type": "group",
+  "default": {
+    "image_desktop": {
+      "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/online-betalingen.png"
+    }
+  }
+}
+,
+{
+  "name": "content_group",
+  "label": "Content",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "children": [
+    {
+      "name": "tag",
+      "label": "Tag",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "title",
+      "label": "Title",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "richtext",
+      "default": "Title"
+    },
+    {
+      "name": "first_text_block",
+      "label": "First text block",
+      "inline_help_text": "If the module is used in association with a specific request or case for which the number should be displayed, this will be the text displayed before the case code.",
+      "help_text": "If the module is used in association with a specific request or case for which the number should be displayed, this will be the text displayed before the case code.",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": true,
+      "show_emoji_picker": false,
+      "type": "richtext",
+      "default": "Description"
+    },
+    {
+      "name": "second_text_block",
+      "label": "Second text block",
+      "inline_help_text": "If the module is used in association with a case for which the number should be displayed, this will be the text displayed after the case code. Do not fill in if there is no case number.",
+      "help_text": "If the module is used in association with a case for which the number should be displayed, this will be the text displayed after the case code. Do not fill in if there is no case number.",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": true,
+      "show_emoji_picker": false,
+      "type": "richtext",
+      "default": null
+    },
+    {
+        "name": "display_case_code",
+        "label": "Should the case code be displayed?",
+        "required": false,
+        "locked": false,
+        "display": "radio",
+        "inline_help_text": "",
+        "help_text": "",
+        "choices": [
+            [
+                "true",
+                "Use case code if present"
+            ],
+            [
+                "false",
+                "Do not use case code"
+            ]
+        ],
+        "type": "choice",
+        "placeholder": "",
+        "default": "true"
+    },
+    {
+      "name": "buttons",
+      "label": "Buttons",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "occurrence": {
+        "min": null,
+        "max": null,
+        "sorting_label_field": null,
+        "default": 1
+      },
+      "children": [
+        {
+          "name": "content",
+          "label": "Link content",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": "Button"
+        },
+        {
+          "name": "style",
+          "label": "Link style",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "display": "select",
+          "choices": [
+            ["btn-primary btn-text-hover", "Primary styling"],
+            ["btn-outline-primary btn-text-hover", "Outline styling"],
+            ["btn-dark btn-text-hover", "Dark styling"],
+            ["btn-pink btn-text-hover", "Pink styling"],
+            ["btn-link", "Link styling"]
+          ],
+          "type": "choice",
+          "default": "btn-primary btn-text-hover"
+        },
+        {
+          "name": "cta",
+          "label": "Use HubSpot CTA (recommended)",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "cta",
+              "label": "CTA",
+              "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+              "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+              "required": false,
+              "locked": false,
+              "type": "cta",
+              "default": null
+            }
+          ],
+          "type": "group",
+          "default": {}
+        },
+        {
+          "name": "link",
+          "label": "Use URL",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "link",
+              "label": "Link",
+              "required": false,
+              "locked": false,
+              "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+              "type": "link",
+              "show_advanced_rel_options": false,
+              "default": {
+                "url": {
+                  "content_id": null,
+                  "type": "CONTENT",
+                  "href": ""
+                },
+                "open_in_new_tab": false,
+                "no_follow": false,
+                "sponsored": false,
+                "user_generated_content": false
+              }
+            }
+          ],
+          "type": "group",
+          "default": {}
+        }
+      ],
+      "type": "group",
+      "default": [
+        {
+          "content": "Button",
+          "style": "btn-primary btn-text-hover"
+        }
+      ]
+    }
+  ],
+  "type": "group",
+  "default": {
+    "tag": "",
+    "title": "Title",
+    "text": "Description",
+    "buttons": []
+  }
+}
+,
+{
+    "name": "layout",
+    "label": "Layout",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name": "balloon_color",
+            "label": "Balloon color",
+            "required": false,
+            "locked": false,
+            "display": "radio",
+            "choices": [
+                [
+                    "bg-mid-blue",
+                    "Light blue"
+                ],
+                [
+                    "bg-light-purple",
+                    "Light purple"
+                ]
+            ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "bg-light-purple"
+        },
+        {
+        "name": "title_width",
+        "label": "Title width",
+        "required": false,
+        "locked": false,
+        "display": "radio",
+        "inline_help_text": "",
+        "help_text": "",
+        "choices": [
+            [
+                "offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 offset-xl-4 col-xl-4",
+                "4 columns (same as card with image)"
+            ],
+            [
+                "offset-md-1 col-md-10 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6",
+                "6 columns (wider than card with image)"
+            ]
+        ],
+        "type": "choice",
+        "placeholder": "",
+        "default": "offset-sm-1 col-sm-10 offset-md-2 col-md-8 offset-lg-3 col-lg-6 offset-xl-4 col-xl-4"
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {}
+}]

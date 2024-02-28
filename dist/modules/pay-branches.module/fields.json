@@ -1,0 +1,196 @@
+[{
+  "id": "",
+  "name": "title",
+  "label": "Title",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Title"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "name": "locations",
+  "label": "Pay locations",
+  "required": true,
+  "locked": false,
+  "occurrence": {
+    "min": 3,
+    "max": 3,
+    "sorting_label_field": null,
+    "default": 3
+  },
+  "children": [
+    {
+      "name": "location_img",
+      "label": "Location image",
+      "required": true,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": true,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "src": "/wirelabtheme/assets/default-images/contact-resources/branch-3.jpg",
+        "alt": "Default image"
+      }
+    },
+    {
+      "name": "branch_city",
+      "label": "Branch city",
+      "required": true,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Enschede"
+    },
+    {
+      "name": "branch_adress",
+      "label": "Branch adress",
+      "required": true,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Kopersteden 10<br>7547 TK Enschede<br>Nederland"
+    },
+    {
+      "id": "",
+      "name": "map_link",
+      "label": "Map link button",
+      "sortable": false,
+      "required": true,
+      "locked": false,
+      "children": [
+        {
+          "name": "content",
+          "label": "Link content",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": "Bekijk op maps"
+        },
+        {
+          "id": "",
+          "name": "cta",
+          "label": "Use HubSpot CTA (recommended)",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "cta",
+              "label": "CTA",
+              "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+              "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+              "required": false,
+              "locked": false,
+              "type": "cta",
+              "default": null
+            }
+          ],
+          "type": "group",
+          "default": {}
+        },
+        {
+          "id": "",
+          "name": "link",
+          "label": "Use URL",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "link",
+              "label": "Link",
+              "required": false,
+              "locked": false,
+              "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+              "type": "link",
+              "show_advanced_rel_options": false,
+              "default": {
+                "url": {
+                  "content_id": null,
+                  "type": "CONTENT",
+                  "href": ""
+                },
+                "open_in_new_tab": false,
+                "no_follow": false,
+                "sponsored": false,
+                "user_generated_content": false
+              }
+            }
+          ],
+          "type": "group",
+          "default": {}
+        }
+      ],
+      "type": "group",
+      "default": {}
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": [
+    {
+      "location_img": {
+        "src": "/wirelabtheme/assets/default-images/contact-resources/branch-1.jpg",
+        "alt": "Enschede"
+      },
+      "branch_city": "Enschede",
+      "branch_adress": "Kopersteden 10<br>7547 TK Enschede<br>Nederland",
+      "map_link": {
+        "content": "Bekijk op maps"
+      }
+    },
+    {
+      "location_img": {
+        "src": "/wirelabtheme/assets/default-images/contact-resources/branch-2.jpg",
+        "alt": "Amsterdam"
+      },
+      "branch_city": "Amsterdam",
+      "branch_adress": "Dalsteindreef 141<br>1112 XJ Diemen<br>Nederland",
+      "map_link": {
+        "content": "Bekijk op maps"
+      }
+    },
+    {
+      "location_img": {
+        "src": "/wirelabtheme/assets/default-images/contact-resources/branch-3.jpg",
+        "alt": "Spijkenisse"
+      },
+      "branch_city": "Spijkenisse",
+      "branch_adress": "Jan Campertlaan 10<br>3201 AX Spijkenisse<br>Nederland",
+      "map_link": {
+        "content": "Bekijk op maps"
+      }
+    }
+  ]
+}
+]

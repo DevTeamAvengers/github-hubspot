@@ -1,0 +1,102 @@
+[{
+  "name": "quote_group",
+  "label": "Quote",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "text",
+      "label": "Text",
+      "required": true,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Sinds we live zijn gegaan met Pay. hebben we een directe toename in conversie en voltooide betalingen gezien. Vanaf dag één maken onze klanten gebruik van de betaalmethoden van PAY."
+    },
+    {
+      "name": "author",
+      "label": "Author",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Soufiane Achoui"
+    },
+    {
+      "name": "position",
+      "label": "Position",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "COO"
+    },
+    {
+      "name": "brand_name",
+      "label": "Brand name",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "VanSprint"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+,
+{
+  "id": "",
+  "name": "image_group",
+  "label": "Image",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "id": "",
+      "name": "image_desktop",
+      "label": "Select a image for desktop",
+      "help_text": "Always fill this image",
+      "inline_help_text": "Always fill this image",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "resizable": false,
+      "type": "image",
+      "default": {
+        "src": "",
+        "alt": null
+      }
+    }
+  ],
+  "type": "group",
+  "default": {
+    "image_desktop": {
+      "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/online-betalingen.png"
+    }
+  }
+}
+]

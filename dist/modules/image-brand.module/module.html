@@ -1,0 +1,16 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+<section class="image-brand-module global-tb-padding">
+  
+  <div class="container">
+    <div class="part col-lg-6 mx-auto">
+      <div class="card card-pay card-lg card-image corner-bl">
+        {{ image.img(module.image, "brand-img", "lazy") }}
+        {% if module.brand_image %}
+          {{ image.img(module.image, "brand-icon balloon balloon-sm balloon-image balloon-bl", "lazy", [482, 468, 648]) }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  
+</section>

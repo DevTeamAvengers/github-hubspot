@@ -1,0 +1,190 @@
+[{
+  "name": "providers_hubdb",
+  "label": "HubDB providers table ID",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "type": "hubdbtable",
+  "placeholder": "",
+  "default": null
+}
+,
+{
+  "name": "title",
+  "label": "Module title",
+  "required": false,
+  "locked": false,
+  "validation_regex": "",
+  "allow_new_line": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "placeholder": "",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": "Transactiekosten"
+}
+,
+{
+  "name": "intro_text",
+  "label": "Module text",
+  "required": false,
+  "locked": false,
+  "validation_regex": "",
+  "allow_new_line": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "placeholder": "",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": "Proin sed malesuada pellentesque rhoncus nisl et in pharetra viverra etiam suspendisse ut gravida ultricies nisl, pharetra, lorem gravida enim, eu dui duis urna."
+}
+,
+{
+    "name": "labels",
+    "label": "Labels",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name": "tabs_labels",
+            "label": "Tabs labels",
+            "required": false,
+            "locked": false,
+            "children": [
+                {
+                    "name": "show_all",
+                    "label": "Show all label",
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Toon alle"
+                },
+                {
+                    "name": "online",
+                    "label": "Online label",
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Online"
+                },
+                {
+                    "name": "in_store",
+                    "label": "In-store label",
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "In-store"
+                },
+                {
+                    "name": "afterwards",
+                    "label": "Afterwards label",
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Achteraf"
+                }
+            ],
+            "type": "group",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": {}
+        },
+        {
+            "name": "columns_labels",
+            "label": "Columns labels",
+            "required": false,
+            "locked": false,
+            "children": [
+                {
+                    "name": "payment_method",
+                    "label": "Payment method label",
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Betaalmethode"
+                },
+                {
+                    "name": "available_in",
+                    "label": "Available in label",
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Beschikbaar in"
+                },
+                {
+                    "name": "pioneer",
+                    "label": "Pioneer label",
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Pioneer"
+                },
+                {
+                    "name": "professional",
+                    "label": "Professional label",
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "placeholder": "",
+                    "inline_help_text": "",
+                    "help_text": "",
+                    "default": "Professional"
+                }
+            ],
+            "type": "group",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": {}
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {}
+}]

@@ -1,0 +1,166 @@
+[{
+    "name": "layout",
+    "label": "Module's layout",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name": "padding_reduced",
+            "label": "Reduce top padding",
+            "required": false,
+            "locked": false,
+            "type": "boolean",
+            "inline_help_text": "You can reduce the padding (empty space) at the top of this module. Do it for example in the contact page, when the module is placed after the help-color-cards-module.",
+            "help_text": "You can reduce the padding (empty space) at the top of this module. Do it for example in the contact page, when the module is placed after the help-color-cards-module.",
+            "default": false
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {}
+},
+{
+  "name": "balloon_data",
+  "label": "Balloon data",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "left_col",
+      "label": "Left column",
+      "required": false,
+      "locked": false,
+      "children": [
+        {
+          "name": "title",
+          "label": "Balloon title",
+          "required": true,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": "Heb je betaald via Pay?"
+        },
+        {
+          "name": "description",
+          "label": "Balloon description",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": "Meer weten over een betaling die jij via Pay. hebt gedaan? Zoek je betaling op."
+        },
+        {
+          "name": "btn",
+          "label": "Balloon button",
+          "sortable": false,
+          "required": true,
+          "locked": false,
+          "children": [
+            {
+              "name": "content",
+              "label": "Link content",
+              "sortable": false,
+              "required": false,
+              "locked": false,
+              "validation_regex": "",
+              "allow_new_line": false,
+              "show_emoji_picker": false,
+              "type": "text",
+              "default": "Betaling opzoeken"
+            },
+            {
+              "name": "cta",
+              "label": "Use HubSpot CTA (recommended)",
+              "sortable": false,
+              "required": false,
+              "locked": false,
+              "children": [
+                {
+                  "name": "cta",
+                  "label": "CTA",
+                  "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+                  "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+                  "required": false,
+                  "locked": false,
+                  "type": "cta",
+                  "default": null
+                }
+              ],
+              "type": "group",
+              "default": {}
+            },
+            {
+              "name": "link",
+              "label": "Use URL",
+              "sortable": false,
+              "required": false,
+              "locked": false,
+              "children": [
+                {
+                  "name": "link",
+                  "label": "Link",
+                  "required": false,
+                  "locked": false,
+                  "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+                  "type": "link",
+                  "show_advanced_rel_options": false,
+                  "default": {
+                    "url": {
+                      "content_id": null,
+                      "type": "CONTENT",
+                      "href": ""
+                    },
+                    "open_in_new_tab": false,
+                    "no_follow": false,
+                    "sponsored": false,
+                    "user_generated_content": false
+                  }
+                }
+              ],
+              "type": "group",
+              "default": {}
+            }
+          ],
+          "type": "group",
+          "default": {}
+        }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {}
+    },
+    {
+      "name": "right_col_img",
+      "label": "Right column image",
+      "required": true,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": true,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "src": "/wirelabtheme/assets/default-images/pay-phone.png",
+        "alt": "Default phone image"
+      }
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+]

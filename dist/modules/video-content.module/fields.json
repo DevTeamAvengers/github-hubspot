@@ -1,0 +1,253 @@
+[{
+    "name": "video_layout",
+    "label": "Video block layout",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name": "positioning",
+            "label": "Positioning",
+            "required": false,
+            "locked": false,
+            "display": "radio",
+            "inline_help_text": "",
+            "help_text": "",
+            "choices": [
+                [
+                    "left",
+                    "Video on the left"
+                ],
+                [
+                    "right",
+                    "Video on the right"
+                ],
+                [
+                    "center",
+                    "Video centered (the video will be displayed alone, without any text)"
+                ]
+            ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "right"
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {}
+},
+{
+    "name": "video_data",
+    "label": "Video data",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name": "video_placeholder",
+            "label": "Video image placeholder",
+            "required": false,
+            "locked": false,
+            "inline_help_text": "This will be displayed before user tries to interact with video.",
+            "help_text": "",
+            "responsive": false,
+            "resizable": false,
+            "type": "image",
+            "default": {
+                "src": "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/Pay-purple.png",
+                "alt": "Default video placeholder image"
+            }
+        },
+        {
+            "name" : "video_link",
+            "label" : "Video link",
+            "required" : false,
+            "locked" : false,
+            "supported_types" : [ "EXTERNAL" ],
+            "type" : "link",
+            "inline_help_text": "",
+            "help_text": "",
+            "default" : {
+            "url" : {
+                "content_id" : null,
+                "type" : "EXTERNAL",
+                "href" : ""
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+            }
+        },
+        {
+            "name": "tag",
+            "label": "Tag",
+            "required": false,
+            "locked": false,
+            "validation_regex": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "placeholder": "",
+            "inline_help_text": "Content will not be displayed if the video is centered.",
+            "help_text": "Content will not be displayed if the video is centered.",
+            "default": "Tag"
+        },
+        {
+            "name": "title",
+            "label": "Title",
+            "required": false,
+            "locked": false,
+            "type": "richtext",
+            "inline_help_text": "Content will not be displayed if the video is centered.",
+            "help_text": "Content will not be displayed if the video is centered. !! Caution: use a heading tag that is semantically correct !!",
+            "default": "Title"
+        },
+        {
+            "name": "title_style",
+            "label": "Title style",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "inline_help_text": "Select the style applied to the title. This is independant from the tag that will be used. Default is H3.",
+            "help_text": "",
+            "choices": [
+                [
+                    "heading-2",
+                    "H2"
+                ],
+                [
+                    "heading-3",
+                    "H3"
+                ],
+                [
+                    "heading-4",
+                    "H4"
+                ],
+                [
+                    "heading-5",
+                    "H5"
+                ]
+            ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "heading-3"
+        },
+        {
+            "name": "description",
+            "label": "Description",
+            "required": false,
+            "locked": false,
+            "type": "richtext",
+            "inline_help_text": "Content will not be displayed if the video is centered.",
+            "help_text": "Content will not be displayed if the video is centered.",
+            "default": "Description"
+        },
+        {
+            "name": "buttons",
+            "label": "Buttons",
+            "inline_help_text": "Content will not be displayed if the video is centered.",
+            "help_text": "Content will not be displayed if the video is centered.",
+            "sortable": false,
+            "required": false,
+            "locked": false,
+            "occurrence": {
+                "min": null,
+                "max": null,
+                "sorting_label_field": null,
+                "default": 0
+            },
+            "children": [
+                {
+                    "name": "content",
+                    "label": "Link content",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "default": "Button"
+                },
+                {
+                    "name": "style",
+                    "label": "Link style",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "display": "select",
+                    "choices": [
+                        ["btn-primary btn-text-hover", "Primary styling"],
+                        ["btn-outline-primary btn-text-hover", "Outline styling"],
+                        ["btn-dark btn-text-hover", "Dark styling"],
+                        ["btn-pink btn-text-hover", "Pink styling"],
+                        ["btn-link", "Link styling"]
+                    ],
+                    "type": "choice",
+                    "default": "btn-primary btn-text-hover"
+                },
+                {
+                    "name": "cta",
+                    "label": "Use HubSpot CTA (recommended)",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "children": [
+                        {
+                            "name": "cta",
+                            "label": "CTA",
+                            "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+                            "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+                            "required": false,
+                            "locked": false,
+                            "type": "cta",
+                            "default": null
+                        }
+                    ],
+                    "type": "group",
+                    "default": {}
+                },
+                {
+                    "name": "link",
+                    "label": "Use URL",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "children": [
+                        {
+                        "name": "link",
+                        "label": "Link",
+                        "required": false,
+                        "locked": false,
+                        "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+                        "type": "link",
+                        "show_advanced_rel_options": false,
+                        "default": {
+                            "url": {
+                            "content_id": null,
+                            "type": "CONTENT",
+                            "href": ""
+                            },
+                            "open_in_new_tab": false,
+                            "no_follow": false,
+                            "sponsored": false,
+                            "user_generated_content": false
+                        }
+                        }
+                    ],
+                    "type": "group",
+                    "default": {}
+                }
+            ],
+            "type": "group",
+            "default": [
+                {
+                    "content": "Button",
+                    "style": "btn-primary btn-text-hover"
+                }
+            ]
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {}
+}]

@@ -1,0 +1,37 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Offerte opvragen
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base-forms.html' %}
+
+{% block body %}
+  <section class="quotation-form-page">
+    <div class="row">
+
+      <div class="col-lg-4">
+        <aside>
+          {% module 'Offerte sidebar' path="../../modules/quotation-page-sidebar" %}
+        </aside>
+      </div>
+
+      <div class="col-lg-8">
+        <main>
+          <div class="vstack mx-auto gap-5">
+            
+            <section class="dnd-area">
+              {% dnd_area "body_dnd_area" label="Drag and drop"%}
+                {% dnd_module label="Offerte content" path="../../modules/quotation-page-content" fields={ content_group: { title: "Ontvang van Pay. een offerte op maat" } } %}{% end_dnd_module %}
+              {% end_dnd_area%}
+            </section>
+
+            {% module "Formulier" path="@hubspot/form" %}
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>  
+{% endblock body %}

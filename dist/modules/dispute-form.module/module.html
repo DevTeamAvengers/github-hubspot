@@ -1,0 +1,14 @@
+{% set labels = {
+  case_labels: module.case_labels_group,
+  merchant_labels: module.merchant_labels_group,
+  messages_labels: module.messages_labels_group,
+  link: module.thanks_link,
+} %}
+
+{{ require_css(get_asset_url("../../css/dispute-form.css"), { async: true }) }}
+
+<div id="js-dispute-form" class="js-dispute-form"
+  data-code="{{ request.queryDict.code }}"
+  data-hash="{{ request.queryDict.hash }}"
+  data-labels="{{ labels|tojson|escape }}">
+</div>

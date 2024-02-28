@@ -1,0 +1,77 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_js(get_asset_url("../../js/swiper.js"), { position: "footer", defer: true }) }}
+{{ require_css(get_asset_url("../../css/cases-module.css"), { async: true }) }}
+{{ require_css(get_asset_url("../../css/swiper.css"), { async: true }) }}
+
+{% set titles = [] %}
+{% for slide in module.slides %}
+    {% do titles.append(slide.slide_title) %}
+{% endfor %}
+
+<section class="cases-module {{ module.style.background_style }} global-tb-padding">
+
+	<div class="swiper swiper-container" data-swiper-nav="#swiper-nav-{{ name }}" data-swiper-effect="fade">
+		<div class="swiper-wrapper">
+			{% for slide in module.slides %}
+				<div class="swiper-slide">
+
+					<div class="container">
+						<div class="balloon balloon-lg balloon-bl">
+							{{ image.img(slide.image_group.image_desktop, "cover", "lazy", [500, 1100, 1300]) }}
+						
+							<div class="balloon-body text-white">
+								{% if slide.content_group %}
+									<figure>
+										<blockquote class="blockquote with-quotes heading-3">
+										{{ slide.content_group.quote }}
+										</blockquote>
+										<figcaption class="blockquote-footer heading-5">
+											<span class="author">{{ slide.content_group.author }}</span>
+											<span class="title">{{ slide.content_group.title }}</span>
+										</figcaption>
+									</figure>
+								{% endif %}
+								
+								{% if slide.button.cta.cta && slide.button.content %}
+									<div class="btn text-white {{additional_class}}">
+										<span class="btn-content">{{slide.button.content}}</span>
+										<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon">
+											<path d="M10 0.322754C15.52 0.322754 20 4.80275 20 10.3228C20 15.8428 15.52 20.3228 10 20.3228C4.48 20.3228 0 15.8428 0 10.3228C0 4.80275 4.48 0.322754 10 0.322754ZM10 9.32275H6V11.3228H10V14.3228L14 10.3228L10 6.32275V9.32275Z" fill="white"/>
+										</svg>
+										{{cta(slide.button.cta.cta)}}
+									</div>
+								{% endif %}
+								
+								{% if !slide.button.cta.cta && slide.button.link.link.url.href %}
+									<a href="{{slide.button.link.link.url.href}}" aria-label="{{ slide.button.content }}" class="btn text-white {{additional_class}}" {% if slide.button.link.link.open_in_new_tab %}target="_blank"{% endif %}{% if slide.button.link.link.rel %}rel="{{ slide.button.link.link.rel }}"{% endif %}>
+										<span class="btn-content">{{slide.button.content}}</span> 
+										<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg" class="btn-icon">
+											<path d="M10 0.322754C15.52 0.322754 20 4.80275 20 10.3228C20 15.8428 15.52 20.3228 10 20.3228C4.48 20.3228 0 15.8428 0 10.3228C0 4.80275 4.48 0.322754 10 0.322754ZM10 9.32275H6V11.3228H10V14.3228L14 10.3228L10 6.32275V9.32275Z" fill="white"/>
+										</svg>
+									</a> 
+								{% endif %}
+								
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	<header>
+		<div class="container">
+			<div class="btn-tab-group" id="swiper-nav-{{ name }}">
+				{% for title in titles %}
+					{% set active = loop.index0 == 0 ? 'active' : '' %}
+					<button class="btn btn-tab-inverse heading-4 {{ active }}" data-swiper-index="{{ loop.index0 }}">{{ title }}</button>
+				{% endfor %}
+			</div>
+		</div>
+	</header>
+
+</section>
+
+

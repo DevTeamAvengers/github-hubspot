@@ -1,0 +1,123 @@
+[{
+    "name": "other_contacts",
+    "label": "Other contatcs",
+    "required": false,
+    "locked": false,
+    "occurrence": {
+        "min": 1,
+        "max": null,
+        "sorting_label_field": null,
+        "default": 1
+    },
+    "children": [
+        {
+            "name": "title",
+            "label": "Contact title",
+            "required": true,
+            "locked": false,
+            "validation_regex": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "placeholder": "",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": "Fraude meldingen"
+        },
+        {
+            "name": "description",
+            "label": "Description",
+            "required": false,
+            "locked": false,
+            "validation_regex": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "placeholder": "",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": "Felis morbi nisi bibendum massa eget dictum proin aliquet. Sed et nunc urna viverra interdum dolor lectus ultrices. Felis morbi nisi bibendum massa eget."
+        },
+        {
+            "name": "contacts",
+            "label": "Contact options",
+            "sortable": false,
+            "required": false,
+            "locked": false,
+            "occurrence": {
+                "min": null,
+                "max": null,
+                "sorting_label_field": null,
+                "default": null
+            },
+            "children": [
+                {
+                    "name": "title",
+                    "label": "Contact title",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "default": ""
+                },
+                {
+                    "name": "link_name",
+                    "label": "Link name",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "default": ""
+                },
+                {
+                    "name": "link",
+                    "label": "Link to",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "default": ""
+                },
+                {
+                    "name": "link_type",
+                    "label": "Link type",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "display": "select",
+                    "choices": [
+                        ["tel:", "Phone"],
+                        ["mailto:", "Email"],
+                        ["", "URL (page)"]
+                    ],
+                    "type": "choice",
+                    "default": ""
+                },
+                {
+                    "name": "open_in_new_tab",
+                    "label": "Open link in new tab",
+                    "required": false,
+                    "locked": false,
+                    "type": "boolean",
+                    "display": "checkbox",
+                    "default": false
+                }
+            ],
+            "type": "group",
+            "default": {}
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": []
+}]

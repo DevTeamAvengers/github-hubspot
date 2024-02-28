@@ -1,0 +1,22 @@
+{% macro img(image, additional_class, loading = "eager", breakpoints = [600, 1200, 1900], setSize = false) -%}
+
+  {% set image_small = resize_image_url(image.src, breakpoints[0]) %}
+  {% set image_medium = resize_image_url(image.src, breakpoints[1]) %}
+  {% set image_large = resize_image_url(image.src, breakpoints[2]) %}
+
+  {% set sizeAttrs = '' %}
+  {% if setSize %}
+    {% set sizeAttrs = 'width="{{ image.width }}" height="{{ image.height }}"' %}
+  {% endif %}
+
+  <img
+    srcset="{{ image_small }} {{breakpoints[0]}}w, {{ image_medium }} {{breakpoints[1]}}w, {{ image_large }} {{breakpoints[2]}}w"
+    sizes="(max-width: 700px) {{breakpoints[0]}}px, (max-width: 1300px) {{breakpoints[1]}}px, {{breakpoints[2]}}px"
+    src="{{ image_small }}"
+    alt="{{ image.alt }}"
+    class="img-fluid {{ additional_class }}"
+    loading="{{ loading }}"
+    {{ sizeAttrs }}
+  />
+
+{%- endmacro %}

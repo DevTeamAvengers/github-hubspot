@@ -1,0 +1,67 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+
+{{ require_css(get_asset_url("../../css/payment-methods-module.css"), { async: true }) }}
+
+<section class="payment-methods-module global-tb-padding">
+
+	<div class="carousel" style="--animation-items: {{ module.payment_providers|length }};">
+
+		<div class="carousel-row">
+			{% for provider in module.payment_providers %}
+				<span class="item" style="background-color: {{ provider.bg_color.color }}">
+					<img class="img-fluid" src="{{ provider.image.src }}" alt="{{ provider.image.alt }}" loading="lazy">
+				</span>
+			{% endfor %}
+		</div>
+
+		<div class="carousel-row">
+			{% for provider in module.payment_providers %}
+				<span class="item" style="background-color: {{ provider.bg_color.color }}">
+					<img class="img-fluid" src="{{ provider.image.src }}" alt="{{ provider.image.alt }}" loading="lazy">
+				</span>
+			{% endfor %}
+		</div>
+
+		<div class="carousel-row">
+			{% for provider in module.payment_providers %}
+				<span class="item" style="background-color: {{ provider.bg_color.color }}">
+					<img class="img-fluid" src="{{ provider.image.src }}" alt="{{ provider.image.alt }}" loading="lazy">
+				</span>
+			{% endfor %}
+		</div>
+
+	</div>
+	
+	<div class="container">
+
+			{% if module.content_group %}
+				<div class="content-column col-md-6">
+
+					{% if module.content_group.tag %}
+						<span class="subtitle balloon balloon-sm balloon-pill balloon-bl balloon-outline-pink">{{ module.content_group.tag }}</span>
+					{% endif %}
+
+					{% if module.content_group.title %}
+						<h2 class="heading heading-2">{{ module.content_group.title }}</h2>
+					{% endif %}
+					
+					{% if module.content_group.text %}
+						<div class="richtext text">{{ module.content_group.text }}</div>
+					{% endif %}
+
+					{% if module.content_group.buttons %}
+						<div class="controls btn-centered">
+							{% for btn in module.content_group.buttons %}
+								{{ button.link(btn) }}
+							{% endfor %}
+						</div>
+					{% endif %}
+
+				</div>
+			{% endif %}
+
+	</div>
+	
+</section>
+
+

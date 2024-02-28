@@ -1,0 +1,8 @@
+{% macro tag(tag, additional_class) -%}
+	{% if tag.content %}
+	    <p class="labeltag {{tag.style}} {{additional_class}}">
+	        <span>{{tag.content}}</span>
+	    </p>
+    {% endif %}
+{%- endmacro %}
+

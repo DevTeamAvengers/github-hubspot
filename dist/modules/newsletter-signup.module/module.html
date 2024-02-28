@@ -1,0 +1,27 @@
+{% import 'wirelabtheme/macros/image.html' as macroImg %}
+
+{{ require_css(get_asset_url("../../css/newsletter-signup.css"), { async: true }) }}
+
+<section class="newsletter-signup">
+    <div class="container-div ">
+        <div class="row">
+            <div class="col-lg-6 form-container bg-extra-light-purple">
+                <h4 class="heading heading-4">{{module.text_group.text}}</h4>
+
+                {% form
+                    form_to_use="{{ module.form_group.form.form_id }}"
+                    response_response_type="{{ module.form_group.form.response_type }}"
+                    response_message="{{ module.form_group.form.message }}"
+                    response_redirect_id="{{ module.form_group.form.redirect_id }}"
+                    response_redirect_url="{{module.form_group.form.redirect_url}}"
+                    gotowebinar_webinar_key="{{ module.form_group.form.gotowebinar_webinar_key }}"
+                %}
+
+
+            </div>
+            <div class="col-lg-6 image-container">
+                <img class="img-fluid" src="{{ module.image_group.image_desktop.src }}" loading="{{ module.image_group.image_desktop.loading }}" alt="{{ module.image_group.image_desktop.src.alt }}" >
+            </div>
+        </div>
+    </div>
+</section>

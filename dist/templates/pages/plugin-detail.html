@@ -1,0 +1,66 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Plugin detail
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+
+  {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+    {% dnd_section %}
+      {% dnd_module label='Header' path='../../modules/hero-text-balloon' fields={ content_group: { tag: 'Feature' } } %} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/simple-intro' label='Simple intro' %} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/two-columns-shadow-card' label='Text shadow-card'%} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/simple-intro' label='Simple intro' %} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/how-to.module' label='How-to steps' %} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/reference-grid' fields={ title: { content: "Zij gingen je al voor" } } %} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/image-block.module' fields={
+          balloon_size: 'balloon-md',
+          balloon_corners: ['balloon-br'],
+          style: {
+            background_style: 'bg-white'
+          }
+        } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/reference-grid' fields={ title: { content: "Toegang tot 40+ nationale en internationale betaalmethoden" } } %} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/usp-text'%} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/crosslinks'%} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path='../../modules/register-cta'%} {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+  
+{% endblock body %}

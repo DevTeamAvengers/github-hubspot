@@ -1,0 +1,154 @@
+[{
+  "name": "text_group",
+  "label": "Texts",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "search_button",
+      "label": "Zoek button",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Zoeken"
+    },
+    {
+      "name": "search_text",
+      "label": "Text before search",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Zoek binnen de website van Pay."
+    },
+    {
+      "name": "no_result",
+      "label": "No results found text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Helaas er zijn geen zoekresultaten gevonden op "
+    },
+    {
+      "name": "result_text_before",
+      "label": "Result text before number",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Er zijn"
+    },
+    {
+      "name": "result_text_after",
+      "label": "Result text after number",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "resultaten voor"
+    },
+    {
+      "name": "remove_filter",
+      "label": "Remove filter button",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Toon alle"
+    },
+    {
+      "name": "webpages",
+      "label": "Filter button voor web pagina's",
+      "required": false,
+      "locked": false,
+      "type": "text",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Pagina’s"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": null
+}
+,
+{
+  "name": "blogs",
+  "label": "blogs",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "cases",
+      "label": "Cases blog",
+      "required": false,
+      "locked": false,
+      "type": "blog",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": null
+    },
+    {
+      "name": "cases_text",
+      "label": "Cases field",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Cases"
+    },
+    {
+      "name": "blog",
+      "label": "Actueel blog",
+      "required": false,
+      "locked": false,
+      "type": "blog",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": null
+    },
+    {
+      "name": "blog_text",
+      "label": "Blog field",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Actueel"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+]

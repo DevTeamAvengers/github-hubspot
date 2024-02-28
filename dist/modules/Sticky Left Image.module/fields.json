@@ -1,0 +1,22 @@
+[ {
+  "id" : "92c511e6-3ad9-fd18-76ee-98b2968c28ae",
+  "name" : "image_field",
+  "display_width" : null,
+  "label" : "Image",
+  "required" : false,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/holding%20card%201-1.png",
+    "alt" : "holding card 1-1",
+    "loading" : "lazy",
+    "width" : 482,
+    "height" : 216,
+    "max_width" : 482,
+    "max_height" : 216
+  }
+} ]

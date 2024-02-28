@@ -1,0 +1,166 @@
+[{
+  "name": "content_group",
+  "label": "Content",
+  "required": false,
+  "locked": false,
+  "inline_help_text": "",
+  "help_text": "",
+  "children": [
+    {
+      "name": "tag",
+      "label": "Tag",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "title",
+      "label": "Title",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "richtext",
+      "inline_help_text": "You should use a div, a span or a p tag for this title. The end result is an H2 tag with an H3 styling.",
+      "default": "Title"
+    },
+    {
+      "name": "text",
+      "label": "Text",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": true,
+      "show_emoji_picker": false,
+      "type": "richtext",
+      "inline_help_text": "If you want to add a heading, use either an H2 if no title was filled in or an H3 to respect the heading structure. Its style will be the H4 one!",
+      "default": "Description"
+    },
+    {
+      "id": "",
+      "name": "buttons",
+      "label": "Buttons",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "occurrence": {
+        "min": null,
+        "max": null,
+        "sorting_label_field": null,
+        "default": 1
+      },
+      "children": [
+        {
+          "name": "content",
+          "label": "Link content",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": "Button"
+        },
+        {
+          "name": "style",
+          "label": "Link style",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "display": "select",
+          "choices": [
+            ["btn-primary btn-text-hover", "Primary styling"],
+            ["btn-outline-primary btn-text-hover", "Outline styling"],
+            ["btn-dark btn-text-hover", "Dark styling"],
+            ["btn-pink btn-text-hover", "Pink styling"],
+            ["btn-link", "Link styling"]
+          ],
+          "type": "choice",
+          "default": "btn-primary btn-text-hover"
+        },
+        {
+          "id": "",
+          "name": "cta",
+          "label": "Use HubSpot CTA (recommended)",
+          "inline_help_text": "If a CTA is added, its link will be the one used for the button. Use meaningful CTAs with the needed link!",
+          "help_text": "If a CTA is added, its link will be the one used for the button. Use meaningful CTAs with the needed link!",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "cta",
+              "label": "CTA",
+              "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+              "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+              "required": false,
+              "locked": false,
+              "type": "cta",
+              "default": null
+            }
+          ],
+          "type": "group",
+          "default": {}
+        },
+        {
+          "id": "",
+          "name": "link",
+          "label": "Use URL",
+          "inline_help_text": "If a CTA was added, this link won't be used!",
+          "help_text": "If a CTA was added, this link won't be used!",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "link",
+              "label": "Link",
+              "required": false,
+              "locked": false,
+              "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+              "type": "link",
+              "show_advanced_rel_options": false,
+              "default": {
+                "url": {
+                  "content_id": null,
+                  "type": "CONTENT",
+                  "href": ""
+                },
+                "open_in_new_tab": false,
+                "no_follow": false,
+                "sponsored": false,
+                "user_generated_content": false
+              }
+            }
+          ],
+          "type": "group",
+          "default": {}
+        }
+      ],
+      "type": "group",
+      "default": [
+        {
+          "content": "Button",
+          "style": "btn-primary btn-text-hover"
+        }
+      ]
+    }
+  ],
+  "type": "group",
+  "default": {
+    "tag": "",
+    "title": "Title",
+    "text": "Description",
+    "buttons": []
+  }
+}
+]

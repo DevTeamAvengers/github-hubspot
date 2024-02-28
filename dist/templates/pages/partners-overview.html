@@ -1,0 +1,34 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Partners overzicht
+  screenshotPath: ../../assets/template-previews/template.png
+-->
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+
+  {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/hero-text-balloon' label='Header'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/onestopshop' label='One stop shop'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+  
+  {% dnd_section %}
+    {% dnd_module path='../../modules/usp-tabs' label='USP tabs'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path='../../modules/register-cta' label='Register (CTA)'%} {% end_dnd_module %}
+  {% end_dnd_section %}
+
+
+  {% end_dnd_area %}
+
+  
+{% endblock body %}
+

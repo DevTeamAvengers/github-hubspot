@@ -1,0 +1,7 @@
+{
+  "global" : false,
+  "host_template_types" : [ "ANY" ],
+  "module_id" : 48948172989,
+  "label" : "Hero - text balloon",
+  "is_available_for_new_content" : true
+}

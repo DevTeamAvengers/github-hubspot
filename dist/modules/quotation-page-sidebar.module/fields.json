@@ -1,0 +1,102 @@
+[{
+  "name": "content",
+  "label": "Content",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "title",
+      "label": "Title",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Offerte opvragen"
+    },
+    {
+      "name": "steps",
+      "label": "Steps",
+      "required": false,
+      "locked": false,
+      "occurrence": {
+        "min": null,
+        "max": null,
+        "sorting_label_field": null,
+        "default": 3
+      },
+      "children": [
+        {
+          "name": "title",
+          "label": "Step title",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": null
+        },
+        {
+          "name": "link",
+          "label": "Step link",
+          "required": false,
+          "locked": false,
+          "supported_types": [
+            "EXTERNAL",
+            "CONTENT",
+            "FILE",
+            "EMAIL_ADDRESS",
+            "BLOG"
+          ],
+          "type": "link",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": {
+            "url": {
+              "content_id": null,
+              "type": "EXTERNAL",
+              "href": ""
+            },
+            "open_in_new_tab": false,
+            "no_follow": false
+          }
+        }
+      ],
+      "type": "group",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": [
+        { "title": "Contact gegevens" },
+        { "title": "Bedrijfsinformatie" },
+        { "title": "Overige informatie" }
+      ]
+    },
+    {
+      "name": "active_step",
+      "label": "Active step",
+      "required": false,
+      "locked": false,
+      "display": "text",
+      "step": 1,
+      "type": "number",
+      "min": null,
+      "max": null,
+      "inline_help_text": "",
+      "help_text": "",
+      "default": 1
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+]

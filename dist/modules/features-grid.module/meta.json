@@ -1,0 +1,7 @@
+{
+  "global" : false,
+  "host_template_types" : [ "ANY" ],
+  "module_id" : 48948162547,
+  "label" : "Features grid",
+  "is_available_for_new_content" : true
+}

@@ -1,0 +1,22 @@
+{{ require_css(get_asset_url("../../css/blockquote-module.css"), { async: true }) }}
+
+<section class="blockquote-module blockquote global-tb-padding">
+  
+  <div class="container">
+    <div class="part col-lg-6 mx-auto">
+      <figure class="card card-pay card-lg corner-tl">
+        <blockquote class="blockquote with-start-quote heading-5">
+          {{ module.quote_group.text }}
+        </blockquote>
+        {% if module.quote_group.author %}
+          <figcaption class="blockquote-footer">
+            <div class="author body-large">{{ module.quote_group.author }}</div>
+            <span class="position body-small">{{ module.quote_group.position }}</span>
+            <span class="brand body-small">{{ module.quote_group.brand_name }}</span>
+          </figcaption>
+        {% endif %}
+      </figure>
+    </div>
+  </div>
+  
+</section>

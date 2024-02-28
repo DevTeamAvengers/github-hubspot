@@ -1,0 +1,141 @@
+{% import 'wirelabtheme/macros/button.html' as macroBtn %}
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{{ require_css(get_asset_url("../../css/text-form-module.css"), { async: true }) }}
+
+{# Check if content exists #}
+{% set tag = module.content_group.tag %}
+{% set title = module.content_group.title %}
+{% set description = module.content_group.text %}
+{% set buttons = (module.content_group.buttons|first).cta.cta or (module.content_group.buttons|first).link.link.url.href %}
+{% set isThereContent = tag or title or description or buttons %}
+{% set sideImage = module.image_group.image_desktop.src %}
+
+<section class="text-form-module text-form-module--alt global-tb-padding">
+    <div class="container text-form-module__form-content-container{% if isThereContent or image %} content-above{% endif %}">
+        <div class="row">
+            <div class="col-12 col-lg-6  js-sticky-aside sticky-aside">
+                <div class="sticky-item">
+                 {% if isThereContent %}
+                  <div class="row">
+                    <div class="col-12 col-lg-9">
+                      <div class="text-form-title">
+
+                          {% if tag %}
+                          <div style="width: 100%;">
+                            <span class="subtitle balloon balloon-sm balloon-pill balloon-bl balloon-outline-pink">{{ module.content_group.tag }}</span>
+                          </div>
+                          {% endif %}
+                          {% if title %}
+                          <div class="heading heading-2">{{ module.content_group.title }}</div>
+                          {% endif %}
+
+                          {% if description %}
+                          <div class="text">{{ module.content_group.text }}</div>
+                          {% endif %}
+
+                          {% if buttons %}
+                          <div class="controls">
+                            {% for btn in module.content_group.buttons %}
+                            {{ macroBtn.link(btn) }}
+                            {% endfor %}
+                          </div>
+                          {% endif %}
+                      </div>
+                   </div>
+                 </div>
+                {% endif %}
+                {% if sideImage%}
+                    <div class="sticky-left-image {% if module.image_group.hide_on_mobile %}hide-on-mobile{% endif %}">
+                        <div class="sticky-left-image__inner">
+                            {{image.img(module.image_group.image_desktop, "")}}
+                        </div>
+                    </div>
+                {% endif %}
+                  </div>
+            </div>
+
+            <div class="col-12 col-lg-6 text-form-module__form">
+                {% form
+                    form_to_use="{{ module.form.form_id }}"
+                    response_response_type="{{ module.form.response_type }}"
+                    response_message="{{ module.form.message }}"
+                    response_redirect_id="{{ module.form.redirect_id }}"
+                    response_redirect_url="{{module.form.redirect_url}}"
+                    gotowebinar_webinar_key="{{ module.form.gotowebinar_webinar_key }}"
+                %}
+            </div>
+        </div>
+    </div>
+</section>
+{% require_css %}
+  <style>
+    .sticky-aside {
+          position: relative;
+          min-height: var(--child-height);
+      }
+      .sticky-aside .sticky-item {
+          max-width: var(--parent-width);
+      }
+
+      .sticky-aside.is-sticky .sticky-item {
+          position: fixed;
+          top: var(--sticky-offset-top, 0); 
+      }
+
+      .sticky-aside.is-sticky-bottom .sticky-item {
+          position: absolute;
+          top: auto;
+          bottom: 0;
+      }
+  </style>
+{% end_require_css %}
+{% require_js %}
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    let $win = $(window)
+    let $body = $('body')
+    let $header = $('.header')
+    let winHeight = $win.innerHeight();
+    let winScrollTop = $win.scrollTop()
+    let headerHeight = !!$header.outerHeight() ? $header.outerHeight() : 0;
+    let $stickyInParent = $('.sticky-aside');
+
+
+    let stickyAside = () => $stickyInParent.each( (index, parent) => {
+        let $parent = $(parent);
+        let parentOffsetTop = $parent.offset().top;
+        let parentHeight = $parent.outerHeight();
+        let parentWidth = $parent.outerWidth();
+        let $child = $parent.find('.sticky-item')
+        let childHeight = $child.outerHeight();
+        let childWidth = $child.outerWidth();
+
+        $parent.css({
+            "--parent-width" : parentWidth+"px",
+            "--child-height": childHeight+"px",
+            "--sticky-offset-top": headerHeight+"px"
+        });
+
+
+        let isSticky = winScrollTop + headerHeight >= parentOffsetTop;
+        let isStickyBottom = parentOffsetTop + parentHeight <= winScrollTop + headerHeight + childHeight;
+        
+        $parent
+            .toggleClass('is-sticky', isSticky)
+            .toggleClass('is-sticky-bottom', isStickyBottom);
+    })
+
+
+    $win.on('load scroll resize', () =>{
+        winHeight = $win.innerHeight();
+        headerHeight = !!$header.outerHeight() ? $header.outerHeight() : 0;
+        winScrollTop = $win.scrollTop();
+        
+      if ($win.width() > 768) {
+        stickyAside();
+      }
+    })
+    
+</script>
+{% end_require_js %}

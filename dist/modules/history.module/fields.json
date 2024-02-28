@@ -1,0 +1,160 @@
+[{
+  "id": "",
+  "name": "title",
+  "label": "Title",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Title"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "name": "pictures",
+  "label": "Set of pictures",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "top_left",
+      "label": "Top left image",
+      "required": true,
+      "locked": false,
+      "inline_help_text": "Always fill this image",
+      "help_text": "Always fill this image",
+      "responsive": true,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "src": "/wirelabtheme/assets/default-images/random/random5.jpg",
+        "alt": "Default picture top left"
+      }
+    },
+    {
+      "name": "bottom_left",
+      "label": "Bottom left image",
+      "required": true,
+      "locked": false,
+      "inline_help_text": "Always fill this image",
+      "help_text": "Always fill this image",
+      "responsive": true,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "src": "/wirelabtheme/assets/default-images/random/random.jpg",
+        "alt": "Default picture bottom left"
+      }
+    },
+    {
+      "name": "top_right",
+      "label": "Top right image",
+      "required": true,
+      "locked": false,
+      "inline_help_text": "Always fill this image",
+      "help_text": "Always fill this image",
+      "responsive": true,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "src": "/wirelabtheme/assets/default-images/random/random2.jpg",
+        "alt": "Default picture top right"
+      }
+    },
+    {
+      "name": "center_right",
+      "label": "Center right image",
+      "required": true,
+      "locked": false,
+      "inline_help_text": "Always fill this image",
+      "help_text": "Always fill this image",
+      "responsive": true,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "src": "/wirelabtheme/assets/default-images/random/random4.jpg",
+        "alt": "Default picture center right"
+      }
+    },
+    {
+      "name": "bottom_right",
+      "label": "Bottom right image",
+      "required": true,
+      "locked": false,
+      "inline_help_text": "Always fill this image",
+      "help_text": "Always fill this image",
+      "responsive": true,
+      "resizable": false,
+      "show_loading": false,
+      "type": "image",
+      "default": {
+        "src": "/wirelabtheme/assets/default-images/random/random3.jpg",
+        "alt": "Default picture bottom right"
+      }
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+,
+{
+  "name": "text_column",
+  "label": "Right text column",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": null
+  },
+  "children": [
+    {
+      "name": "subtitle",
+      "label": "Paragraph title",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Wij zijn klantgericht."
+    },
+    {
+      "name": "description",
+      "label": "Rich text description",
+      "required": false,
+      "locked": false,
+      "type": "richtext",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "<p>Onze merchants staan op de eerste plaats. Om hen verder te helpen denken wij in oplossingen, geven wij vrijheid en inzicht. en staan altijd klaar om te helpen.</p>"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": []
+}]

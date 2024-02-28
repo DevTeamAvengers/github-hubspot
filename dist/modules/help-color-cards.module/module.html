@@ -1,0 +1,34 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+{% set tPaddingReduced = module.layout.top_padding_reduced ? "pt-0" : "" %}
+{% set bPaddingReduced = module.layout.bottom_padding_reduced ? "pb-0" : "" %}
+
+{{ require_css(get_asset_url("../../css/help-color-cards-module.css"), { async: true }) }}
+
+<div class="help-color-cards-module bg-white {{ tPaddingReduced }} {{ bPaddingReduced }} global-tb-padding">
+    <div class="container">
+        <div class="row help-card-row">
+            <div class="help-cards col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 d-flex flex-column flex-md-row">
+                {% for card in module.cards %}
+                    {% set cardIconUrl = get_asset_url(card.icon.src) %}
+                    {% set cardIcon = cardIconUrl ? cardIconUrl : card.icon.src %}
+                    <div class="help-card d-flex flex-column justify-content-between balloon balloon-lg {% cycle "balloon-tr grey-card","balloon-tl purple-card" %}">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h2 class="heading-4">{{ card.title }}</h2>
+                            <img src="{{ cardIcon }}" alt="{{ card.icon.alt }}" />
+                        </div>
+                        <p>{{ card.description }}</p>
+                        {% for contact in card.contacts %}
+                            <div>
+                                <h3 class="heading-6">{{ contact.title }}</h3>
+                                <a class="contact-detail" href="{{ contact.link_type }}{{ contact.link }}" {% if contact.open_in_new_tab %} target="_blank" {% endif %}>{{ contact.link_name }}</a>
+                            </div>
+                        {% endfor %}
+                        <p>{{ card.availability }}</p>
+                        {% set btnStyle = loop.cycle("btn-primary btn-text-hover","btn-pink btn-text-hover") %}
+                        {{ button.link(card.button, btnStyle) }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

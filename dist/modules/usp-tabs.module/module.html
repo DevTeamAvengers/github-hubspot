@@ -1,0 +1,52 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+
+{{ require_js(get_asset_url("../../js/swiper.js"), { position: "footer", defer: true }) }}
+{{ require_css(get_asset_url("../../css/swiper.css"), { async: true }) }}
+
+{% set titles = [] %}
+{% for slide in module.slides %}
+    {% do titles.append(slide.slide_title) %}
+{% endfor %}
+
+<section class="usp-tabs-module bg-white global-tb-padding">
+    <header class="container">
+        {% if module.title %}
+            <h2 class="heading-1">{{ module.title.content }}</h2>
+        {% endif %}
+    
+        <div class="btn-tab-group" id="swiper-nav-{{ name }}">
+            {% for title in titles %}
+                {% set active = loop.index0 == 0 ? 'active' : '' %}
+                <button class="btn btn-tab heading-4 {{ active  }}" data-swiper-index="{{ loop.index0 }}">{{ title }}</button>
+            {% endfor %}
+        </div>
+    </header>
+    
+    <div class="swiper swiper-container" data-swiper-nav="#swiper-nav-{{ name }}" data-swiper-effect="fade">
+        <div class="swiper-wrapper">
+            {% for slide in module.slides %}
+                <div class="swiper-slide">
+                    <div class="container">
+                        <div class="row">
+                            {% for service in slide.services %}
+                                {% set iconUrl = get_asset_url(service.icon.src) %}
+                                {% set icon = iconUrl ? iconUrl : service.icon.src %}
+                                <div class="col-md-6 col-xl-3 mb-4">
+                                    <div class="h-100 text-block">
+                                        <div class="balloon balloon-icon balloon-bl">
+                                            <span class="icon text-primary">
+                                                <img src="{{ icon }}" alt="{{ service.icon.alt }}" loading="lazy" />
+                                            </span>
+                                        </div>
+                                        <h3 class="heading heading-4">{{ service.title }}</h3>
+                                        <p class="text">{{ service.description }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,102 @@
+[{
+    "name": "background_color",
+    "label": "Background color",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name": "color",
+            "label": "Color",
+            "required": false,
+            "locked": false,
+            "display": "radio",
+            "inline_help_text": "",
+            "help_text": "",
+            "choices": [
+                [
+                    "bg-white",
+                    "White"
+                ],
+                [
+                    "bg-extra-light-purple",
+                    "Extra light purple"
+                ]
+            ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "bg-white"
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {}
+},
+{
+  "name": "title",
+  "label": "Title",
+  "required": false,
+  "locked": false,
+  "validation_regex": "",
+  "allow_new_line": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "placeholder": "",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": null
+}
+,
+{
+  "name": "reference_logos",
+  "label": "Reference logos",
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": 4,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 4
+  },
+  "children": [
+    {
+      "name": "reference_logo",
+      "label": "Reference logo image",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": true,
+      "resizable": false,
+      "show_loading" : false,
+      "type": "image",
+      "default": {
+        "src": "https://25799006.fs1.hubspotusercontent-eu1.net/hubfs/25799006/bitvavo.png",
+        "alt": "bitvavo"
+      }
+    },
+    {
+      "name" : "reference_link",
+      "label" : "Reference link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL" ],
+      "type" : "link",
+      "inline_help_text": "",
+      "help_text": "",
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": []
+}]

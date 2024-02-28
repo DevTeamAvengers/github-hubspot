@@ -1,0 +1,117 @@
+[{
+  "id": "",
+  "name": "title",
+  "label": "Title",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Title"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "type": "group",
+  "isNew": false,
+  "name": "style",
+  "label": "Style",
+  "tab": "STYLE",
+  "children": [
+    {
+      "type": "choice",
+      "display": "select",
+      "choices": [
+        ["bg-white-to-purple", "wit naar paars"],
+        ["bg-light-to-purple", "licht naar paars"],
+        ["bg-white", "wit"],
+        ["bg-extra-light-purple", "licht"],
+        ["bg-purple", "paars"]
+      ],
+      "label": "Background style",
+      "name": "background_style",
+      "default": "bg-white"
+    }
+  ],
+  "default": {}
+}
+,
+{
+  "name": "blog_group",
+  "label": "Blog group",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "blog",
+      "label": "Blog",
+      "required": false,
+      "locked": false,
+      "type": "blog",
+      "placeholder": "Select a blog",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": null
+    },
+    {
+      "name": "text_more",
+      "label": "Show more",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Bekijk meer"
+    },
+    {
+      "name": "text_all",
+      "label": "Show all",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Toon alle"
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {}
+}
+,
+{
+  "name": "label_more",
+  "label": "Label: show more",
+  "required": false,
+  "locked": false,
+  "validation_regex": "",
+  "allow_new_line": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "placeholder": "",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": "Ontdek meer"
+}
+]

@@ -1,0 +1,101 @@
+{{ require_js(get_asset_url("../../js/transactionCosts.js"), { position: "footer", defer: true }) }}
+{{ require_css(get_asset_url("../../css/transaction-costs-module.css"), { async: true }) }}
+
+{# HubDB is used to retrieve a list of providers. #}
+{# An export of the table is in ./hubdb/payment-providers.csv. #}
+{# Columns: name, logo, payment_options, included_with, available_in, provider_fee, provider_fee_professional #}
+{% set providers = hubdb_table_rows(module.providers_hubdb, "orderBy=order") %}
+{% set packages = ["pioneer", "professional"] %}
+
+<section class="transaction-costs-module bg-extra-light-purple global-tb-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col d-flex flex-column text-center align-items-center">
+                <h2>
+                {% if module.title %}
+                    {{ module.title }}
+                {% endif %}
+                </h2>
+                <p class="text main-text">
+                    {% if module.intro_text %}
+                        {{module.intro_text }}
+                    {% endif %}
+                </p>
+                <div class="filter-group btn-tab-group">
+                    {% set tabsLabels = module.labels.tabs_labels %}
+                    <button class="btn btn-tab heading-4 js-click active" data-filter="all">{{ tabsLabels.show_all }}</button>
+                    <button class="btn btn-tab heading-4 js-click" data-filter="online">{{ tabsLabels.online }}</button>
+                    <button class="btn btn-tab heading-4 js-click" data-filter="in-store">{{ tabsLabels.in_store }}</button>
+                    <button class="btn btn-tab heading-4 js-click" data-filter="achteraf">{{ tabsLabels.afterwards }}</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col scroll-x">
+                <table class="table table-borderless">
+                    <thead class="body-large">
+                        <tr>
+                            {% set columnLabels = module.labels.columns_labels %}
+                            <th scope="col" colspan="2">{{ columnLabels.payment_method }}</th>
+                            <th scope="col">{{ columnLabels.available_in }}</th>
+                            <th scope="col">{{ columnLabels.pioneer }}</th>
+                            <th scope="col">{{ columnLabels.professional }}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="filterable">
+                        {% for row in providers %}
+                        {% set available_in = [] %}
+                        {% set included_with = [] %}
+                        {% set filters = [] %}
+                        {% set is_included_with = "nee" %}
+
+                        {% for option in row.payment_options %}
+                            {% do filters.append(option.name|lower) %}
+                        {% endfor %}
+
+                        {% for country in row.available_in %}
+                            {% do available_in.append(country.name) %}
+                        {% endfor %}
+
+                        {% for package in row.included_with %}
+                            {% do included_with.append(package.name|lower) %}
+                        {% endfor %}
+
+                        <tr class="font-size-14" data-filters="{{ filters|join(' ')}}">
+                            <td>
+                            {% if row.logo %}
+                                {% if row.url %}
+                                    <a href="{{ row.url }}" target="_blank">
+                                        <div class="logo" style="background-image: url({{row.logo.url}})"></div> 
+                                    </a> 
+                                {% else %}
+                                    <div class="logo" style="background-image: url({{row.logo.url}})"></div> 
+                                {% endif %}
+                            {% endif %}
+                            </td>
+                            <td class="subtitle">
+                                {{ row.name }}
+                            </td>
+                            <td>
+                                {{ available_in|join(", ")}}
+                            </td>
+                            {# pioneer package fee #}
+                            <td>
+                                <strong>
+                                    {{row.provider_fee}}
+                                </strong>
+                            </td>
+                            {# professional package fee #}
+                            <td>
+                                <strong>
+                                    {{row.provider_fee_professional}}
+                                </strong>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

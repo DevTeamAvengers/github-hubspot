@@ -1,0 +1,234 @@
+[{
+    "name": "left_col",
+    "label": "Left column content",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name": "col_color",
+            "label": "Column color",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "inline_help_text": "",
+            "help_text": "",
+            "choices": [
+                [
+                    "bg-extra-light-purple",
+                    "Extra light purple"
+                ],
+                [
+                    "bg-pink",
+                    "Pink"
+                ],
+                [
+                    "bg-mid-blue",
+                    "Mid blue"
+                ]
+            ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "bg-extra-light-purple"
+        },
+        {
+            "name": "title",
+            "label": "Title",
+            "required": true,
+            "locked": false,
+            "validation_regex": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "placeholder": "",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": "Title"
+        },
+        {
+            "name": "description",
+            "label": "Description",
+            "required": false,
+            "locked": false,
+            "validation_regex": "",
+            "allow_new_line": false,
+            "show_emoji_picker": false,
+            "type": "text",
+            "placeholder": "",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": null
+        },
+        {
+            "name": "button",
+            "label": "Button",
+            "sortable": false,
+            "required": false,
+            "locked": false,
+            "children": [
+                {
+                    "name": "content",
+                    "label": "Link content",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "default": "Button"
+                },
+                {
+                    "name": "style",
+                    "label": "Link style",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "display": "select",
+                    "choices": [
+                        ["btn-primary btn-text-hover", "Primary styling"],
+                        ["btn-outline-primary btn-text-hover", "Outline styling"],
+                        ["btn-dark btn-text-hover", "Dark styling"],
+                        ["btn-pink btn-text-hover", "Pink styling"]
+                    ],
+                    "type": "choice",
+                    "default": "btn-primary btn-text-hover"
+                },
+                {
+                    "name": "cta",
+                    "label": "Use HubSpot CTA (recommended)",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "children": [
+                        {
+                        "name": "cta",
+                        "label": "CTA",
+                        "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+                        "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+                        "required": false,
+                        "locked": false,
+                        "type": "cta",
+                        "default": null
+                        }
+                    ],
+                    "type": "group",
+                    "default": {}
+                },
+                {
+                    "name": "link",
+                    "label": "Use URL",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "children": [
+                        {
+                        "name": "link",
+                        "label": "Link",
+                        "required": false,
+                        "locked": false,
+                        "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+                        "type": "link",
+                        "show_advanced_rel_options": false,
+                        "default": {
+                            "url": {
+                            "content_id": null,
+                            "type": "CONTENT",
+                            "href": ""
+                            },
+                            "open_in_new_tab": false,
+                            "no_follow": false,
+                            "sponsored": false,
+                            "user_generated_content": false
+                        }
+                        }
+                    ],
+                    "type": "group",
+                    "default": {}
+                }
+            ],
+            "type": "group",
+            "default": {}
+        },
+        {
+            "name": "newsletter_subscription",
+            "label": "Newsletter subscription",
+            "required": false,
+            "locked": false,
+            "children": [
+                {
+                    "name": "newsletter_subs_form",
+                    "label": "Newsletter subscription form",
+                    "required": false,
+                    "locked": false,
+                    "inline_help_text": "This form should only contain one field, the email one",
+                    "help_text": "This form should only contain one field, the email one",
+                    "type": "form",
+                    "default": null
+                }
+            ],
+            "type": "group",
+            "inline_help_text": "",
+            "help_text": "",
+            "default": null
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {}
+},
+{
+    "name": "right_col",
+    "label": "Right column",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name": "col_color",
+            "label": "Column color",
+            "required": false,
+            "locked": false,
+            "display": "select",
+            "inline_help_text": "",
+            "help_text": "",
+            "choices": [
+                [
+                    "bg-extra-light-purple",
+                    "Extra light purple"
+                ],
+                [
+                    "bg-pink",
+                    "Pink"
+                ],
+                [
+                    "bg-mid-blue",
+                    "Mid blue"
+                ]
+            ],
+            "type": "choice",
+            "placeholder": "",
+            "default": "bg-extra-light-purple"
+        },
+        {
+            "name": "img",
+            "label": "Image",
+            "required": false,
+            "locked": false,
+            "inline_help_text": "",
+            "help_text": "",
+            "responsive": true,
+            "resizable": false,
+            "show_loading" : false,
+            "type": "image",
+            "default": {
+                "src": "/wirelabtheme/assets/default-images/balloon-w-img-right.png",
+                "alt": "Default img"
+            }
+        }
+
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {}
+}]

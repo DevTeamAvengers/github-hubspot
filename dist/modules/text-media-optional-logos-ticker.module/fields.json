@@ -1,0 +1,154 @@
+[
+ {
+  "default": {
+   "size_type": "auto",
+   "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/img1.png",
+   "alt": "img1",
+   "loading": "lazy",
+   "width": 583,
+   "height": 583,
+   "max_width": 583,
+   "max_height": 583
+  },
+  "display_width": null,
+  "id": "d26fce67-4f06-aac0-838c-89eb6ff6eadc",
+  "label": "Image",
+  "locked": false,
+  "name": "image_field",
+  "required": false,
+  "resizable": true,
+  "responsive": true,
+  "show_loading": false,
+  "type": "image"
+ },
+ {
+  "children": [
+   {
+    "choices": [
+     [
+      "labeltag",
+      "Blue"
+     ],
+     [
+      "labeltag--pink",
+      "Pink"
+     ],
+     [
+      "labeltag--light-blue",
+      "Light Blue"
+     ],
+     [
+      "labeltag--alt",
+      "Blue Text Light Background"
+     ],
+     [
+      "labeltag--pink-alt",
+      "Pink Text Light Background"
+     ],
+     [
+      "labeltag--light-blue-alt",
+      "Light Blue Text Light Background"
+     ]
+    ],
+    "default": "labeltag--pink-alt",
+    "display": "select",
+    "display_width": null,
+    "id": "07615e0e-3c90-d8a4-b946-a12b56efbb9a",
+    "label": "Style",
+    "locked": false,
+    "multiple": false,
+    "name": "style",
+    "preset": null,
+    "reordering_enabled": true,
+    "required": false,
+    "type": "choice"
+   },
+   {
+    "allow_new_line": false,
+    "default": "Payment methods",
+    "display_width": null,
+    "id": "bf0ed240-9607-d36f-38b7-b64fa2e6779a",
+    "label": "Content",
+    "locked": false,
+    "name": "content",
+    "required": false,
+    "show_emoji_picker": false,
+    "type": "text",
+    "validation_regex": ""
+   }
+  ],
+  "default": {
+   "style": "labeltag--pink-alt",
+   "content": "Payment methods"
+  },
+  "display_width": null,
+  "expanded": false,
+  "id": "755e5bdd-266a-2535-dfc3-fba6501b2256",
+  "label": "Tag",
+  "locked": false,
+  "name": "tag",
+  "required": false,
+  "tab": "CONTENT",
+  "type": "group"
+ },
+ {
+  "default": "<h2>Betaalmethode iDEAL <br>op jouw website</h2>\n<p>Viverra ac volutpat risus aliquam. Quam et et tellus et gravida diam scelerisque cursus odio. Pharetra, augue neque mattis faucibus eget. Morbi in a, augue aenean consectetur eu, id.</p>\n<ul>\n<li>De betaling is 100% gegarandeerd</li>\n<li>Direct inzicht in betalingen</li>\n<li>Met één druk op de knop terugbetalen</li>\n</ul>",
+  "display_width": null,
+  "id": "3a92b001-a956-b5de-766d-4dd44e796ea9",
+  "label": "Content",
+  "locked": false,
+  "name": "content",
+  "required": false,
+  "type": "richtext"
+ },
+ {
+  "type": "boolean",
+  "id": "9a9ae656-2dde-1dc1-b5b2-54a0e418c9e8",
+  "default": false,
+  "display": "checkbox",
+  "label": "Add Logos Ticker",
+  "name": "add_logos_ticker"
+ },
+ {
+  "default": {
+   "size_type": "auto",
+   "src": "https://25788762.fs1.hubspotusercontent-eu1.net/hubfs/25788762/Ideal%20Page/logo1.svg",
+   "alt": "logo1",
+   "loading": "lazy",
+   "width": 188,
+   "height": 190,
+   "max_width": 188,
+   "max_height": 190
+  },
+  "display_width": null,
+  "id": "da2ff05b-bea5-90b8-8213-0a24bfaec14b",
+  "label": "Ticker Logo",
+  "locked": false,
+  "name": "ticker_logo",
+  "occurrence": {},
+  "required": false,
+  "resizable": true,
+  "responsive": true,
+  "show_loading": false,
+  "type": "image",
+  "visibility": {
+   "operator": "EQUAL",
+   "controlling_field_path": "add_logos_ticker",
+   "controlling_value_regex": "true"
+  }
+ },
+ {
+  "allow_new_line": false,
+  "default": "overview",
+  "display_width": null,
+  "id": "6365748f-e50e-4fcb-4d35-b1e138927cb6",
+  "inline_help_text": "",
+  "label": "Module ID",
+  "locked": false,
+  "name": "module_identifier",
+  "required": false,
+  "show_emoji_picker": false,
+  "type": "text",
+  "validation_regex": ""
+ }
+]

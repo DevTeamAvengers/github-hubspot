@@ -1,0 +1,78 @@
+[{
+  "name": "field_group",
+  "label": "content",
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "left_text",
+      "label": "Left title",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Developer" 
+    },
+    {
+      "name": "right_text",
+      "label": "Right title",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": ".docs" 
+    },
+    {
+      "name": "image_field",
+      "label": "Image field",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "responsive": false,
+      "resizable": false,
+      "show_loading" : false,
+      "type": "image",
+      "default": {
+        "size_type" : "auto",
+        "src": "/wirelabtheme/assets/default-images/big-link-laptop.png",
+        "alt": null,
+        "loading": "disabled"
+      }
+    },
+    {
+      "name": "link",
+      "label": "Link",
+      "required": false,
+      "locked": false,
+      "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+      "type": "link",
+      "show_advanced_rel_options": false,
+      "default": {
+        "url": {
+          "content_id": null,
+          "type": "CONTENT",
+          "href": ""
+        },
+        "open_in_new_tab": false,
+        "no_follow": false,
+        "sponsored": false,
+        "user_generated_content": false
+      }
+    }
+  ],
+  "type": "group",
+  "inline_help_text": "",
+  "help_text": "",
+  "default": {} 
+}]

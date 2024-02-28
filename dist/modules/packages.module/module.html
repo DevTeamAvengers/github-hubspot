@@ -1,0 +1,129 @@
+{% import 'wirelabtheme/macros/button.html' as button %}
+{% set packages = module.packages %}
+{% set col_amount = 3 %}
+
+{{ require_css(get_asset_url("../../css/packages-module.css"), { async: true }) }}
+
+<div class="container container-fluid packages-module global-tb-padding">
+	<div class="row justify-content-center packages-row">
+
+{# REPEATS 3 COLUMNS PER ROW #}
+{# WHEN ROW HAS ONLY ONE, THEN IT WILL SHOW AS WIDE #}
+{% for package in packages %}
+
+	{% set col_wide = false %}
+
+	{# REGULAR #}
+	{% if loop.index % col_amount == 1 %}
+		{% set col_class = 'col-lg-4' %}
+		{% set content_class = 'balloon balloon-lg balloon-tr bg-extra-light-purple' %}
+	{% endif %}
+
+	{# PURPLE #}
+	{% if loop.index % col_amount == 2 %}
+		{% set col_class = 'col-lg-4' %}
+		{% set content_class = 'balloon balloon-lg balloon-tl bg-purple' %}
+	{% endif %}
+	
+	{# WIDE #}
+	{% if loop.index % col_amount == 0 %}
+		{% set col_class = 'col-lg-8' %}
+		{% set content_class = 'balloon balloon-lg bg-pink' %}
+		{% set col_wide = true %}
+	{% endif %}
+
+	{# WIDE IF THERE IS ONLY ONE IN A ROW #}
+	{% if loop.index % col_amount == 1 && loop.last %}
+		{% set col_class = 'col-lg-8' %}
+		{% set content_class = 'balloon balloon-lg bg-extra-light-purple' %}
+		{% set col_wide = true %}
+	{% endif %}
+	
+		<div class="{{col_class}} justify-self-start">
+			<div class="package-content {{content_class}} d-flex flex-column justify-content-between">
+				<div class="d-flex justify-content-between align-items-center">
+					
+					<h2 class="heading-4">
+						{% if package.title %} 
+							{{package.title}} 
+						{% endif %}
+					</h2>
+					
+					<span class="subtitle">
+						{% if package.price %}
+							{{package.price}} 
+						{% endif %}
+					</span>
+				
+				</div>
+				
+				{# WIDE COLUMN #}
+				{% if col_wide %}
+
+					<div class="d-flex flex-column flex-lg-row flex-1 wide-column-content">
+						<div class="d-flex flex-column justify-content-lg-between flex-1 padding-right left-col">
+							<p class="text margin-top-16 body-small light">
+								{% if package.text %} 
+									{{package.text}} 
+								{% endif %}
+							</p>
+							<div class="d-flex flex-column justify-content-between align-items-center">
+								{% if package.btn %} 
+									{{ button.link(package.btn, 'full-width margin-bottom-16') }}
+								{% endif %}
+			
+								{% if package.btn %} 
+									{{ button.link(package.btn_link) }}
+								{% endif %}
+							</div>
+						</div>
+
+						<div class="flex-1 padding-left d-flex align-items-center right-col">
+							<ul class="margin-top-16">
+								{% for item in package.features %}
+									<li>
+										<span class="body-medium">{{ item.feature }}</span>
+									</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+
+				{# REGULAR COLUMN #}
+				{% else %}
+
+				<p class="text body-small light">
+					{% if package.text %} 
+						{{package.text}} 
+					{% endif %}
+				</p>
+				
+				<ul class="margin-top-16">
+					{% for item in package.features %}
+						<li>
+							<span class="body-medium">{{ item.feature }}</span>
+						</li>
+					{% endfor %}
+				</ul>
+				
+				<div class="d-flex flex-column justify-content-between align-items-center">
+					{% if package.btn %} 
+						{{ button.link(package.btn, 'full-width margin-bottom-16') }}
+					{% endif %}
+
+					{% if package.btn %} 
+						{{ button.link(package.btn_link) }}
+					{% endif %}
+				</div>
+				
+				{% endif %}
+
+			</div>
+		</div>
+			
+		{% if loop.index % col_amount == 0 %}
+		</div><div class="row justify-content-lg-center">
+	{% endif %}   
+	
+{% endfor %}
+</div>

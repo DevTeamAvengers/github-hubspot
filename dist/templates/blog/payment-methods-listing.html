@@ -1,0 +1,48 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: Pay - Payment methods listing
+  screenshotPath: ../../images/template-previews/template.png
+-->
+
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+  {{ require_css(get_asset_url("../../css/blog-card-items-listing-module.css")) }}
+
+  <section class="blog-payment-methods-listing-module">
+
+    {% dnd_area "body_dnd_area" label="Drag and drop"%}
+
+      {% dnd_section %}
+        {% dnd_module path='../../modules/hero-text-center' label='Header'%} {% end_dnd_module %}
+      {% end_dnd_section %}
+
+      {% dnd_section %}
+        {% dnd_module path='../../modules/card-items-listing.module' label='Payment methods listing' %}{% end_dnd_module %}
+      {% end_dnd_section %}
+
+      {% dnd_section %}
+        {% dnd_module path='../../modules/two-columns-shadow-card' label='Text shadow-card'%} {% end_dnd_module %}
+      {% end_dnd_section %}
+
+      {% dnd_section %}
+        {% dnd_module path='../../modules/statement' label='Statement'%} {% end_dnd_module %}
+      {% end_dnd_section %}
+
+      {% dnd_section %}
+        {% dnd_module path='../../modules/two-columns-shadow-card' label='Text shadow-card'%} {% end_dnd_module %}
+      {% end_dnd_section %}
+
+      {% dnd_section %}
+        {% dnd_module path='../../modules/crosslinks' %} {% end_dnd_module %}
+      {% end_dnd_section %}
+
+      {% dnd_section %}
+        {% dnd_module path='../../modules/register-cta' label='Register (CTA)'%} {% end_dnd_module %}
+      {% end_dnd_section %}
+
+    {% end_dnd_area %}
+
+  </section>
+{% endblock body %}

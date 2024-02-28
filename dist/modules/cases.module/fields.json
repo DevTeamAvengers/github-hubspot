@@ -1,0 +1,301 @@
+[{
+  "id": "",
+  "name": "slides",
+  "label": "Slide",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": 1,
+    "max": null,
+    "sorting_label_field": null,
+    "default": 3
+  },
+  "children": [
+    {
+      "name": "slide_title",
+      "label": "Slide title",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "case"
+    },
+    {
+      "name": "content_group",
+      "label": "Content",
+      "required": false,
+      "locked": false,
+      "inline_help_text": "",
+      "help_text": "",
+      "children": [
+        {
+          "name": "quote",
+          "label": "Quote",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": "Ik zou niks anders meer willen, dit is geweldig"
+        },
+        {
+          "name": "author",
+          "label": "Author",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": "Larissa de Witt"
+        },
+        {
+          "name": "title",
+          "label": "Title",
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "placeholder": "",
+          "inline_help_text": "",
+          "help_text": "",
+          "default": "CTO"
+        }
+      ],
+      "type": "group",
+      "default": {}
+    },
+    {
+      "id": "",
+      "name": "image_group",
+      "label": "Image",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "children": [
+        {
+          "id": "",
+          "name": "image_desktop",
+          "label": "Select a image for desktop",
+          "help_text": "Always fill this image",
+          "inline_help_text": "Always fill this image",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "resizable": false,
+          "type": "image",
+          "default": {
+            "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/case.jpg",
+            "alt": null
+          }
+        },
+        {
+          "id": "",
+          "name": "image_mobile",
+          "label": "Select a image for mobile (optional)",
+          "help_text": "This image is optional when you want to display a different image on mobile devices",
+          "inline_help_text": "This image is optional when you want to display a different image on mobile devices",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "resizable": false,
+          "type": "image",
+          "default": {
+            "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/case.jpg",
+            "alt": null
+          }
+        }
+      ],
+      "type": "group",
+      "default": {}
+    },
+    {
+      "id": "",
+      "name": "button",
+      "label": "Button",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "children": [
+        {
+          "name": "content",
+          "label": "Link content",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": "Bekijk case"
+        },
+        {
+          "name": "style",
+          "label": "Link style",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "display": "select",
+          "choices": [
+            ["btn-primary btn-text-hover", "Primary styling"],
+            ["btn-outline-primary btn-text-hover", "Outline styling"],
+            ["btn-dark btn-text-hover", "Dark styling"],
+            ["btn-pink btn-text-hover", "Pink styling"],
+            ["btn-link", "Link styling"]
+          ],
+          "type": "choice",
+          "default": "btn-primary btn-text-hover"
+        },
+        {
+          "id": "",
+          "name": "cta",
+          "label": "Use HubSpot CTA (recommended)",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "cta",
+              "label": "CTA",
+              "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+              "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",
+              "required": false,
+              "locked": false,
+              "type": "cta",
+              "default": null
+            }
+          ],
+          "type": "group",
+          "default": {}
+        },
+        {
+          "id": "",
+          "name": "link",
+          "label": "Use URL",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "children": [
+            {
+              "name": "link",
+              "label": "Link",
+              "required": false,
+              "locked": false,
+              "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+              "type": "link",
+              "show_advanced_rel_options": false,
+              "default": {
+                "url": {
+                  "content_id": null,
+                  "type": "CONTENT",
+                  "href": ""
+                },
+                "open_in_new_tab": false,
+                "no_follow": false,
+                "sponsored": false,
+                "user_generated_content": false
+              }
+            }
+          ],
+          "type": "group",
+          "default": {}
+        }
+      ],
+      "type": "group",
+      "default": {}
+    }
+  ],
+  "type": "group",
+  "default": [
+    {
+      "slide_title": "Case 1",
+      "content_group": {
+        "quote": "Ik zou niks anders meer willen, dit is geweldig",
+        "author": "Larissa de Witt",
+        "title": "CTO"
+      },
+      "image_group": {
+        "image_desktop": {
+          "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/case.jpg"
+        }
+      },
+      "button": {
+        "content": "Bekijk case",
+        "style": "btn-link"
+      }
+    },
+    {
+      "slide_title": "Case 2",
+      "content_group": {
+        "quote": "Ik zou niks anders meer willen, dit is geweldig",
+        "author": "Larissa de Witt",
+        "title": "CTO"
+      },
+      "image_group": {
+        "image_desktop": {
+          "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/case.jpg"
+        }
+      },
+      "button": {
+        "content": "Bekijk case",
+        "style": "btn-link"
+      }
+    },
+    {
+      "slide_title": "Case 3",
+      "content_group": {
+        "quote": "Ik zou niks anders meer willen, dit is geweldig",
+        "author": "Larissa de Witt",
+        "title": "CTO"
+      },
+      "image_group": {
+        "image_desktop": {
+          "src": "https://25761178.fs1.hubspotusercontent-eu1.net/hubfs/25761178/case.jpg"
+        }
+      },
+      "button": {
+        "content": "Bekijk case",
+        "style": "btn-link"
+      }
+    }
+  ]
+}
+,
+{
+  "type": "group",
+  "isNew": false,
+  "name": "style",
+  "label": "Style",
+  "tab": "STYLE",
+  "children": [
+    {
+      "type": "choice",
+      "display": "select",
+      "choices": [
+        ["bg-white-to-purple", "wit naar paars"],
+        ["bg-light-to-purple", "licht naar paars"],
+        ["bg-white", "wit"],
+        ["bg-extra-light-purple", "licht"],
+        ["bg-purple", "paars"]
+      ],
+      "label": "Background style",
+      "name": "background_style",
+      "default": "bg-white"
+    }
+  ],
+  "default": {}
+}
+]

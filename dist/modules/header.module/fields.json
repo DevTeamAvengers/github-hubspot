@@ -1,0 +1,388 @@
+[{
+  "id": "",
+  "name": "text",
+  "label": "Text items",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "mobile_back_button_text",
+      "label": "Mobile back button text",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Terug"
+    },
+    {
+      "name": "mobile_lang_title",
+      "label": "Mobile language switcher title",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": "Kies een taal"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "id": "",
+  "name": "menu",
+  "label": "Menu items",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": null,
+    "sorting_label_field": null,
+    "default": null
+  },
+  "children": [
+    {
+      "name": "content",
+      "label": "Content",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "id": "",
+      "name": "link",
+      "inline_help_text": "Je kan dit veld laag laten als een menu item meerdere onderliggende menu items bevat",
+      "help_text": "Je kan dit veld laag laten als een menu item meerdere onderliggende menu items bevat",
+      "label": "link van bovenliggende menu item",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "children": [
+        {
+          "name": "link_item",
+          "label": "Link",
+          "required": false,
+          "locked": false,
+          "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+          "type": "link",
+          "show_advanced_rel_options": false,
+          "default": {
+            "url": {
+              "content_id": null,
+              "type": "CONTENT",
+              "href": ""
+            },
+            "open_in_new_tab": false,
+            "no_follow": false,
+            "sponsored": false,
+            "user_generated_content": false
+          }
+        }
+      ],
+      "type": "group",
+      "default": {}
+    },
+    {
+      "id": "",
+      "name": "child_menu",
+      "inline_help_text": "Je kan hier inderliggende menu items plaatsen",
+      "help_text": "Je kan hier inderliggende menu items plaatsen",
+      "label": "Onderliggende menu items",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "occurrence": {
+        "min": 0,
+        "max": null,
+        "default": 0
+      },
+      "children": [
+        {
+          "name": "content",
+          "label": "Content",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": null
+        },
+        {
+          "inline_help_text": "De Sub text is alleen te zijn bij de bovenste 4 onverliggende menu items",
+          "help_text": "De Sub text is alleen te zijn bij de bovenste 4 onverliggende menu items",
+          "name": "sub_text",
+          "label": "Sub text",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": null
+        },
+        {
+          "name": "link",
+          "label": "Link",
+          "required": false,
+          "locked": false,
+          "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+          "type": "link",
+          "show_advanced_rel_options": false,
+          "default": {
+            "url": {
+              "content_id": null,
+              "type": "CONTENT",
+              "href": null
+            },
+            "open_in_new_tab": false,
+            "no_follow": false,
+            "sponsored": false,
+            "user_generated_content": false
+          }
+        }
+      ],
+      "type": "group",
+      "default": null
+    },
+    {
+      "inline_help_text": "Je hoeft dit veld alleen te vullen als er onderliggende menu items zijn",
+      "help_text": "Je hoeft dit veld alleen te vullen als er onderliggende menu items zijn",
+      "name": "paragraph",
+      "label": "Paragraph",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "richtext",
+      "default": ""
+    },
+    {
+      "id": "",
+      "name": "cta",
+      "inline_help_text": "Je kan hier inderliggende menu items plaatsen",
+      "help_text": "Je kan hier inderliggende menu items plaatsen",
+      "label": "Support CTA",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+
+      "children": [
+        {
+          "name": "content",
+          "label": "content",
+          "sortable": false,
+          "required": false,
+          "locked": false,
+          "validation_regex": "",
+          "allow_new_line": false,
+          "show_emoji_picker": false,
+          "type": "text",
+          "default": ""
+        },
+        {
+          "name": "link",
+          "label": "Link",
+          "required": false,
+          "locked": false,
+          "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+          "type": "link",
+          "show_advanced_rel_options": false,
+          "default": {
+            "url": {
+              "content_id": null,
+              "type": "CONTENT",
+              "href": ""
+            },
+            "open_in_new_tab": false,
+            "no_follow": false,
+            "sponsored": false,
+            "user_generated_content": false
+          }
+        }
+      ],
+      "type": "group",
+      "default": {}
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+  "id": "",
+  "name": "sub_menu",
+  "label": "Sub menu options",
+  "help_text": "The sub menu is the menu on the right side of the page",
+  "inline_help_text": "The sub menu is the menu on the right side of the page",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "occurrence": {
+    "min": null,
+    "max": 3,
+    "sorting_label_field": null,
+    "default": null
+  },
+  "children": [
+    {
+      "name": "content",
+      "label": "content",
+      "help_text": "The last link in this list will be highlighted with a purple underline",
+      "inline_help_text": "The last link in this list will be highlighted with a purple underline",
+      "sortable": false,
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "link",
+      "label": "Link",
+      "required": false,
+      "locked": false,
+      "supported_types": ["EXTERNAL", "CONTENT", "BLOG"],
+      "type": "link",
+      "show_advanced_rel_options": false,
+      "default": {
+        "url": {
+          "content_id": null,
+          "type": "CONTENT",
+          "href": ""
+        },
+        "open_in_new_tab": false,
+        "no_follow": false,
+        "sponsored": false,
+        "user_generated_content": false
+      }
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+,
+{
+    "name": "logo",
+    "label": "logo",
+    "required": false,
+    "locked": false,
+    "children": [
+        {
+            "name" : "link_field",
+            "label" : "Link field",
+            "required" : false,
+            "locked" : false,
+            "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+            "type" : "link",
+            "inline_help_text": "Pas hier de link van het logo aan. Het logo zelf je aanpassen in de branding settings van HubSpot",
+            "help_text": "",
+            "default" : {
+            "url" : {
+                "content_id" : null,
+                "type" : "EXTERNAL",
+                "href" : "https://www.pay.nl"
+            },
+            "open_in_new_tab" : false,
+            "no_follow" : false
+            } 
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+    "default": {} 
+},
+{
+  "id": "",
+  "name": "searchbar",
+  "label": "Search bar",
+  "sortable": false,
+  "required": false,
+  "locked": false,
+  "children": [
+    {
+      "name": "searchpage",
+      "label": "Search page",
+      "required": false,
+      "locked": false,
+      "supported_types": ["CONTENT"],
+      "type": "link",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": {
+        "url": {
+          "content_id": null,
+          "type": "CONTENT",
+          "href": ""
+        },
+        "open_in_new_tab": false,
+        "no_follow": false
+      }
+    },
+    {
+      "name": "search_text",
+      "label": "Search text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Zoeken"
+    },
+    {
+      "name": "close_text",
+      "label": "Close text",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Sluiten"
+    },
+    {
+      "name": "placeholder",
+      "label": "Placeholder",
+      "required": false,
+      "locked": false,
+      "validation_regex": "",
+      "allow_new_line": false,
+      "show_emoji_picker": false,
+      "type": "text",
+      "placeholder": "",
+      "inline_help_text": "",
+      "help_text": "",
+      "default": "Typ een zoekterm"
+    }
+  ],
+  "type": "group",
+  "default": {}
+}
+]

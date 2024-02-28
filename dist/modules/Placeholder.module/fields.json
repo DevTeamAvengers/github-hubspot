@@ -1,0 +1,31 @@
+[ {
+  "id" : "7662838a-fca0-c845-0672-eab5bc09888e",
+  "name" : "style",
+  "display_width" : null,
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "type" : "group",
+  "default" : { }
+}, {
+  "id" : "962e033b-87f0-50d7-a206-0a7e98ecb8b9",
+  "name" : "image_field",
+  "display_width" : null,
+  "label" : "Image",
+  "required" : true,
+  "locked" : false,
+  "responsive" : true,
+  "resizable" : false,
+  "show_loading" : false,
+  "type" : "image",
+  "default" : {
+    "src" : "https://25758250.fs1.hubspotusercontent-eu1.net/hubfs/25758250/chub_backup/pay-new-logo-1.png",
+    "alt" : "pay-new-logo-1",
+    "loading" : "lazy",
+    "width" : 600,
+    "height" : 430
+  }
+} ]

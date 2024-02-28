@@ -1,0 +1,102 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Wirelab - blog post
+  screenshotPath: ../images/template-previews/template.png
+-->
+
+{# https://dev.to/albertsg/having-multiple-blog-post-templates-in-hubspot-10i1 #}
+{% module "blog_template_picker" path="../../modules/blog-template-picker", label="Blog template picker", export_to_template_context=True %}
+
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+{% extends '../layouts/base.html' %}
+
+{% block body %}
+  {{ require_css(get_asset_url("../../css/blog-post-module.css")) }}
+
+  <section class="blog-post-module">
+    <div class="container">
+
+      <div class="col-lg-6 mx-auto">
+
+        {% if content.absolute_url is not containing "cases" %}
+          <div class="publish-date post-margin-top body-small light">{{ content.publish_date|datetimeformat("%d %B %Y") }}</div>
+        {% endif %}
+
+        {% set headingClass = content.absolute_url is containing "cases" ? "post-margin-top" : "" %}
+
+        <h1 class="heading-2 {{headingClass}}">{{ page_meta.name}}</h1>
+
+        {% if content.featured_image %}
+          <div class="post-image card card-pay card-lg card-image corner-tl bg-extra-light-purple mb-5">
+            {% set asset = { src: content.featured_image, alt: page_meta.name } %}
+            {{ image.img(asset, "", "eager", [400, 550, 650]) }}
+          </div>
+        {% endif %}
+
+        <div class="post-body">{{ content.post_body }}</div>
+      </div>
+    </div>
+    
+    {# switch between modules based on the choice field in blog_template_picker #}
+    {% if widget_data.blog_template_picker.template == 'template_1' %}
+      {# no additional modules #}
+    {% elif widget_data.blog_template_picker.template == 'template_2' %}
+      {% module 'quote1' path='../../modules/blockquote.module' label="quote1" %}
+      {% module 'text1' path='../../modules/text.module' label="text1" %}
+    {% elif widget_data.blog_template_picker.template == 'template_3' %}
+      {% module 'quote1' path='../../modules/blockquote.module' label="quote1" %}
+      {% module 'text1' path='../../modules/text.module' label="text1" %}
+      {% module 'quote2' path='../../modules/blockquote.module' label="quote2" %}
+      {% module 'text2' path='../../modules/text.module' label="text2" %}
+    {% elif widget_data.blog_template_picker.template == 'template_4' %}
+      {% module 'quote1' path='../../modules/blockquote.module' label="quote1" %}
+      {% module 'text1' path='../../modules/text.module' label="text1" %}
+      {% module 'quote2' path='../../modules/blockquote.module' label="quote2" %}
+      {% module 'text2' path='../../modules/text.module' label="text2" %}
+      {% module 'quote3' path='../../modules/blockquote.module' label="quote3" %}
+      {% module 'text3' path='../../modules/text.module' label="text3" %}
+    {% elif widget_data.blog_template_picker.template == 'template_5' %}
+      {% module 'video1' path='../../modules/video-content.module' label="video1" %}
+      {% module 'text1' path='../../modules/text.module' label="text1" %}
+    {% elif widget_data.blog_template_picker.template == 'template_6' %}
+      {% module 'video1' path='../../modules/video-content.module' label="video1" %}
+      {% module 'text1' path='../../modules/text.module' label="text1" %}
+      {% module 'quote1' path='../../modules/blockquote.module' label="quote1" %}
+      {% module 'text2' path='../../modules/text.module' label="text2" %}
+    {% elif widget_data.blog_template_picker.template == 'template_7' %}
+      {% module 'video1' path='../../modules/video-content.module' label="video1" %}
+      {% module 'text1' path='../../modules/text.module' label="text1" %}
+      {% module 'quote1' path='../../modules/blockquote.module' label="quote1" %}
+      {% module 'text2' path='../../modules/text.module' label="text2" %}
+      {% module 'quote2' path='../../modules/blockquote.module' label="quote2" %}
+      {% module 'text3' path='../../modules/text.module' label="text3" %}
+    {% elif widget_data.blog_template_picker.template == 'template_8' %}
+      {% module 'video1' path='../../modules/video-content.module' label="video1" %}
+      {% module 'text1' path='../../modules/text.module' label="text1" %}
+      {% module 'quote1' path='../../modules/blockquote.module' label="quote1" %}
+      {% module 'text2' path='../../modules/text.module' label="text2" %}
+      {% module 'quote2' path='../../modules/blockquote.module' label="quote2" %}
+      {% module 'text3' path='../../modules/text.module' label="text3" %}
+      {% module 'quote3' path='../../modules/blockquote.module' label="quote3" %}
+      {% module 'text4' path='../../modules/text.module' label="text4" %}
+    {% elif widget_data.blog_template_picker.template == 'template_9' %}
+      <div class="container">
+        <div class="col-lg-6 mx-auto">
+          {% module 'form' path="@hubspot/form" %}
+          {% module 'text1' path='../../modules/text.module' label="text1" %}
+        </div>
+      </div>
+    {% else %}
+      <div class="container">
+        <div class="col-lg-6 mx-auto">
+          <h4>Choose a template</h4>
+        </div>
+      </div>
+    {% endif %}
+    
+    {% module 'cta' path='../../modules/register-cta' %}
+
+  </section>
+{% endblock body %}

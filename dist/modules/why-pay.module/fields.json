@@ -1,0 +1,199 @@
+[{
+    "name": "field_group",
+    "label": "Parts",
+    "required": true,
+    "locked": false,
+    "occurrence": {
+      "min": 3,
+      "max": null,
+      "sorting_label_field": null,
+      "default": 3
+    },
+    "children": [
+        {
+            "name": "content_group",
+            "label": "Content",
+            "required": false,
+            "locked": false,
+            "inline_help_text": "",
+            "help_text": "",
+            "children": [
+              {
+                "name": "tag",
+                "label": "Tag",
+                "sortable": false,
+                "required": false,
+                "locked": false,
+                "validation_regex": "",
+                "allow_new_line": false,
+                "show_emoji_picker": false,
+                "type": "text",
+                "default": "Waarom Pay?"
+              },
+              {
+                "name": "title",
+                "label": "Title",
+                "sortable": false,
+                "required": false,
+                "locked": false,
+                "validation_regex": "",
+                "allow_new_line": false,
+                "show_emoji_picker": false,
+                "type": "richtext",
+                "default": "Voor de groei van jouw onderneming"
+              },
+              {
+                "name": "text",
+                "label": "Text",
+                "sortable": false,
+                "required": false,
+                "locked": false,
+                "validation_regex": "",
+                "allow_new_line": true,
+                "show_emoji_picker": false,
+                "type": "richtext",
+                "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus egestas enim adipiscing blandit sapien, suspendisse eget gravida. Non fringilla velit, eget bibendum."
+              },
+              {
+                "id": "",
+                "name": "buttons",
+                "label": "Button",
+                "sortable": false,
+                "required": false,
+                "locked": false,
+                "children": [
+                  {
+                    "name": "content",
+                    "label": "Link content",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "validation_regex": "",
+                    "allow_new_line": false,
+                    "show_emoji_picker": false,
+                    "type": "text",
+                    "default": "Bekijk onze oplossingen"
+                  },
+                  {
+                    "name": "style",
+                    "label": "Link style",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "display": "select",
+                    "choices": [
+                      [ "btn-primary", "Primary styling" ],
+                      [ "btn-outline-primary", "Outline styling" ],
+                      [ "btn-dark", "Dark styling" ], 
+                      [ "btn-link", "Link styling" ]
+                    ],
+                    "type": "choice",
+                    "default": "btn-primary"
+                  },
+                  {
+                    "id": "",
+                    "name": "cta",
+                    "label": "Use HubSpot CTA (recommended)",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "children": [
+                      {
+                        "name" : "cta",
+                        "label" : "CTA",
+                        "inline_help_text": "Hubspot will by default use the CTA when empty it will use the link target field below",
+                        "help_text": "CTA can track the activity of the button, Use the CTA function of hubspot as much as possible. If this is not possible please use the link target field below, otherwise the button will not be displayed  ",      
+                        "required" : false,
+                        "locked" : false,
+                        "type" : "cta",
+                        "default" : null
+                      }
+                     ],
+                    "type": "group",
+                    "default": {}
+                  },
+                  {
+                    "id": "",
+                    "name": "link",
+                    "label": "Use URL",
+                    "sortable": false,
+                    "required": false,
+                    "locked": false,
+                    "children": [
+                      {
+                        "name" : "link",
+                        "label" : "Link",
+                        "required" : false,
+                        "locked" : false,
+                        "supported_types" : [ "EXTERNAL", "CONTENT", "BLOG" ],
+                        "type" : "link",
+                        "show_advanced_rel_options" : false,
+                        "default" : {
+                            "url" : {
+                                "content_id" : null,
+                                "type" : "CONTENT",
+                                "href" : ""
+                            },
+                            "open_in_new_tab" : false,
+                            "no_follow" : false,
+                            "sponsored" : false,
+                            "user_generated_content" : false
+                        }
+                      }
+                     ],
+                    "type": "group",
+                    "default": {}
+                  }
+                ],
+                "type": "group",
+                "default": {}
+              }   
+            ],
+            "type": "group",
+            "default": {}
+        },
+        {
+            "name": "image_field_top",
+            "label": "Image top",
+            "required": false,
+            "locked": false,
+            "inline_help_text": "",
+            "help_text": "",
+            "responsive": false,
+            "resizable": false,
+            "show_loading" : false,
+            "type": "image",
+            "default": {
+            "size_type" : "auto",
+            "src": "/wirelabtheme/assets/default-images/why-pay-top.png",
+            "alt": null,
+            "loading": "lazy"
+            }
+        },
+        {
+            "name": "image_field_bottom",
+            "label": "Image bottom",
+            "required": false,
+            "locked": false,
+            "inline_help_text": "",
+            "help_text": "",
+            "responsive": false,
+            "resizable": false,
+            "show_loading" : false,
+            "type": "image",
+            "default": {
+            "size_type" : "auto",
+            "src": "/wirelabtheme/assets/default-images/why-pay-bottom.png",
+            "alt": null,
+            "loading": "lazy"
+            }
+        }
+    ],
+    "type": "group",
+    "inline_help_text": "",
+    "help_text": "",
+
+    "default": []
+
+
+}]

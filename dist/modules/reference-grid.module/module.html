@@ -1,0 +1,22 @@
+{{ require_css(get_asset_url("../../css/reference-grid-module.css"), { async: true }) }}
+
+<section class="reference-grid-module {{ module.background_color.color }} global-tb-padding">
+	{% if module.title %}
+		<h2 class="text-center heading-3">{{ module.title }}</h2>
+	{% endif %}
+	<div class="container-fluid">
+		<div class="row justify-content-center align-items-center logos-row">
+			{% for item in module.reference_logos %}
+				<div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+					<a href="{{ item.reference_link.url.href }}"
+						{% if item.reference_link.open_in_new_tab %} target="_blank" rel="noreferrer" {% endif %}
+						{% if item.reference_link.no_follow %} rel="nofollow" {% endif %}
+					>
+						<img src="{{ item.reference_logo.src }}" alt="{{ item.reference_logo.alt }}"
+							loading="lazy" class="img-fluid logo">
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

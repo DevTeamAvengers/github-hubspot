@@ -1,0 +1,12 @@
+{% import 'wirelabtheme/macros/image.html' as image %}
+
+<section class="image-block-module {{ module.style.background_style }} global-tb-padding">
+  
+  <div class="container">
+    {% set classes = ['balloon balloon-block', module.balloon_size, module.balloon_corners|join(' ')]|join(' ') %}
+    <div class="{{ classes }}">
+      {{ image.img(module.image, "w-100", "lazy", [516, 900, 1296]) }}
+    </div>
+  </div>
+  
+</section>
